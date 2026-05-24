@@ -1,0 +1,12 @@
+# ---- Large R data objects (regenerable from scripts; never commit) ----
+saved_R_data/
+*.qs2
+
+# ---- R session cruft ----
+.Rproj.user/
+.Rhistory
+.Ruserdata
+
+# ---- OS junk ----
+.DS_Store
+._*
