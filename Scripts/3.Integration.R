@@ -3,7 +3,6 @@
 ## Murine pre-infusion CAR-T (miR-29a) — single-cell, GEX only.
 ## Runs on the cell-cycle-scored, doublet-clean object from script 02.
 ##
-## . Because condition
 ## (EV/Scr/miR29a) is CONFOUNDED with capture (one library per condition per
 ## replicate), the choice of batch variable can either preserve or erase the
 ## miR-29a effect. So we run BOTH batch strategies under identical settings and
@@ -17,6 +16,7 @@
 ## batch_var is held constant (same HVGs, dims, resolution, cc_regression), so any
 ## difference in the outputs is attributable to the batch choice. Feed both
 ## saved objects into the pseudobulk/composition referee (script 04).
+##
 ###############################################################################
 
 # ---- Libraries ----
@@ -40,7 +40,7 @@ cc_regression     <- "difference" # "none" | "full" | "difference"
 #               removes only S-vs-G2M phase fragmentation)  [recommended here]
 dims              <- 1:30
 nfeatures         <- 2000
-final_res         <- 0.6          # working resolution (revisit via clustree)
+final_res         <- 0.4          # chosen from clustree (stable; 0.6 over-split)
 primary_reduction <- "harmony"    # "harmony" or "integrated.mnn"
 
 # ============================ Paths ==========================================
@@ -139,6 +139,9 @@ run_integration <- function(obj, batch_var) {
   # lock working clusters at chosen resolution
   umap_primary <- ifelse(primary_reduction == "harmony", "umap.harmony", "umap.mnn")
   obj$clusters <- obj[[paste0("RNA_snn_res.", final_res)]][, 1]
+  # order cluster levels NUMERICALLY (0,1,2,...,10 — not 0,1,10,...,2)
+  lv <- levels(factor(obj$clusters))
+  obj$clusters <- factor(obj$clusters, levels = lv[order(as.numeric(lv))])
   Idents(obj)  <- "clusters"
   
   ggsave(file.path(out_dir, paste0("UMAP_clusters_res", final_res, ".png")),
@@ -180,5 +183,11 @@ for (bv in batch_vars) {
   run_integration(base_obj, bv)   # fresh copy each call -> identical start
   gc()
 }
-###############################################################################
 
+message("\nDone. Compare:\n",
+        "  Integration/by_replicate/   vs   Integration/by_origident/\n",
+        "Watch the composition bars: if 'origident' flattens clusters toward\n",
+        "even EV/Scr/miR29a fractions while 'replicate' keeps real skew, that\n",
+        "skew IS the condition signal orig.ident integration removes.\n",
+        "Feed both saved objects to the pseudobulk/composition referee (script 04).")
+###############################################################################
