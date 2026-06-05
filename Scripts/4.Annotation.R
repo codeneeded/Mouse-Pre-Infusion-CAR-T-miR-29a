@@ -297,27 +297,57 @@ for (g in rna.features) {
          dpi = 300, width = 8, height = 7, bg = "white")
 }
 
-# ===================== Tentative annotation (EDIT ME) ========================
-# First-pass cluster identities from the marker panel + per-cell lineage gate.
-# These are WORKING labels to confirm/edit against the DotPlot, heatmap, and
-# FeaturePlots before any figure goes out. Notes:
-#   - Cycling clusters (0/1/7): lineage left as "Cycling" on purpose — per-cell
-#     Cd4/Cd8 dropout makes the CD4/CD8 split unreliable there. Real call comes
-#     from per-lineage re-clustering later.
-#   - Clusters 8/11/12: lineage-ambiguous (high DN fraction); flagged, not forced.
-# Edit the `lineage` / `state` columns below, re-run this block, and the object
-# is re-saved with the updated labels.
+# ===================== Tentative annotation =================================
+# Working labels from wetlab scientist (NK_AI_06_04_26_scRNAseq_Updates.xlsx,
+# tab 'Annotation') applied to the res 0.4 cluster set.
+#
+# Two clusters flagged for likely exclusion, pending further investigation:
+#   - Cluster 8 : cycling cells lacking canonical T-cell markers (likely
+#                 non-T). High DN fraction from the lineage gate (74%) is
+#                 consistent. Cannot drive a CAR-T story from a non-T cell.
+#   - Cluster 13: scientist labeled NK-like / innate-like (Ncr1/Klrb1c).
+#                 NOTE: FindAllMarkers shows Trdc/Trgc TCR chains as top
+#                 markers, which would support a gd-T identity. Resolve
+#                 before final exclusion.
+#
+# Wetlab notes for downstream analysis planning (script 5+):
+#   - CD4 island is over-split; consolidation may be appropriate after
+#     miR-29a effects are established per cluster.
+#   - Lab interest is CD8-primary; pseudobulk DE should run CD8 SEPARATELY
+#     from CD4 to avoid CD4 dominance masking CD8-specific effects.
+#   - Cluster 8 (non-T) must not drive a metabolic-pathway story in a
+#     CAR-T manuscript -- pseudobulk per compartment will isolate it.
+#   - Focus DE/abundance on clusters with strongest expected miR-29a
+#     frequency shifts (see mir29a_freq_expected column below).
+#
+# Edit `state` / `lineage` / `exclude` as the annotation is refined.
 annot <- data.frame(
   cluster = as.character(0:13),
-  lineage = c("Cycling", "Cycling", "CD8", "CD4", "CD8", "CD4", "CD4", "Cycling",
-              "Unresolved", "CD4", "CD4", "Mixed", "Mixed", "gdT"),
-  state   = c("Proliferating (S phase)", "Proliferating (G2M/M)",
-              "CD8 effector/cytotoxic", "IFN-gamma-responsive",
-              "CD8 terminally exhausted", "Naive/Tscm (Tcf1-hi)",
-              "Activated Th1 effector", "Proliferating (G2M/M)",
-              "Stressed/metabolic (EV-skewed)", "Treg", "Type-I IFN / ISR",
-              "CX3CR1+KLRG1+ terminal effector", "miR29a-enriched (uncharacterized)",
-              "gamma-delta T cells"),
+  lineage = c("CD4", "CD4", "CD8", "CD4", "CD8", "CD4", "CD4", "CD4",
+              "Non-T", "CD4", "CD4", "CD4", "CD4", "Innate-like"),
+  state = c(
+    "Activated intermediate CD4",                  # 0
+    "Differentiated activated/effector CD4",       # 1
+    "Proliferative CD8 effector",                  # 2
+    "IFNg-associated early activated CD4",         # 3
+    "Non-cycling exhaustion-like CD8",             # 4
+    "CD4 TCF1hi naive/stem-like progenitor",       # 5
+    "Transitional progenitor-like CD4",            # 6
+    "Early activated CD4",                         # 7
+    "Cycling non-T (review)",                      # 8
+    "Treg",                                        # 9
+    "Transitional activated CD4",                  # 10
+    "CX3CR1+KLRG1+ differentiated effector CD4",   # 11
+    "Intermediate activated CD4",                  # 12
+    "NK-like / innate-like (review)"               # 13
+  ),
+  mir29a_freq_expected = c(
+    "Increased", "Increased", "Reduced", "Similar/mild down", "Reduced",
+    "Slight up (unclear)", "Similar", "Slight down", "Reduced", "Similar",
+    "Similar", "Slight down", "Slight up", "Slight down (unclear)"
+  ),
+  exclude = c(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+              TRUE,  FALSE, FALSE, FALSE, FALSE, TRUE),
   stringsAsFactors = FALSE
 )
 
@@ -339,19 +369,33 @@ obj$tentative_annotation <- factor(
   paste0(as.character(obj$clusters), ": ", annot$state[idx]),
   levels = paste0(annot$cluster, ": ", annot$state)[ord]
 )
+obj$exclude_cluster      <- annot$exclude[idx]   # TRUE for clusters 8, 13
 
-# (1) the requested output: cluster -> lineage/state mapping table
+# (1) annotation table (the requested output) -- includes wetlab fields
 write.csv(annot, file.path(annot_data_dir, "tentative_annotation.csv"),
           row.names = FALSE)
 
-# (2) labeled UMAP coloured by tentative state (cross-reference with numbered UMAP)
+# (2) UMAP coloured by state (cluster identity), with cluster numbers on plot
 ggsave(file.path(clust_plot_dir, "UMAP_tentative_annotation.png"),
        DimPlot2(obj, reduction = umap_reduction, group.by = "tentative_state",
                 pt.size = 0.3) +
-         ggtitle("Tentative annotation (working labels \u2014 confirm before use)"),
-       width = 13, height = 9, dpi = 300, bg = "white")
+         ggtitle("Tentative annotation (wetlab labels \u2014 confirm before use)"),
+       width = 14, height = 9, dpi = 300, bg = "white")
 
-# (3) re-save object WITH tentative annotation columns (overwrites checkpoint)
+ggsave(file.path(clust_plot_dir, "UMAP_tentative_annotation_labled.png"),
+       DimPlot2(obj, reduction = umap_reduction, group.by = "tentative_state",label  = T,box=T,
+                pt.size = 0.3) +
+         ggtitle("Tentative annotation (wetlab labels \u2014 confirm before use)"),
+       width = 14, height = 9, dpi = 300, bg = "white")
+
+# (3) UMAP by lineage compartment (CD4 / CD8 / Non-T / Innate-like)
+ggsave(file.path(clust_plot_dir, "UMAP_tentative_lineage.png"),
+       DimPlot2(obj, reduction = umap_reduction, group.by = "tentative_lineage",
+                pt.size = 0.3) +
+         ggtitle("Tentative lineage compartments"),
+       width = 10, height = 8, dpi = 300, bg = "white")
+
+# (4) re-save object WITH tentative annotation columns (overwrites checkpoint)
 qs_save(obj, file = file.path(saved_dir, "Mouse_CARTmiR29a_PreAnnotation.qs2"))
 message("Tentative annotation written to ",
         file.path(annot_data_dir, "tentative_annotation.csv"))
