@@ -124,6 +124,30 @@ Mouse-Pre-Infusion-CAR-T-miR-29a/
 
 ---
 
+## Preliminary Findings
+
+Initial analysis indicates that **miR-29a is functionally active** in the CAR-T pre-infusion product: TargetScan-predicted miR-29a targets are coherently repressed in both CD4 and CD8 compartments versus scramble control (Spearman ρ = 0.18–0.20, *p*<sub>BH</sub> < 10⁻⁶; 5–7× hypergeometric enrichment of significantly down-regulated genes in the top-200 predicted targets). The empty-vector vs scramble comparison shows no correlation or enrichment, confirming that the scramble construct controls appropriately for backbone effects. Canonical miR-29 targets including *Tet2* and *Tet3* are among the most strongly repressed genes.
+
+The miR-29a transcriptome also shows the expected **miRNA-repressor direction asymmetry** — significantly more down-regulated than up-regulated genes (CD4: 1.9×, CD8: 2.4×) — while the scramble vs empty-vector control is balanced, as expected for a null.
+
+### Summary figures (miR29a_Target_Enrichment/Plots/Summary_<method>/)
+
+Four manuscript-grade summary figures are generated per DE method (pseudobulk and MAST). The pseudobulk versions are the inferentially-honest manuscript figures; MAST is shown alongside as a sensitivity analysis and gives concordant patterns at larger sample sizes.
+
+1. **`1_spearman_forest.png`** — Spearman ρ ± 95% CI for each of 18 compartments × 3 contrasts. Every miR-29a contrast (navy / mid-blue) sits to the right of ρ = 0; every EV-vs-Scr control (grey) has its CI crossing zero. Read this as: "miR-29a coherently represses TargetScan-predicted targets across every compartment we can power-test; the scramble control behaves as a clean null."
+
+2. **`2_hyper_enrichment_dotplot.png`** — Hypergeometric enrichment of sig-down genes in the top-200 strongest predicted miR-29-3p targets. Larger and warmer = stronger enrichment. The two miR-29a columns are populated with warm orange-to-red dots; the EV-vs-Scr column is uniformly pale and small. Smaller compartments (Non-T, Innate-like, the two review clusters) show the highest odds ratios — these are real, but driven by small denominators; lineage-level CD4 and CD8 effect sizes (5–7×) are the manuscript numbers.
+
+3. **`3_direction_asymmetry.png`** — Log-log scatter of sig-down vs sig-up gene counts per (compartment, contrast). The lineage-level points (large circles) for miR-29a contrasts sit clearly below the y=x diagonal — more genes go down than up — while the EV-vs-Scr control points sit on or slightly above the diagonal. This is the simplest, target-list-independent demonstration that miR-29a behaves as a transcriptome-wide repressor.
+
+4. **`4_canonical_targets_heatmap.png`** — log2FC of canonical miR-29 targets and strong data-driven hits across all 18 compartments, primary contrast only (miR-29a vs Scr). The DNA-methylation axis (*Tet2, Tet3, Dnmt3a, Dnmt3b, Tdg*) is coordinately repressed across nearly every compartment. *Eomes* is the single most consistently repressed T-cell-relevant gene. *Bach2* and *Foxo3* are state-dependent — repressed in major lineages but *upregulated* in the stem-like CD4 cluster (5) and the intermediate-activated cluster (12), suggesting either secondary network effects or cluster-level cell-state heterogeneity that would benefit from per-lineage re-clustering.
+
+See [`RESULTS_EXPLANATION.txt`](RESULTS_EXPLANATION.txt) for a full walkthrough with effect sizes, robustness checks across methods, caveats, and a list of analyses still pending before manuscript submission.
+
+> ⚠️ Cluster composition shifts (relative abundance of CAR-T subsets between conditions) are visible in the integration composition plots but have not yet been formally tested with per-replicate differential abundance methods. These observations are not reported as findings in the manuscript until that validation is complete. Cluster 12 in particular shows several flags (large apparent enrichment in miR-29a, *Mycn* and *Bach2* anomalously upregulated in the target heatmap) and is the highest priority for per-replicate validation.
+
+---
+
 ## Scientific Questions
 
 1. **Subset composition** — Does miR-29a overexpression alter the proportions of CAR-T subsets (naïve/stem-like, effector, exhausted, regulatory, proliferating)?

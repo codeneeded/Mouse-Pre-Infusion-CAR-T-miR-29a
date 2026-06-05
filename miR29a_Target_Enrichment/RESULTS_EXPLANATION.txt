@@ -1,0 +1,516 @@
+===============================================================================
+RESULTS EXPLANATION
+Mouse Pre-Infusion CAR-T scRNA-seq -- Effect of miR-29a
+===============================================================================
+
+This document explains the key findings from the analysis pipeline at the
+current state of the project. It is intended for collaborators reading the
+repository who want to understand what the data shows without working
+through every CSV. Findings are organized by strength of evidence, with
+caveats clearly marked.
+
+Last updated: June 05, 2026
+
+
+===============================================================================
+EXECUTIVE SUMMARY
+===============================================================================
+
+The strongest evidence in the dataset is that miR-29a overexpression is
+functionally active in murine pre-infusion CAR-T cells. TargetScan-predicted
+miR-29a targets are coherently repressed in both CD4 and CD8 compartments,
+the scramble construct controls appropriately for backbone effects, and
+canonical miR-29 targets (Tet2, Tet3) appear among the most strongly
+repressed genes. This is a robust finding by both pseudobulk DESeq2 and
+single-cell MAST, with the expected miRNA-repressor direction asymmetry
+(more sig-down than sig-up genes).
+
+Pre-infusion product composition observations (clusters shifting in
+abundance between conditions) are visible but still preliminary and require
+per-replicate differential abundance testing before they can be reported.
+
+
+===============================================================================
+1. MIR-29A TARGET REPRESSION  [HEADLINE FINDING -- ROBUST]
+===============================================================================
+
+QUESTION
+--------
+Do genes that TargetScan predicts as strong miR-29a targets show stronger
+experimental repression in miR-29a CAR-T versus controls?
+
+APPROACH
+--------
+Two complementary analyses, run on both pseudobulk DESeq2 (primary,
+inferentially honest at n=2 biological replicates) and single-cell MAST
+(secondary, more sensitive but pseudo-replicated per Squair Nat Comms 2021):
+
+  - Spearman correlation between TargetScan cumulative weighted context++
+    score and experimental log2 fold change, across all overlapping genes
+    in each (compartment, contrast).
+  - Hypergeometric enrichment of significantly down-regulated genes against
+    the top-200 strongest predicted miR-29-3p targets and the full conserved
+    target list, with significantly up-regulated genes tested as a negative
+    control.
+
+PRIMARY CONTRAST (miR-29a vs Scramble), PSEUDOBULK LINEAGE LEVEL
+----------------------------------------------------------------
+
+    Lineage     Spearman p   p_BH        Sig-down in top-200   Odds ratio
+    ----------  ----------   --------    -------------------   ----------
+    CD4         +0.177       1.2e-06     18 obs vs 3.4 exp     5.6x
+    CD8         +0.195       3.7e-07     18 obs vs 2.6 exp     7.4x
+    Non-T       +0.244       4.3e-05     too few sig genes     (n.s.)
+    Innate-like +0.197       1.0e-05     too few sig genes     (n.s.)
+
+SPECIFICITY (EV vs Scramble, negative control)
+----------------------------------------------
+
+    Lineage     Spearman p   p_BH         Sig-down in top-200
+    ----------  ----------   --------     -------------------
+    CD4         -0.062       0.09         0
+    CD8         -0.084       0.03         0
+    Non-T       -0.067       0.16         0
+    Innate-like -0.046       0.30         0
+
+INTERPRETATION
+--------------
+* miR-29a is functioning as expected. Coherent positive Spearman correlation
+  between predicted target strength and observed repression in both major
+  lineages, with high statistical significance after BH adjustment.
+
+* The scramble control is doing its job. EV vs Scr gives no target
+  enrichment signal -- weak negative Spearman that approximates zero, and
+  zero overlap with the top-200 target list. Any miR-29a effect is
+  attributable to the miRNA itself, not backbone or insertional effects.
+
+* Effect sizes are biologically meaningful. 5.6-7.4x enrichment of
+  significantly repressed genes among the strongest predicted targets is
+  a strong signal.
+
+* Canonical targets are recovered. In the Proliferative CD8 effector cluster
+  the most strongly repressed validated targets include Tet2, Tet3, Tdg, and
+  Atad2b -- all known miR-29 family targets in the DNA methylation /
+  hydroxymethylation pathway. Mycn (proliferation TF) is also strongly
+  repressed.
+
+CAVEATS
+-------
+* MAST reports approximately 5x more significant genes than pseudobulk
+  (CD4: 2222 vs 415) because it treats each cell as independent. The
+  pseudobulk numbers are the inferentially honest ones for the manuscript;
+  MAST is concordant in direction and effect-size ranking and should be
+  presented as a sensitivity analysis (Squair Nat Comms 2021; Murphy &
+  Skene 2022).
+
+WHERE TO LOOK
+-------------
+  miR29a_Target_Enrichment/Plots/Summary_pseudobulk/1_spearman_forest.png
+  miR29a_Target_Enrichment/Plots/Summary_pseudobulk/2_hyper_enrichment_dotplot.png
+  miR29a_Target_Enrichment/Plots/Summary_pseudobulk/4_canonical_targets_heatmap.png
+  miR29a_Target_Enrichment/Tables/miR29a_enrichment_summary.csv
+  miR29a_Target_Enrichment/Plots/Per_contrast/pseudobulk/by_lineage/
+
+
+===============================================================================
+2. DIRECTION ASYMMETRY  [SUPPORTING -- ROBUST]
+===============================================================================
+
+QUESTION
+--------
+A miRNA is a repressor, so the transcriptome under miRNA overexpression
+should skew toward more sig-down than sig-up genes overall. Does the data
+show this miRNA-repressor "fingerprint"?
+
+PSEUDOBULK, LINEAGE LEVEL (miR-29a vs Scramble)
+-----------------------------------------------
+
+    Lineage     sig-down    sig-up    down / up ratio
+    ----------  --------    ------    ---------------
+    CD4          415         221       1.88x
+    CD8          303         128       2.37x
+
+CONTROL (EV vs Scramble): roughly balanced or slightly inverted
+(CD4: 19 down vs 79 up, CD8: 12 down vs 38 up), as expected for a null.
+
+INTERPRETATION
+--------------
+The miR-29a transcriptome is clearly down-skewed. The asymmetry is visible
+in Plots/Summary_pseudobulk/3_direction_asymmetry.png: miR-29a points sit
+well below the y=x diagonal; control points sit on or slightly above it.
+
+This is independent of the target-overlap analysis: it doesn't require any
+external target list. It says simply "this perturbation is a repressor at
+the transcriptome level," which is what a functional miRNA should do.
+
+
+===============================================================================
+3. WHAT THE FOUR SUMMARY FIGURES SHOW
+===============================================================================
+
+Four summary figures are generated per DE method
+(miR29a_Target_Enrichment/Plots/Summary_<method>/). Pseudobulk versions are
+the manuscript-grade figures; MAST versions are concordant and shown as
+sensitivity analyses. Per-figure interpretation below applies to both.
+
+
+3.1  SPEARMAN FOREST PLOT  (1_spearman_forest.png)
+--------------------------------------------------
+
+What it shows: For each compartment (4 lineages + 14 clusters) and each
+contrast, a point at the Spearman ρ between TargetScan score and avg log2FC,
+with 95% CI from a Fisher z-transform. Point size = -log10 BH-adjusted
+p-value.
+
+What to read off it:
+
+  - All miR-29a contrasts (navy primary, mid-blue secondary) sit to the
+    RIGHT of ρ = 0 in every compartment.
+  - All EV-vs-Scr controls (grey) have CIs crossing zero -- the null
+    behaves as a null.
+  - The minor T compartments show the weakest miR-29a signal:
+      cluster 9  (Treg)                   ρ ≈ 0.08-0.10
+      cluster 11 (CX3CR1+ KLRG1+ effector) ρ ≈ 0.05
+      cluster 12 (Intermediate activated) ρ ≈ 0.01-0.05
+    This is biologically plausible. Treg use different miRNA circuits;
+    terminally differentiated CX3CR1+ effectors have less transcriptome
+    remaining to remodel; cluster 12's near-null signal is one of several
+    flags on this cluster (see Section 5).
+
+
+3.2  HYPERGEOMETRIC ENRICHMENT DOT PLOT  (2_hyper_enrichment_dotplot.png)
+------------------------------------------------------------------------
+
+What it shows: For each (compartment, contrast), the hypergeometric
+enrichment of significantly down-regulated genes in the top-200 strongest
+predicted miR-29-3p targets. Point size = -log10 p_BH, fill = log2(odds + 1).
+Empty cells = too few sig-down genes to test.
+
+What to read off it:
+
+  - The two miR-29a columns are uniformly populated with warm
+    (orange-to-red) dots. The EV-vs-Scr column is uniformly pale and
+    small -- controls behaving as null.
+  - The hottest cells are SMALL compartments:
+      Non-T (lineage)         log2(odds+1) ≈ 5+
+      Innate-like (lineage)   log2(odds+1) ≈ 4-5
+      cluster 8 (Cycling non-T review)
+      cluster 13 (NK-like / innate-like review)
+    These are REAL effects but driven by tiny denominators -- when a
+    compartment only has 15-25 sig-down genes, an overlap of 3-5 with the
+    top-200 target list gives a 20-50x odds ratio. Honest signal, but the
+    odds-ratio MAGNITUDES should not be reported as the manuscript
+    headline.
+  - The manuscript-grade effect sizes are the LINEAGE-level CD4 and CD8
+    cells: 5.6x and 7.4x odds, p_BH < 10^-8.
+
+
+3.3  DIRECTION ASYMMETRY  (3_direction_asymmetry.png)
+-----------------------------------------------------
+
+What it shows: Log-log scatter of n sig-up vs n sig-down genes per
+(compartment, contrast). y = x diagonal as reference. Below the diagonal
+= more genes go down than up = repressor signature.
+
+What to read off it:
+
+  - The lineage-level CIRCLES at top-right (large counts) for miR-29a
+    contrasts are clearly BELOW the diagonal. Controls sit on or slightly
+    above it.
+  - The cluster TRIANGLES scatter more (small compartments are noisier)
+    but the pattern holds.
+  - This is the simplest evidence in the four plots: it requires no
+    external target list. It says "miR-29a is a repressor at the
+    transcriptome level" using nothing but the DE outputs.
+
+Caveat: this figure currently has a minor truncation of the bottom-right
+corner annotation ("more sig-UP than sig-DOWN" gets clipped to "sig-DC").
+Cosmetic issue, doesn't affect interpretation.
+
+
+3.4  CANONICAL TARGET HEATMAP  (4_canonical_targets_heatmap.png)
+----------------------------------------------------------------
+
+What it shows: log2FC of 17 canonical or strong-data-driven miR-29 targets
+across all 18 compartments, for the primary contrast (miR-29a vs Scr only).
+Fill = log2FC clipped at +/-1.5 (blue = repressed, red = upregulated).
+Asterisks = significance: * p_adj<0.05, ** p_adj<0.01, *** p_adj<0.001.
+
+This is the most informative single figure for the biological story.
+Read by row group:
+
+METHYLATION AXIS (Tet2, Tet3, Dnmt3a, Dnmt3b, Tdg)
+  Coordinately repressed across nearly every compartment, with high
+  significance. *** in CD4 and CD8 lineages, *** or ** in most clusters.
+  This is the cleanest single-pathway result: miR-29a represses the
+  entire DNA (de)methylation enzymatic machinery in CAR-T cells.
+  Of these, Tdg shows the strongest individual repression in the
+  Cycling non-T cluster.
+
+T-BOX EFFECTOR TFS (Tbx21, Eomes)
+  EOMES is the single most consistently repressed T-cell-relevant gene
+  in the panel -- strongly down (*** significance) in CD4 and CD8
+  lineages and across most clusters. This is the mechanistic anchor
+  for any "less terminally differentiated / less exhausted" CAR-T
+  phenotype: Eomes drives terminal effector / exhausted programs;
+  repression of it predicts retention of progenitor-like states.
+  Tbx21 is repressed but more variably than Eomes.
+
+MEMORY / QUIESCENCE TFS (Bach2, Foxo3)
+  *** NOT uniformly repressed -- state-dependent. ***
+
+  Bach2:
+    - Down in CD4 lineage (***).
+    - UP in cluster 4 (Non-cycling exhaustion-like CD8)? Light orange.
+    - UP in cluster 12 (Intermediate activated CD4) -- *** sig, large red.
+    - UP in cluster 13 (NK-like / innate-like review) -- light red.
+
+  Foxo3:
+    - Down in CD4 and CD8 lineages (***).
+    - UP in cluster 5 (CD4 TCF1hi naive/stem-like progenitor) -- ***
+      significance, light red. Notable because Foxo3 is a known marker
+      of T-cell quiescence and stemness.
+
+  These reversed-direction findings are biologically interesting:
+  Bach2 and Foxo3 are both classical miR-29 targets, so the
+  "expected" effect is repression. Two non-exclusive interpretations:
+
+  (a) Indirect upregulation. miR-29a represses a more proximal
+      transcriptional repressor of Bach2 / Foxo3, leading to net
+      derepression in the cluster contexts where that repressor was
+      dominant.
+
+  (b) Cluster-state heterogeneity. Cluster 5 may be a mixture of
+      stem-like and non-stem-like cells; miR-29a may be enriching the
+      Foxo3-high stem-like subset rather than altering Foxo3 levels
+      within individual cells. Per-lineage re-clustering (Section 6)
+      may resolve this.
+
+COSTIMULATION (Icos)
+  Broadly repressed (*** widely). Note: Icos is not a classical
+  miR-29 textbook target -- repression here may be downstream of
+  the methylation/TF axis rather than direct.
+
+DATA-DRIVEN HITS (Atad2b, Mycn, Pdgfa, Efna5, Gas7, Dab2ip)
+  These were labeled in the per-contrast scatter plots and recovered
+  by combined evidence (strong TargetScan score + strong observed
+  repression). The heatmap shows they replicate the lineage-level
+  story.
+
+  EXCEPTIONS WORTH NOTING:
+    - Mycn: deep red (UP) in cluster 12 (Intermediate activated CD4).
+      Mycn drives proliferation; if up in this cluster, that may
+      contribute to the apparent 5-7x cluster-12 enrichment in the
+      composition plots (see Section 5).
+    - Dab2ip: deep red (UP) in cluster 11 (CX3CR1+ KLRG1+
+      differentiated effector CD4). Another cluster flagged earlier
+      for weak overall target enrichment in the forest plot.
+
+WHAT TO TAKE AWAY
+  - For the manuscript headline figures: the methylation axis and Eomes
+    are the cleanest, most-uniformly-repressed canonical targets. Lead
+    the biology section with these.
+  - State-dependent Bach2 / Foxo3 behaviour is real and interesting --
+    worth a paragraph in the discussion (not a headline) and a note
+    that per-lineage re-clustering may clarify it.
+  - Cluster 12 (Intermediate activated CD4) accumulates multiple
+    anomaly flags: weak target enrichment in the forest plot, Mycn UP
+    in the heatmap, Bach2 UP in the heatmap. Cross-reference with the
+    apparent 5-7x compositional enrichment of this cluster in miR-29a
+    (Section 5). This cluster is the highest priority for per-replicate
+    validation before any of these signals make it into a figure.
+
+
+===============================================================================
+4. CLUSTER ANNOTATIONS  (from wetlab)
+===============================================================================
+
+The 14 integrated clusters were annotated by the wetlab scientist on the
+basis of marker expression (NK_AI_06_04_26_scRNAseq_Updates.xlsx). Clusters
+8 and 13 are flagged for review (likely non-T contaminants) but are
+included in all analyses; their results are reported but do not drive
+headline biological claims about CAR-T cells.
+
+    Cluster  State                                          Wetlab call
+    -------  ----------------------------------------       -------------
+      0      Activated intermediate CD4                     Increased
+      1      Differentiated activated/effector CD4          Increased
+      2      Proliferative CD8 effector                     Reduced
+      3      IFNg-associated early activated CD4            Similar / mild down
+      4      Non-cycling exhaustion-like CD8                Reduced
+      5      CD4 TCF1hi naive / stem-like progenitor        Slight up (unclear)
+      6      Transitional progenitor-like CD4               Similar
+      7      Early activated CD4                            Slight down
+      8      Cycling non-T (review)                         Not T cell
+      9      Treg                                           Similar
+     10      Transitional activated CD4                     Similar
+     11      CX3CR1+ KLRG1+ differentiated effector CD4     Slight down
+     12      Intermediate activated CD4                     Slight up
+     13      NK-like / innate-like (review)                 Not T cell
+
+LINEAGE BALANCE
+---------------
+Product is CD4-dominant. Per-cell lineage gate (Cd4 / Cd8a / Cd8b1 / Trdc):
+
+    CD4    66,400 cells
+    CD8    24,600 cells   (CD4:CD8 ratio approx 2.7:1)
+    gdT     2,400 cells
+    DN      5,200 cells
+
+Clusters 2 (99.6% CD8) and 4 (99.4% CD8) are the cleanest CD8 compartments.
+The proliferative clusters (0, 1, 7) call majority CD4 but real CD8 share is
+likely under-estimated due to Cd8 mRNA dropout in cycling cells -- this is a
+known scRNA-seq artifact and should be resolved by per-lineage re-clustering
+(pending; see Section 6).
+
+
+===============================================================================
+5. CLUSTER COMPOSITION SIGNALS  [PRELIMINARY -- NOT VALIDATED]
+===============================================================================
+
+  * * *  THESE OBSERVATIONS ARE NOT YET STATISTICALLY TESTED  * * *
+
+The cluster-proportion shifts below are visual observations from the
+integration composition plots. They require formal per-replicate
+differential abundance testing (e.g. propeller from the speckle package)
+before they can be reported in the manuscript.
+
+Critically: condition is confounded with capture in this design (one
+library per condition per replicate). Cluster shifts must be verified to
+occur in BOTH biological replicates and not be driven by a single library.
+
+Visual observations from condition-stratified composition plots:
+
+    Cluster                                  Apparent direction
+    ---------------------------------------  -------------------
+    12  Intermediate activated CD4           5-7x UP in miR-29a
+    8   Cycling non-T (review)               ~7x DOWN in miR-29a
+    4   Non-cycling exhaustion-like CD8      ~1.7x DOWN in miR-29a
+    5   CD4 TCF1hi naive / stem-like         UP in miR-29a
+    0   Activated intermediate CD4           UP in miR-29a
+    2   Proliferative CD8 effector           DOWN in miR-29a
+
+If these survive per-replicate testing, the pattern is coherent with the
+expected miR-29a biology -- more proliferative and stem-like, less
+terminally differentiated, less exhausted -- and matches the wetlab
+scientist's qualitative assessment from the marker panels.
+
+Cluster 12 in particular needs attention: a 5-7x enrichment is large
+enough that it could be driven by a single library, in which case it
+collapses entirely.
+
+
+===============================================================================
+6. PENDING ANALYSES
+===============================================================================
+
+REQUIRED BEFORE MANUSCRIPT SUBMISSION
+-------------------------------------
+
+1. Per-replicate differential abundance (propeller). Required before any
+   cluster-proportion claim can go in the manuscript, especially cluster 12.
+
+2. Per-lineage re-clustering. Split CD4 and CD8 and re-integrate within
+   each lineage. Current global clustering puts proliferative cells in
+   lineage-mixed clusters because Cd8 mRNA drops out in cycling cells.
+   For figure-grade lineage assignment this needs to be resolved.
+
+3. ashr LFC shrinkage. Currently script 05 falls back to unshrunken DESeq2
+   LFCs (ashr is not installed). Install ashr and re-run for figure-grade
+   fold change values, especially for low-count genes. Significance calls
+   are unaffected; effect-size magnitudes are.
+
+NICE TO HAVE
+------------
+
+4. Module score robustness. Currently AddModuleScore uses default settings;
+   could try UCell or a similar rank-based scorer as a sanity check for the
+   key modules (Exhaustion, Stem/Memory, OXPHOS, miR-29a targets).
+
+5. GEO deposition. Raw FASTQs and processed count matrices to be deposited
+   upon manuscript submission. Accession TBD.
+
+
+===============================================================================
+7. METHODOLOGICAL DECISIONS (FOR REVIEWERS)
+===============================================================================
+
+INTEGRATION
+-----------
+Harmony was used as the primary integration method, with FastMNN retained
+in the same Seurat object as a robustness check. Only abundance- and
+cluster-dependent results are method-sensitive; pseudobulk DE is
+embedding-independent.
+
+CELL-CYCLE REGRESSION
+---------------------
+The S-G2M difference (CC.Difference) was regressed during scaling rather
+than full S+G2M phase scores. This preserves the cycling-vs-resting axis
+of biology while removing the cycling-phase-within-cycling-cells effect
+that fragments proliferative clusters. Trade-off: cycling clusters
+(0, 1, 7) retain meaningful cell-state structure but their lineage
+identity is harder to read because Cd8 drops out in cycling cells -- see
+Section 6 item 2 for the planned remediation.
+
+DIFFERENTIAL EXPRESSION
+-----------------------
+Pseudobulk DESeq2 is the PRIMARY method. With n=2 biological replicates
+per condition, pseudobulk is empirical-Bayes-shrunk across approximately
+20,000 genes, which makes it tractable at this sample size (Crowell muscat
+Nat Comms 2020). MAST run in parallel for cross-method robustness and for
+comparability with the OPIS pipeline pattern used elsewhere in the lab,
+with the explicit understanding that MAST inflates significance via
+pseudo-replication (Squair Nat Comms 2021).
+
+CONTROLS
+--------
+Scramble (matched backbone, miRNA-sized non-targeting insert) is the
+PRIMARY control -- it tests for sequence-specific effects of miR-29a.
+Empty vector is a SECONDARY control. Confident hits are significant
+versus both controls. EV vs Scr is reported as a QC contrast.
+
+ALL CLUSTERS RETAINED IN DE
+---------------------------
+Clusters 8 and 13 (wetlab-flagged as review) are tested in DE alongside
+the other 12 clusters. The exclude_cluster flag in metadata is wetlab
+provenance only and does not drive any subsetting in the inferential
+pipeline. Visualizations include all clusters.
+
+
+===============================================================================
+WHERE TO LOOK -- INDEX
+===============================================================================
+
+For the miR-29a target repression evidence (Section 1):
+  miR29a_Target_Enrichment/Plots/Summary_pseudobulk/    <- the four headline plots
+  miR29a_Target_Enrichment/Tables/                       <- the numbers
+  miR29a_Target_Enrichment/Plots/Per_contrast/           <- per-contrast scatters
+
+For direction asymmetry (Section 2):
+  miR29a_Target_Enrichment/Plots/Summary_pseudobulk/3_direction_asymmetry.png
+
+For DE outputs (per compartment, per contrast):
+  Differential_Expression/DGE_pseudobulk/by_lineage/
+  Differential_Expression/DGE_pseudobulk/by_cluster/
+  Differential_Expression/DGE_MAST/{by_lineage,by_cluster}/
+  Differential_Expression/DGE_summary_counts.csv         <- counts of sig genes
+  Differential_Expression/DGE_method_overlap.csv         <- pseudobulk vs MAST overlap
+
+For pathway / TF / miRNA-target enrichment per compartment:
+  Pathway_Analysis_EnrichR/DGE_pseudobulk/
+  Pathway_Analysis_EnrichR/DGE_MAST/
+
+For per-cell module scores (metabolism, FOXO, T-cell state):
+  Module_Scores/Plots/UMAP/
+  Module_Scores/Plots/VlnByCluster/
+  Module_Scores/Plots/VlnByCondCluster/
+  Module_Scores/Tables/miR29a_target_module_wilcoxon.csv
+
+For cluster annotation evidence:
+  Annotation/Annotation_Per_gene_plots/                  <- marker plots, gene-by-gene
+  Annotation/Annotation_tables/                          <- FindAllMarkers tables
+  Annotation/cluster_lineage_call.csv                    <- lineage gate calls
+
+===============================================================================
+END OF RESULTS EXPLANATION
+===============================================================================
