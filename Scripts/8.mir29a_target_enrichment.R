@@ -103,36 +103,60 @@ hyper_enrich <- function(sig_down, universe, target_set) {
 
 # scatter: TargetScan score vs experimental LFC for one DE result
 scatter_score_vs_lfc <- function(merged, title, out_png,
-                                 label_top = 15) {
+                                 label_top = 15, sig_thresh = 0.05) {
   if (nrow(merged) < 5) return(invisible(NULL))
   rho <- suppressWarnings(cor.test(merged$cum_weighted_context_score,
                                    merged$avg_log2FC, method = "spearman",
                                    exact = FALSE))
-  # label the most strongly repressed targets (most neg LFC) plus the strongest
-  # predicted (most neg target score)
-  to_label <- unique(c(
-    merged %>% arrange(avg_log2FC)                  %>% head(label_top) %>% pull(gene),
-    merged %>% arrange(cum_weighted_context_score)  %>% head(label_top) %>% pull(gene)
-  ))
+  
+  # classify each gene by significance + direction
+  merged$sig_class <- dplyr::case_when(
+    is.na(merged$p_val_adj)                                  ~ "ns",
+    merged$p_val_adj < sig_thresh & merged$avg_log2FC < 0    ~ "sig_down",
+    merged$p_val_adj < sig_thresh & merged$avg_log2FC > 0    ~ "sig_up",
+    TRUE                                                      ~ "ns"
+  )
+  merged$sig_class <- factor(merged$sig_class,
+                             levels = c("ns", "sig_up", "sig_down"))
+  
+  # label only the strongest validated repression: sig-down genes ranked by
+  # combined evidence (most negative target score + most negative LFC).
+  sig_down <- merged %>% dplyr::filter(sig_class == "sig_down")
+  to_label <- if (nrow(sig_down) > 0) {
+    sig_down %>%
+      dplyr::mutate(combined = cum_weighted_context_score + avg_log2FC) %>%
+      dplyr::arrange(combined) %>%
+      head(label_top) %>%
+      dplyr::pull(gene)
+  } else character(0)
+  
+  cols <- c("ns" = "grey75", "sig_up" = "firebrick3", "sig_down" = "steelblue3")
+  lbls <- c("ns" = "n.s.", "sig_up" = "Sig. up", "sig_down" = "Sig. down")
+  
   p <- ggplot(merged,
               aes(x = cum_weighted_context_score, y = avg_log2FC)) +
     geom_hline(yintercept = 0, linetype = "dashed", color = "grey60") +
     geom_vline(xintercept = 0, linetype = "dashed", color = "grey60") +
-    geom_point(alpha = 0.45, size = 1.3, color = "steelblue4") +
-    geom_smooth(method = "lm", color = "firebrick", se = TRUE, linewidth = 0.6) +
+    geom_point(aes(color = sig_class), alpha = 0.6, size = 1.3) +
+    # regression on ALL points (one line, not per sig class)
+    geom_smooth(method = "lm", color = "black", se = TRUE, linewidth = 0.6) +
+    scale_color_manual(values = cols, labels = lbls, drop = FALSE) +
     ggrepel::geom_text_repel(
       data = subset(merged, gene %in% to_label),
-      aes(label = gene), size = 3, max.overlaps = 25, min.segment.length = 0
+      aes(label = gene), size = 3, max.overlaps = 25,
+      min.segment.length = 0, color = "black"
     ) +
     labs(
       title = title,
       subtitle = sprintf("n = %d  |  Spearman \u03c1 = %.3f  |  p = %.2e",
                          nrow(merged), rho$estimate, rho$p.value),
       x = "TargetScan cumulative weighted context++ score (more neg = stronger predicted target)",
-      y = "Experimental avg log2FC (more neg = more repressed)"
+      y = "Experimental avg log2FC (more neg = more repressed)",
+      color = NULL
     ) +
     theme_minimal(base_size = 12) +
-    theme(plot.title = element_text(face = "bold"))
+    theme(plot.title       = element_text(face = "bold"),
+          legend.position  = "top")
   ggsave(out_png, p, width = 10, height = 8, dpi = 300, bg = "white")
   list(rho = unname(rho$estimate), p = rho$p.value, n = nrow(merged))
 }
@@ -250,3 +274,4 @@ message("Headline file: Tables/miR29a_enrichment_summary.csv")
 message("  Look at: spearman_rho > 0 with spearman_p_BH < 0.05")
 message("  AND     hyper_top_p_BH < 0.05 with overlap > expected")
 ###############################################################################
+

@@ -146,20 +146,25 @@ plot_score_umap <- function(feat) {
                        colors_use = pal, order = TRUE)
 }
 
-# per-module VlnPlot by cluster state -- matches script 04 VlnPlot conventions
+# per-module VlnPlot by cluster state -- matches script 04 VlnPlot conventions.
+# Extra left + bottom margins prevent rotated leftmost label from getting clipped.
 plot_score_vln_cluster <- function(feat) {
   VlnPlot2(obj, features = feat, group.by = "tentative_state",
            cols = "default", show.mean = TRUE) +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+          plot.margin = margin(t = 5, r = 5, b = 40, l = 40, unit = "pt"))
 }
 
-# per-module VlnPlot by condition WITHIN each cluster (the miR-29a effect view)
+# per-module VlnPlot by condition WITHIN each cluster (the miR-29a effect view).
+# split.by uses facet strips, so we rotate strip.text.x as well as axis.text.x.
 # Wilcoxon stat annotations match script 04's by-condition pattern.
 plot_score_vln_cond_x_cluster <- function(feat) {
   VlnPlot2(obj, features = feat, group.by = "tentative_state",
            split.by = "condition", cols = "default",
            stat.method = "wilcox.test") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
+    theme(axis.text.x  = element_text(angle = 45, hjust = 1, size = 7),
+          strip.text.x = element_text(angle = 45, hjust = 0, size = 8),
+          plot.margin  = margin(t = 5, r = 5, b = 70, l = 40, unit = "pt"))
 }
 
 safe <- function(x) gsub("[^A-Za-z0-9._-]+", "_", x)
@@ -175,7 +180,7 @@ for (m in names(module_lists)) {
          width = 14, height = 8, dpi = 300, bg = "white")
   ggsave(file.path(vln_cnd_dir, paste0(safe(m), ".png")),
          plot_score_vln_cond_x_cluster(m),
-         width = 14, height = 8, dpi = 300, bg = "white")
+         width = 16, height = 10, dpi = 300, bg = "white")
 }
 
 # ============================ Composite priority-UMAP grid ===================
