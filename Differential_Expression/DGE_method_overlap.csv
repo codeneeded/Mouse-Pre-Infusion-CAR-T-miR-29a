@@ -5,6 +5,12 @@
 "Lineage: CD8","miR29a_vs_Scr",431,3663,430,1,3233
 "Lineage: CD8","miR29a_vs_EV",613,3972,609,4,3363
 "Lineage: CD8","EV_vs_Scr",50,722,48,2,674
+"Lineage: Non-T","miR29a_vs_Scr",5,14,1,4,13
+"Lineage: Non-T","miR29a_vs_EV",2,38,2,0,36
+"Lineage: Non-T","EV_vs_Scr",2,9,0,2,9
+"Lineage: Innate-like","miR29a_vs_Scr",13,27,5,8,22
+"Lineage: Innate-like","miR29a_vs_EV",18,23,5,13,18
+"Lineage: Innate-like","EV_vs_Scr",1,0,0,1,0
 "00 Activated intermediate CD4","miR29a_vs_Scr",339,3109,336,3,2773
 "00 Activated intermediate CD4","miR29a_vs_EV",524,3094,519,5,2575
 "00 Activated intermediate CD4","EV_vs_Scr",22,254,18,4,236
@@ -29,6 +35,9 @@
 "07 Early activated CD4","miR29a_vs_Scr",90,1128,89,1,1039
 "07 Early activated CD4","miR29a_vs_EV",171,1071,163,8,908
 "07 Early activated CD4","EV_vs_Scr",5,141,5,0,136
+"08 Cycling non-T review ","miR29a_vs_Scr",5,14,1,4,13
+"08 Cycling non-T review ","miR29a_vs_EV",2,38,2,0,36
+"08 Cycling non-T review ","EV_vs_Scr",2,9,0,2,9
 "09 Treg","miR29a_vs_Scr",12,44,1,11,43
 "09 Treg","miR29a_vs_EV",1,61,0,1,61
 "09 Treg","EV_vs_Scr",1,5,0,1,5
@@ -41,3 +50,6 @@
 "12 Intermediate activated CD4","miR29a_vs_Scr",15,97,9,6,88
 "12 Intermediate activated CD4","miR29a_vs_EV",142,171,108,34,63
 "12 Intermediate activated CD4","EV_vs_Scr",0,0,0,0,0
+"13 NK-like innate-like review ","miR29a_vs_Scr",13,27,5,8,22
+"13 NK-like innate-like review ","miR29a_vs_EV",18,23,5,13,18
+"13 NK-like innate-like review ","EV_vs_Scr",1,0,0,1,0

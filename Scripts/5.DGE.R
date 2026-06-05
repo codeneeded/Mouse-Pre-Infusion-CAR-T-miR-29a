@@ -77,10 +77,12 @@ if (!"data" %in% Layers(obj[["RNA"]])) {
   message("NormalizeData(RNA) -- needed for MAST"); obj <- NormalizeData(obj, verbose = FALSE)
 }
 
-# drop excluded clusters (8 = non-T, 13 = innate-like; wetlab-flagged)
-obj <- subset(obj, subset = exclude_cluster == FALSE)
+# All clusters and lineages are tested. The `exclude_cluster` flag remains in
+# metadata as wetlab provenance but is NOT used to drop clusters from DE --
+# the inferential output stands or falls on its own merits per cluster.
 obj$clusters          <- droplevels(factor(obj$clusters))
 obj$tentative_lineage <- droplevels(factor(obj$tentative_lineage))
+obj$tentative_state   <- droplevels(factor(obj$tentative_state))
 
 obj$condition <- factor(obj$condition, levels = c("EV","Scr","miR29a"))
 obj$replicate <- factor(obj$replicate)

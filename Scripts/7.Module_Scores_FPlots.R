@@ -29,7 +29,8 @@
 
 suppressPackageStartupMessages({
   library(Seurat); library(qs2); library(readxl); library(dplyr); library(tidyr)
-  library(ggplot2); library(patchwork); library(SeuratExtend); library(scCustomize)
+  library(ggplot2); library(patchwork); library(viridis)
+  library(SeuratExtend); library(scCustomize)
 })
 
 # ============================ Paths ==========================================
@@ -41,8 +42,12 @@ mir29a_csv    <- file.path(resources_dir, "miR29a_targetscan_conserved.csv")
 
 out_base      <- file.path(project_dir, "Module_Scores")
 plot_dir      <- file.path(out_base, "Plots")
+umap_dir      <- file.path(plot_dir, "UMAP")
+vln_clu_dir   <- file.path(plot_dir, "VlnByCluster")
+vln_cnd_dir   <- file.path(plot_dir, "VlnByCondCluster")
 data_dir      <- file.path(out_base, "Tables")
-for (d in c(plot_dir, data_dir)) dir.create(d, recursive = TRUE, showWarnings = FALSE)
+for (d in c(plot_dir, umap_dir, vln_clu_dir, vln_cnd_dir, data_dir))
+  dir.create(d, recursive = TRUE, showWarnings = FALSE)
 
 # ============================ Load ===========================================
 obj <- qs_read(file.path(saved_dir, "Mouse_CARTmiR29a_PreAnnotation.qs2"))
@@ -51,8 +56,10 @@ obj <- JoinLayers(obj, assay = "RNA")
 if (!"data" %in% Layers(obj[["RNA"]]))
   obj <- NormalizeData(obj, verbose = FALSE)
 
-# drop excluded clusters (consistent with script 05; lineage / state labels)
-obj <- subset(obj, subset = exclude_cluster == FALSE)
+# Keep ALL clusters for module-score visualization, including the wetlab-flagged
+# "Cycling non-T" (8) and "NK-like / innate-like" (13). The exclude_cluster flag
+# only governs DE / statistical inference (script 05); for plotting metabolic,
+# FOXO, and target-score modules, every cluster is part of the landscape.
 obj$clusters          <- droplevels(factor(obj$clusters))
 obj$tentative_lineage <- droplevels(factor(obj$tentative_lineage))
 obj$tentative_state   <- droplevels(factor(obj$tentative_state))
@@ -93,6 +100,15 @@ message("Module gene presence audit written.")
 module_lists <- lapply(module_lists, function(g) intersect(g, present))
 module_lists <- module_lists[lengths(module_lists) >= 3]   # need >=3 for a sensible score
 
+# write a long-format CSV of the actual gene sets used (after presence filter)
+# -- single source of truth for the methods section and supplement.
+modules_used <- do.call(rbind, lapply(names(module_lists), function(m) {
+  data.frame(module = m, gene = module_lists[[m]], stringsAsFactors = FALSE)
+}))
+write.csv(modules_used, file.path(data_dir, "module_genes_used.csv"),
+          row.names = FALSE)
+message("Module gene lists (used) written: module_genes_used.csv")
+
 # ============================ AddModuleScore =================================
 # Seurat appends "1" to the supplied name; we rename to drop the suffix
 message("Computing module scores: ", length(module_lists), " modules")
@@ -107,35 +123,43 @@ for (m in names(module_lists)) {
 }
 score_cols <- paste0("score_", names(module_lists))
 
+# Display-friendly mirror columns (no "score_" prefix) so VlnPlot2 and
+# FeaturePlot_scCustom use the module name as the natural plot title.
+# Avoids the double-title (Exhaustion + score_Exhaustion) issue from stacking
+# ggtitle() on top of VlnPlot2's auto-title.
+for (m in names(module_lists)) {
+  obj@meta.data[[m]] <- obj@meta.data[[paste0("score_", m)]]
+}
+
 # ============================ Plot helpers ===================================
 priority_modules <- mods_long %>%
   dplyr::filter(priority_UMAP == TRUE) %>%
   dplyr::pull(module) %>% unique()
 priority_modules <- intersect(priority_modules, names(module_lists))
 
-# per-module FeaturePlot of the score on UMAP
-plot_score_umap <- function(score_col, title) {
-  FeaturePlot_scCustom(obj, features = score_col, reduction = umap_reduction,
-                       order = TRUE, pt.size = 0.3, na_cutoff = NA) +
-    ggtitle(title) + theme(plot.title = element_text(hjust = 0.5, size = 12))
+# palette matches script 04 (viridis magma) for visual consistency across the project
+pal <- viridis(n = 10, option = "A")
+
+# per-module FeaturePlot of the score on UMAP -- single title from feature name
+plot_score_umap <- function(feat) {
+  FeaturePlot_scCustom(obj, reduction = umap_reduction, features = feat,
+                       colors_use = pal, order = TRUE)
 }
 
-# per-module VlnPlot by cluster state
-plot_score_vln_cluster <- function(score_col, title) {
-  VlnPlot2(obj, features = score_col, group.by = "tentative_state",
-           pt = FALSE, cols = "muted") +
-    ggtitle(title) +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
-          plot.title  = element_text(hjust = 0.5, size = 11))
+# per-module VlnPlot by cluster state -- matches script 04 VlnPlot conventions
+plot_score_vln_cluster <- function(feat) {
+  VlnPlot2(obj, features = feat, group.by = "tentative_state",
+           cols = "default", show.mean = TRUE) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
 }
 
 # per-module VlnPlot by condition WITHIN each cluster (the miR-29a effect view)
-plot_score_vln_cond_x_cluster <- function(score_col, title) {
-  VlnPlot2(obj, features = score_col, group.by = "tentative_state",
-           split.by = "condition", pt = FALSE) +
-    ggtitle(title) +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
-          plot.title  = element_text(hjust = 0.5, size = 11))
+# Wilcoxon stat annotations match script 04's by-condition pattern.
+plot_score_vln_cond_x_cluster <- function(feat) {
+  VlnPlot2(obj, features = feat, group.by = "tentative_state",
+           split.by = "condition", cols = "default",
+           stat.method = "wilcox.test") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
 }
 
 safe <- function(x) gsub("[^A-Za-z0-9._-]+", "_", x)
@@ -143,28 +167,24 @@ safe <- function(x) gsub("[^A-Za-z0-9._-]+", "_", x)
 # ============================ Per-module plots ===============================
 message("Saving per-module plots...")
 for (m in names(module_lists)) {
-  sc  <- paste0("score_", m)
-  ttl <- paste0(m, "  (", length(module_lists[[m]]), " genes)")
-  
-  ggsave(file.path(plot_dir, paste0(safe(m), "_UMAP.png")),
-         plot_score_umap(sc, ttl),
-         width = 7, height = 6, dpi = 300, bg = "white")
-  ggsave(file.path(plot_dir, paste0(safe(m), "_VlnByCluster.png")),
-         plot_score_vln_cluster(sc, ttl),
-         width = 12, height = 5, dpi = 300, bg = "white")
-  ggsave(file.path(plot_dir, paste0(safe(m), "_VlnByCondCluster.png")),
-         plot_score_vln_cond_x_cluster(sc, ttl),
-         width = 14, height = 5, dpi = 300, bg = "white")
+  ggsave(file.path(umap_dir, paste0(safe(m), ".png")),
+         plot_score_umap(m),
+         width = 8, height = 7, dpi = 300, bg = "white")
+  ggsave(file.path(vln_clu_dir, paste0(safe(m), ".png")),
+         plot_score_vln_cluster(m),
+         width = 14, height = 8, dpi = 300, bg = "white")
+  ggsave(file.path(vln_cnd_dir, paste0(safe(m), ".png")),
+         plot_score_vln_cond_x_cluster(m),
+         width = 14, height = 8, dpi = 300, bg = "white")
 }
 
 # ============================ Composite priority-UMAP grid ===================
 if (length(priority_modules) > 0) {
   message("Composite UMAP grid for ", length(priority_modules), " priority modules")
-  panels <- lapply(priority_modules, function(m)
-    plot_score_umap(paste0("score_", m), m))
+  panels <- lapply(priority_modules, function(m) plot_score_umap(m))
   grid <- wrap_plots(panels, ncol = 3)
   ggsave(file.path(plot_dir, "UMAP_priority_modules.png"),
-         grid, width = 21, height = 6 * ceiling(length(priority_modules) / 3),
+         grid, width = 21, height = 7 * ceiling(length(priority_modules) / 3),
          dpi = 300, bg = "white", limitsize = FALSE)
 }
 
@@ -219,8 +239,10 @@ if (nrow(mir_test_df) > 0) {
 }
 
 # ============================ Re-save object =================================
-qs_save(obj, file = file.path(saved_dir, "Mouse_CARTmiR29a_PreAnnotation.qs2"))
+# Save module scores to a NEW checkpoint -- do NOT overwrite PreAnnotation.qs2
+# (that file is script 04's output; module scoring is a downstream stage).
+qs_save(obj, file = file.path(saved_dir, "Mouse_CARTmiR29a_WithModuleScores.qs2"))
 message("\nDone. Module scores saved into object metadata (columns prefixed `score_`).")
+message("Object written to: Mouse_CARTmiR29a_WithModuleScores.qs2")
 message("See ", out_base)
 ###############################################################################
-

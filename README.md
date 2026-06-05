@@ -1,12 +1,12 @@
 # Murine Pre-Infusion CAR-T scRNA-seq — Effect of miR-29a
 
-> Single-cell RNA-seq of murine pre-infusion CAR-T cell products engineered to overexpress miR-29a, characterizing how miR-29a reshapes the transcriptional states and subset composition of the cell product prior to infusion. Code repository for a manuscript in preparation.
+> Single-cell RNA-seq of murine pre-infusion CAR-T cell products engineered to overexpress miR-29a, characterizing how miR-29a reshapes the transcriptional states, metabolic programs, and subset composition of the cell product prior to infusion. Code repository for a manuscript in preparation.
 
 ---
 
 ## Overview
 
-This repository contains the R analysis pipeline for a single-cell RNA-sequencing (scRNA-seq) study of murine chimeric antigen receptor T cell (CAR-T) products engineered to overexpress **miR-29a**. The aim is to define, at single-cell resolution, how miR-29a modulates the differentiation state, effector and exhaustion programs, and proliferative behaviour of the CAR-T product at the pre-infusion stage.
+This repository contains the R analysis pipeline for a single-cell RNA-sequencing (scRNA-seq) study of murine chimeric antigen receptor T cell (CAR-T) products engineered to overexpress **miR-29a**. The aim is to define, at single-cell resolution, how miR-29a modulates the differentiation state, effector and exhaustion programs, metabolic state, and proliferative behaviour of the CAR-T product at the pre-infusion stage.
 
 miR-29a is a microRNA that represses the T-box transcription factors T-bet (*Tbx21*) and Eomes (*Eomes*) and the de novo DNA methyltransferases *Dnmt3a* / *Dnmt3b*, and has been implicated in restraining terminal effector differentiation and exhaustion in T cells. Profiling the pre-infusion product resolves how miR-29a engineering alters the starting cell state that is subsequently infused.
 
@@ -26,7 +26,7 @@ Murine CAR-T products were generated under three conditions and profiled by scRN
 
 - **Replicates:** Two independent biological replicates per condition (separate production runs)
 - **Model:** Murine CAR-T, pre-infusion product
-- **Primary question:** How does miR-29a overexpression alter the composition and transcriptional state of the CAR-T product relative to scramble and empty-vector controls?
+- **Primary question:** How does miR-29a overexpression alter the composition, transcriptional state, and metabolic programs of the CAR-T product relative to scramble and empty-vector controls?
 
 ---
 
@@ -36,6 +36,9 @@ Murine CAR-T products were generated under three conditions and profiled by scRN
 Mouse-Pre-Infusion-CAR-T-miR-29a/
 │
 ├── Scripts/                           # Seurat v5 analysis pipeline (R)
+├── Resources/                         # Curated input resources
+│                                      # (module gene lists; miR-29a
+│                                      #  TargetScan target list)
 ├── QC/                                # Quality-control outputs
 │                                      # (filtering metrics, doublet removal,
 │                                      #  cell-cycle scoring)
@@ -44,10 +47,17 @@ Mouse-Pre-Infusion-CAR-T-miR-29a/
 ├── Annotation/                        # Cluster annotation outputs
 │                                      # (UMAPs, marker dot plots, heatmaps,
 │                                      #  lineage assignment, cluster labels)
-├── Differential_Abundance/            # Subset proportion testing across
-│                                      # conditions
-├── Differential_Expression/           # Pseudobulk differential expression
-│                                      # across conditions
+├── Differential_Expression/           # Per-lineage and per-cluster DE
+│                                      # (pseudobulk DESeq2 and MAST in
+│                                      #  parallel, with method overlap)
+├── Pathway_Analysis_EnrichR/          # Transcription factor, pathway, and
+│                                      # miRNA-target enrichment (EnrichR)
+├── Module_Scores/                     # Per-cell module scores for metabolic
+│                                      # programs, FOXO axis, T cell state,
+│                                      # and miR-29a target repression
+├── miR29a_Target_Enrichment/          # Direct test of miR-29a target
+│                                      # repression against the conserved
+│                                      # TargetScan list
 ├── saved_R_data/                      # Serialized Seurat objects (.qs2)
 │                                      # — not tracked (see .gitignore)
 │
@@ -67,31 +77,50 @@ Mouse-Pre-Infusion-CAR-T-miR-29a/
 ### 2. Quality Control (`QC/`)
 - Per-cell filtering on minimum UMI count, minimum genes detected, gene complexity, and maximum mitochondrial and haemoglobin RNA fractions
 - Doublet detection and removal per library
-- Cell-cycle phase scoring
+- Cell-cycle phase scoring with mouse-converted Tirosh gene sets
 
 ### 3. Integration (`Integration/`)
 - Log-normalization, variable-feature selection, scaling, and PCA
-- Batch correction across replicates using **Harmony** (primary), with **FastMNN** evaluated in parallel
+- Cell-cycle regression of the S − G2M difference to preserve cycling-vs-resting structure while removing phase fragmentation
+- Batch correction across replicates using **Harmony** (primary), with **FastMNN** retained as an alternative integration for robustness checks
 - Integration assessed for over-correction by confirming condition structure is preserved across clusters
 
 ### 4. Cell Type Annotation (`Annotation/`)
 - Graph-based clustering on the integrated embedding; resolution selected using clustering-stability diagnostics
 - Cluster identities assigned from canonical murine T-cell markers (naïve/memory, effector/cytotoxic, exhaustion, regulatory, proliferation, lineage transcription factors)
 - Per-cell lineage assignment (CD4 / CD8 / γδ) from lineage markers
-- Marker dot plots and z-scored expression heatmaps per cluster
+- Marker dot plots, FeaturePlots, and z-scored expression heatmaps per cluster
 
-### 5. Differential Abundance (`Differential_Abundance/`)
-- Subset proportion testing across conditions at the replicate level using **propeller** (speckle)
-- Per-replicate proportions reported alongside test statistics
+### 5. Differential Expression (`Differential_Expression/`)
+- **Pseudobulk DESeq2** (primary): aggregation per condition × replicate within each lineage compartment, design modelling replicate as a covariate, log fold-change shrinkage. Calibrated at low replicate count.
+- **MAST** (parallel exploratory): single-cell-level differential expression with sequencing depth as a latent variable, run on the same compartments and contrasts for comparability.
+- Two compartment scopes: **per lineage** (CD4, CD8, and minor non-T compartments analysed separately) and **per cluster** (every cluster in the integrated atlas).
+- Contrasts: miR-29a vs scramble (primary, specificity); miR-29a vs empty vector (secondary); empty vector vs scramble (QC).
+- Method comparison output summarises gene overlap between pseudobulk and MAST per compartment × contrast.
 
-### 6. Differential Expression (`Differential_Expression/`)
-- **Pseudobulk** aggregation per condition × replicate within each lineage compartment
-- Differential expression with **DESeq2**, modelling replicate as a covariate
-- Primary contrast: miR-29a vs scramble; secondary: miR-29a vs empty vector; confident hits called by concordance across both controls
-- Focused testing of canonical miR-29a target genes
+### 6. Pathway Analysis (`Pathway_Analysis_EnrichR/`)
+- Enrichment of DE gene lists via **EnrichR** across three database groups:
+  - **Transcription factor regulators** (TRRUST, ChEA, JASPAR PWMs)
+  - **Pathways and ontologies** (KEGG / WikiPathways Mouse, GO Biological Process, MSigDB Hallmark, Reactome, BioPlanet, Panther)
+  - **miRNA-target databases** (miRTarBase, TargetScan)
+- miRNA enrichment is run separately on up- and down-regulated gene lists; significant miR-29 hits are flagged in dedicated output files.
 
-### 7. Robustness
-- Key abundance results reproduced on an alternative integration (FastMNN) to confirm conclusions are not dependent on integration method
+### 7. Module Scores (`Module_Scores/`)
+- Per-cell module scores via `AddModuleScore` for curated gene sets from `Resources/Module_Gene_Lists.xlsx`:
+  - **Metabolism modules** — OXPHOS / ETC, TCA, FAO, glycolysis, mitochondrial biogenesis, mitochondrial stress / ROS, mitochondrial dynamics, mTOR / MYC anabolic state, proliferative metabolic state
+  - **FOXO axis modules** — core FOXO TFs, memory/quiescence-linked targets, stress/autophagy targets, cell-cycle restraint
+  - **T cell state modules** — cell cycle / G2M, exhaustion / inhibitory receptors, stem-like / memory
+  - **miR-29a target module** — derived from the conserved TargetScan list (top-N strongest predicted targets)
+- The actual gene set used for each module (after filtering to genes present in the data) is exported as a long-format table for reproducibility.
+- Visualizations include UMAP feature plots, per-cluster violin plots, and condition-stratified violins within each cluster — organized into per-view subfolders to support cross-module comparison.
+- One-sided Wilcoxon tests compare the miR-29a target module score between miR-29a and each control, overall and per cluster.
+
+### 8. miR-29a Target Enrichment (`miR29a_Target_Enrichment/`)
+- Direct test that miR-29a is functionally repressing its annotated target set, against the **conserved mouse miR-29-3p TargetScan list** (`Resources/miR29a_targetscan_conserved.csv`).
+- Two complementary analyses per DE contrast / compartment / method:
+  - **Spearman correlation** between TargetScan cumulative weighted context++ score and experimental log2 fold change. A positive correlation indicates that genes predicted to be the strongest targets are the most strongly repressed in the data.
+  - **Hypergeometric enrichment** of significantly down-regulated genes against the top-N TargetScan targets and the full conserved list, with up-regulated genes tested as a negative control.
+- Outputs per-contrast scatter plots (TargetScan score vs experimental log2 fold change, points coloured by differential-expression class — sig-down, sig-up, n.s. — with the strongest sig-down predicted targets labelled), a summary table with BH-adjusted p-values, and a headline summary plot for the primary lineage-level contrasts.
 
 ---
 
@@ -99,9 +128,10 @@ Mouse-Pre-Infusion-CAR-T-miR-29a/
 
 1. **Subset composition** — Does miR-29a overexpression alter the proportions of CAR-T subsets (naïve/stem-like, effector, exhausted, regulatory, proliferating)?
 2. **Differentiation state** — Does miR-29a bias the product toward a less-differentiated, less-exhausted phenotype?
-3. **Target repression** — Are canonical miR-29a targets (*Tbx21*, *Eomes*, *Dnmt3a* / *Dnmt3b*) and downstream effector programs repressed at single-cell resolution?
-4. **Proliferation** — Does miR-29a change the proliferative composition of the pre-infusion product?
-5. **Control specificity** — Are miR-29a–associated effects specific relative to both scramble and empty-vector controls?
+3. **Target repression** — Are canonical miR-29a targets (*Tbx21*, *Eomes*, *Dnmt3a* / *Dnmt3b*) and the broader conserved TargetScan target set repressed at single-cell resolution?
+4. **Metabolic and FOXO programs** — Does miR-29a remodel metabolic state (OXPHOS, glycolysis, FAO, mitochondrial dynamics) or FOXO-axis programs (memory / quiescence versus effector)?
+5. **Proliferation** — Does miR-29a change the proliferative composition of the pre-infusion product?
+6. **Control specificity** — Are miR-29a–associated effects specific relative to both scramble and empty-vector controls?
 
 ---
 
@@ -111,16 +141,18 @@ All scripts are written in **R**. Key packages:
 
 | Package | Purpose |
 |---|---|
-| `Seurat` (v5) | Clustering, differential expression, visualization |
+| `Seurat` (v5) | Clustering, single-cell DE, visualization, module scoring |
 | `harmony` | Batch integration (primary) |
 | `SeuratWrappers` / `batchelor` | FastMNN integration |
 | `scDblFinder` | Doublet detection |
-| `DESeq2` | Pseudobulk differential expression |
-| `speckle` | Differential abundance (propeller) |
+| `DESeq2` / `ashr` | Pseudobulk differential expression with LFC shrinkage |
+| `MAST` | Single-cell differential expression |
+| `enrichR` | Pathway, TF, and miRNA-target enrichment |
 | `qs2` | Fast serialization of Seurat objects |
 | `SeuratExtend` / `scCustomize` | Single-cell visualization |
-| `dplyr` / `ggplot2` / `patchwork` | Data wrangling and visualization |
-| `pheatmap` / `ggrepel` | Heatmaps and labeled plots |
+| `readxl` / `openxlsx` | Curated gene-list and enrichment workbook I/O |
+| `dplyr` / `tidyr` / `ggplot2` / `patchwork` | Data wrangling and visualization |
+| `pheatmap` / `ggrepel` | Heatmaps and labelled plots |
 
 ---
 
