@@ -1,0 +1,24 @@
+state,miRNA,gene,region,coverage
+Tn,mmu-miR-142a-3p,Bach2,intron,101.638539534253
+Tn,mmu-miR-466i-5p,Bach2,intron,84.3695359895635
+Tn,mmu-miR-466i-5p,Bach2,intron,82.3450072938156
+Tn,mmu-miR-466i-5p,Bach2,intron,75.7224550394685
+Tn,mmu-miR-466i-5p,Bach2,intron,70.8032028265453
+Tn,mmu-miR-466i-5p,Bach2,intron,23.7255060393194
+Tn,mmu-miR-466f-3p,Bach2,intron,9.48412698412698
+Tn,mmu-miR-466i-5p,Bach2,intron,8.82142348730775
+Tn,mmu-miR-466i-5p,Bach2,intron,6.22326065185945
+Tn,mmu-miR-466i-5p,Bach2,3' UTR,5.81547611605455
+Teff,mmu-miR-466i-5p,Bach2,intron,8.27876830545354
+Tmem,mmu-miR-142a-5p,Id2,3' UTR,33.3755798844893
+Tex,mmu-miR-142a-5p,Id2,3' UTR,9.7946143115318
+Tn,mmu-miR-466i-5p,Lef1,intron,12.1742387672922
+Tn,mmu-miR-466i-5p,Lef1,intron,9.61650522317189
+Tn,mmu-miR-466i-5p,Lef1,intron,8.84359943977591
+Tn,mmu-miR-466i-5p,Lef1,intron,8.53815306028771
+Tn,mmu-miR-466i-5p,Lef1,intron,8.07528802575147
+Tn,mmu-miR-466i-5p,Lef1,intron,6.11276708302707
+Tn,mmu-miR-466i-5p,Lef1,intron,5.85512348549433
+Tn,mmu-miR-466i-5p,Lef1,5' UTR,5.4076747635081
+Tn,mmu-miR-466i-5p,Lef1,intron,5.33469760757862
+Tn,mmu-miR-466i-5p,Tcf7,intron,6.91960585914224
