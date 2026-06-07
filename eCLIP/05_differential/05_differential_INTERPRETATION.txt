@@ -1,0 +1,117 @@
+=====================================================================
+ miR-eCLIP CD8 DIFFERENTIATION — STEP 5 / AIM 3 INTERPRETATION
+ Differential miRNA targeting across states (Eclipsebio DESeq2, IP-normalized)
+=====================================================================
+
+PART A — WHAT WE SAW, AND WHAT IT MEANS
+---------------------------------------------------------------------
+
+OVERALL: differentiation REMODELS targeting mainly at the naive->activated
+switch; a memory-specific metabolic module and two clean master-TF axes
+stand out; and there is NO strong exhaustion-specific program (a constraint
+to carry into aim 4).
+
+1) DIRECTIONALITY — differentiation ADDS targeting, concentrated at activation
+   Significant differential interactions (padj<0.05, |log2FC|>=1; gained/lost):
+     Teff vs Naive   19 / 8
+     Memory vs Naive 54 / 31   <- most remodeling
+     Tex  vs Naive   18 / 11
+     Tex  vs Memory   4 / 1
+     Tex  vs Effector 1 / 1    <- nearly identical
+     Memory vs Effector 3 / 3
+   Interpretation: gains exceed losses in every contrast (differentiation adds
+   miRNA targeting). The major axis is naive->activated; the activated states
+   (Teff/Tmem/Tex) target very similarly to one another. Memory is the most
+   distinct from naive. Mirrors the step-2 loading result.
+
+2) TWO CLEAN MASTER-REGULATOR AXES
+   - Bach2 (naive-engaged, released on activation): miR-466i-5p and
+     miR-142a-3p bind Bach2 (introns) most strongly in NAIVE; this targeting
+     is progressively LOST across Teff/Tmem/Tex (log2FC -2.5 to -4.2,
+     padj down to 3e-4), consistent across many sites. Naive-restricted
+     miRNA engagement of the stemness/quiescence TF Bach2.
+   - Id2 (gained into memory/exhaustion): miR-142a-5p targets the Id2 3' UTR,
+     GAINED naive->memory (+3.45, padj 8.5e-4) and naive->exhausted (+2.72).
+     The cleanest canonical (3'UTR) regulatory event in the dataset; Id2
+     drives terminal/effector programs, so increasing miR-142a-5p repression
+     in memory fits memory restraining terminal differentiation.
+
+3) MEMORY-SPECIFIC METABOLIC / QUIESCENCE MODULE (the standout)
+   - miR-210-3p targeting is almost entirely MEMORY-specific and converges on
+     mitochondrial / metabolic + chromatin + quiescence genes:
+     Ndufa4 (3'UTR, high cov - textbook miR-210 ETC target), Tomm70a, Casp3,
+     Kdm6b (Jmjd3 demethylase), B4galt5, Pim1, Usp10, and Zfp36l2 (a key
+     T-cell quiescence / mRNA-decay factor).
+   - miR-23a-3p (also memory) independently hits Zfp36l2 and mitochondrial
+     Tomm70a, plus Cd44, histones.
+   Interpretation: two memory miRNAs converge on Zfp36l2 and mitochondrial
+   genes - a coherent signature of the metabolic remodeling that defines
+   memory CD8 T cells. Strong, novel, mechanistically interpretable.
+
+4) miR-155 REDEPLOYS ONTO MEMORY/EXHAUSTION TARGETS
+   In memory/exhausted, miR-155-5p targets Itk (TCR-proximal kinase, 3'UTR),
+   S1pr1 (egress/residency, 3'UTR), Csnk1g2 (high cov), Sae1 (CDS, very high
+   cov), Nsd2, Tspan14 - while miR-150-5p targeting is naive/effector-restricted
+   (Btg1, Cfl2, Camk1d) and fades with differentiation. The step-2 miR-150->
+   miR-155 loading switch is now matched by a target-level switch.
+
+5) NEGATIVE FINDING (matters for aim 4): NO strong exhaustion-SPECIFIC program
+   Tex differs from Tmem/Teff by only a handful of interactions. There is no
+   large set of exhaustion-only miRNA targets to exploit. The therapeutic
+   leverage (aim 4) therefore lies in the ACTIVATION switch and the MEMORY
+   module, not in an exhaustion-restricted target set.
+
+---------------------------------------------------------------------
+CAVEATS / FILTER NOTE
+---------------------------------------------------------------------
+   * FILTER GAP: Snord47|Gas5 tops several contrasts (log2FC ~5-6, padj ~1e-11)
+     - Gas5 is an abundant decoy snoRNA-host ncRNA that slipped the background
+     filter. EXTEND the filter (Gas5/Snhg*/Snord*/Snora*) in step 6.
+   * miR-466i remains inflated by the deep IP7 naive library (step-1 QC); its
+     Bach2/Cblb calls are leads, not conclusions.
+   * n=2/state (Eclipsebio DESeq2): exploratory; weight by effect size +
+     coherence (the miR-210 metabolic module is coherent across genes).
+   * Tex lowest capture: "losses into exhaustion" are partly technical - we
+     emphasize GAINS over losses for Tex.
+
+---------------------------------------------------------------------
+CARRY INTO AIM 4 (step 6)
+---------------------------------------------------------------------
+   - Leverage points: miR-210 memory metabolic module (Ndufa4/Zfp36l2/Kdm6b);
+     miR-142a-5p -> Id2 (limit terminal differentiation); miR-155 -> Itk/S1pr1.
+   - No exhaustion-specific program -> frame "limit exhaustion" candidates via
+     the memory/effector programs they support, not exhaustion-only targets.
+   - Revisit miR-29 family at RELAXED support vs the CAR-T DE targets.
+
+=====================================================================
+PART B — MANUSCRIPT RESULTS SNIPPET (aim 3; edit to taste)
+=====================================================================
+
+Differential targeting localizes to the activation switch and a memory-
+specific metabolic module.
+Differential analysis of miRNA targeting (DESeq2, IP-normalized) showed
+that differentiation predominantly adds interactions, concentrated at the
+naive-to-activated transition; memory cells were the most remodeled
+relative to naive (54 gained, 31 lost interactions), whereas effector,
+memory and exhausted cells targeted similarly to one another. Two
+lineage-defining transcription factors showed coherent differential
+targeting: miR-466i-5p and miR-142a-3p engaged Bach2 most strongly in
+naive cells, with targeting progressively lost upon activation, while
+miR-142a-5p targeting of the Id2 3' UTR was gained in memory and exhausted
+cells. Memory cells exhibited a distinctive miR-210-3p program converging
+on mitochondrial and metabolic targets (Ndufa4, Tomm70a, Casp3) and the
+quiescence regulator Zfp36l2, which was independently targeted by
+miR-23a-3p, consistent with the metabolic remodeling of memory CD8 T cells.
+In parallel, miR-155-5p redeployed onto memory/exhaustion targets including
+Itk and S1pr1. Notably, exhausted cells showed few interactions distinct
+from memory or effector cells, indicating that miRNA target remodeling in
+CD8 differentiation is dominated by the activation transition and a
+memory-associated metabolic program rather than an exhaustion-specific
+signature.
+
+=====================================================================
+SOURCE TABLES (eCLIP/05_differential/tables): significant_differential_targeting.csv,
+gained_lost_targeting_per_contrast.csv, masterTF_differential_targeting.csv,
+top_switcher_targets_by_state.csv, exhaustion_gained_targeting_genes.csv,
+exhaustion_gained_targeting_sites.csv
+=====================================================================

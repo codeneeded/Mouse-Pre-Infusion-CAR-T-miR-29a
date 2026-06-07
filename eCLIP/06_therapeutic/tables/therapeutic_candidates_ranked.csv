@@ -1,0 +1,13 @@
+miRNA,program,genes,n_genes,n_clusters,coverage,states,score
+mmu-miR-142a-5p,effector,Id2,1,2,43.1701941960211,"Tex,Tmem",3.788050222158
+mmu-miR-466i-5p,exhaustion,Cblb,1,2,11.1552597886132,"Tex,Tn",2.49776198052309
+mmu-miR-466i-5p,memory,"Bach2,Bcl2,Il7r,Lef1,Tcf7",5,39,613.194359885929,"Teff,Tmem,Tn",32.1015571255109
+mmu-miR-15b-5p,memory,"Bcl2,Ccr7,Il7r",3,8,192.76096640355,"Teff,Tex,Tmem,Tn",15.7998758022726
+mmu-miR-142a-3p,memory,"Bach2,Bcl2",2,2,106.418010264005,"Tmem,Tn",9.35345572269837
+mmu-miR-16-5p,memory,Ccr7,1,3,42.2991668967834,"Teff,Tmem,Tn",3.7681333945643
+mmu-miR-15a-5p,memory,Ccr7,1,2,17.7338438819075,"Tmem,Tn",2.93033172134277
+mmu-miR-466f-3p,memory,Bach2,1,1,9.48412698412698,Tn,2.34986239757085
+mmu-miR-210-3p,memory,Zfp36l2,1,1,7.21900805478454,Tmem,2.1064495271859
+mmu-miR-23a-3p,memory,Zfp36l2,1,1,4.71812938617977,Tmem,1.74364172151746
+mmu-miR-155-5p,memory,S1pr1,1,1,4.08518457522081,Tmem,1.62633132682029
+mmu-miR-92a-3p,memory,Klf2,1,1,4.06339093178981,Tmem,1.62203640347523

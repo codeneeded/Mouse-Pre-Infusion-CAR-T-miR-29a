@@ -1,0 +1,108 @@
+=====================================================================
+ miR-eCLIP CD8 DIFFERENTIATION — STEP 4 / AIM 2 INTERPRETATION
+ Per-state miR -> gene interaction networks (protein-coding targets)
+=====================================================================
+
+PART A — WHAT WE SAW, AND WHAT IT MEANS
+---------------------------------------------------------------------
+
+OVERALL: clear, interpretable target biology emerges once two technical
+artifacts are set aside. Below: (1) the artifacts to filter, (2) the real
+signal — master-TF targeting, hub structure, and target switching.
+
+1) READ THIS FIRST — ABUNDANT-RNA BACKGROUND CONTAMINATES THE RAW RANKING
+   The "most-targeted genes" (by # distinct miRNAs) are dominated by sticky,
+   highly abundant transcripts, NOT genuine regulation:
+   - mt-Nd1 is the #1 convergent target in Memory (13 miRNAs, cov 1783) and
+     Exhausted (7 miRNAs); other mt-Nd2/4/5 also rank high.
+   - Ribosomal-protein mRNAs (Rpl13a, Rpl7a, Rps8, Rps12), Actb, Lars2 fill
+     the top of every state.
+   Interpretation: abundant transcripts attract many miRNAs spuriously in
+   CLIP; "# distinct miRNAs binding" is exactly the metric they inflate. These
+   are background, not targets. ACTION: filter mitochondrial (mt-*), ribosomal
+   (Rpl*/Rps*/Mrpl*/Mrps*) and Actb before biological/therapeutic ranking, and
+   lean on step-5 input-normalized differential targeting (which corrects for
+   transcript abundance) for clean state-specific targets.
+
+2) miR-466i NAIVE HUB IS TECHNICALLY INFLATED
+   miR-466i-5p shows 317 targets / 785 clusters in naive — dwarfing all else.
+   This is the deep IP7 naive library (step-1 QC). Its naive promiscuity is
+   partly technical; weight miR-466i naive calls cautiously (its high-coverage
+   3'UTR hits, e.g. on Bach2, are more trustworthy than its long intronic tail).
+
+3) THE REAL SIGNAL — MASTER-TF TARGETING (curated, abundance-robust)
+   Of 16 lineage TFs, only 4 are directly targeted in the reproducible set:
+   - Bach2 (naive): miR-466i-5p (3'UTR + intron, coverage 358 — the strongest
+     master-TF interaction in the dataset) and miR-142a-3p. Bach2 restrains
+     terminal effector differentiation / supports memory+stemness.
+   - Lef1 (naive): miR-466i-5p (5'UTR + intron). Stemness TF.
+   - Tcf7 (naive): miR-466i-5p (intron, weak). Stemness TF.
+   - Id2 (memory + exhausted): miR-142a-5p, 3'UTR — clean canonical site.
+     Id2 drives effector/terminal programs.
+   Interpretation: a coherent model — the naive STEMNESS module (Bach2/Lef1/
+   Tcf7) is engaged in naive cells, while Id2 (effector/terminal TF) is
+   3'UTR-targeted by miR-142a-5p as cells reach memory/exhaustion. Tox, Tbx21,
+   Eomes, Prdm1, Nr4a, etc. are NOT directly targeted in the reproducible set
+   (revisit at relaxed support in step 6).
+
+4) HUB STRUCTURE (targeting breadth, background aside)
+   - miR-142a-3p: consistent broad hub across ALL states (50/26/79/16 targets).
+   - Memory is the most diversified: miR-92a-3p (63), miR-24-3p (46),
+     miR-210-3p (39), miR-17-5p (26), let-7d-5p (24) — a rich regulatory layer.
+   - Exhausted: miR-155-5p surfaces as a hub (10 targets), matching its
+     dominance in engaged abundance (step 2).
+
+5) TARGET SWITCHING (the core of aim 3)
+   Ranked by low target-set overlap across states (mean Jaccard; >=5 targets):
+   - miR-210-3p: STRONGEST switcher (Jaccard 0.05 over 39 targets) — redeploys
+     onto almost entirely different genes per state. A standout aim-3 candidate.
+   - miR-150-5p (0.06), miR-106b-5p, let-7f (0.09), miR-23a-3p (0.12, 17),
+     miR-142a-5p (0.17, the Id2 targeter), miR-155-5p (0.23, 15).
+   - Even broad hubs (miR-142a-3p, miR-24-3p, miR-466i) show low Jaccard — they
+     largely retarget per state rather than holding a fixed target set.
+   Interpretation: miRNA function is heavily STATE-CONTEXTUAL here — the same
+   miRNA binds different mRNAs at different differentiation stages. miR-210 and
+   miR-155 are the most compelling to dissect in step 5 (what they switch ONTO).
+   CAVEAT: low Jaccard is partly inflated by state-specific background and depth
+   differences; confirm switchers on protein-coding, background-filtered targets.
+
+---------------------------------------------------------------------
+DECISIONS FOR STEPS 5-6
+---------------------------------------------------------------------
+   * Add an abundant-RNA filter (mt-*/Rpl*/Rps*/Mrpl*/Mrps*/Actb) to gene-level
+     target views.
+   * Use the Eclipsebio DESeq2 differential TSVs (IP-vs-input normalized) as the
+     primary clean lens for state-specific targeting in step 5.
+   * Priority interactions to track: miR-466i/miR-142a-3p -> Bach2/Lef1/Tcf7
+     (naive stemness); miR-142a-5p -> Id2 (memory/exhaustion); miR-210 and
+     miR-155 target switching.
+
+=====================================================================
+PART B — MANUSCRIPT RESULTS SNIPPET (aim 2; edit to taste)
+=====================================================================
+
+State-resolved miRNA target networks reveal stage-specific regulation.
+We constructed per-state miRNA-target networks from reproducible chimeric
+interactions (protein-coding targets). After excluding abundant
+mitochondrial and ribosomal transcripts that non-specifically accumulate
+many interactions, target networks showed clear stage specificity. Among
+lineage-defining transcription factors, the stemness regulators Bach2,
+Lef1 and Tcf7 were directly targeted in naive cells - Bach2 most strongly,
+via a high-coverage miR-466i-5p 3' UTR interaction and miR-142a-3p -
+whereas the differentiation factor Id2 was bound within its 3' UTR by
+miR-142a-5p specifically in memory and exhausted cells. Memory cells
+displayed the most diversified hub structure (miR-92a-3p, miR-24-3p,
+miR-210-3p and miR-17-5p as major hubs), and miR-155-5p emerged as a hub
+in exhausted cells. Comparison of each miRNA's target set across states
+revealed extensive target switching: miR-210-3p showed the lowest target-
+set overlap between states (mean Jaccard 0.05 across 39 targets), and most
+broadly-acting miRNAs engaged largely distinct gene sets at different
+differentiation stages, indicating that miRNA regulatory function in CD8
+T cells is strongly context-dependent.
+
+=====================================================================
+SOURCE TABLES (eCLIP/04_networks/tables): top_targeted_genes_per_state.csv,
+hub_miRNAs_per_state.csv, masterTF_targeting.csv,
+target_switching_summary.csv, target_switching_pairwise.csv,
+interactions_by_state.csv
+=====================================================================

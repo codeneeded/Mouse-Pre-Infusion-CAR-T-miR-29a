@@ -1,0 +1,1762 @@
+state,miRNA,gene,n_clusters,coverage,regions
+Tn,mmu-miR-92a-3p,Pcmtd1,1,22.9073752009463,3' UTR
+Tn,mmu-miR-466i-5p,Ncoa2,1,4.33746371275783,intron
+Tn,mmu-miR-466i-5p,Fam168b,1,16.2644610798553,3' UTR
+Tn,mmu-miR-466i-5p,Hs6st1,1,3.42307692307692,intron
+Tn,mmu-miR-466i-5p,Coa5,1,3.57465578395642,3' UTR
+Tn,mmu-miR-466i-5p,Aff3,3,20.4719737207237,intron
+Tn,mmu-miR-466i-5p,Map4k4,3,23.7467228670274,intron
+Tn,mmu-miR-466i-5p,Nab1,1,8.79327050344195,intron
+Tn,mmu-miR-466i-5p,Ankrd44,1,4,intron
+Tn,mmu-miR-466f-3p,Casp8,1,3.95685942655592,3' UTR
+Tn,mmu-miR-466i-5p,Creb1,1,7.80323109433705,intron
+Tn,mmu-miR-466i-5p,Dock10,2,8.10865505474833,"CDS,intron"
+Tn,mmu-miR-142a-3p,Dock10,1,5.42620102559489,intron
+Tn,mmu-miR-466i-5p,Sp100,1,4.07987421383648,intron
+Tn,mmu-miR-3535,Ncl,1,32.9704118253515,ncRNA_exon
+Tn,mmu-miR-26a-5p,Arl4c,1,7.76373680957217,3' UTR
+Tn,mmu-miR-15b-5p,Septin2,1,4.16431556948798,3' UTR
+Tn,mmu-miR-466i-5p,Bcl2,5,61.1142844378396,intron
+Tn,mmu-miR-466i-5p,Mgat5,1,4.45888783636,intron
+Tn,mmu-miR-466i-5p,Ikbke,1,4.86835497835498,intron
+Tn,mmu-miR-466i-5p,Mdm4,1,3.76169748849229,intron
+Tn,mmu-miR-342-3p,Ptprc,1,19.2475784874041,3' UTR
+Tn,mmu-miR-466i-5p,Ptprc,8,75.1601273559365,intron
+Tn,mmu-miR-27a-3p,Ptprc,1,21.5334051903469,CDS
+Tn,mmu-miR-466f-3p,Ptprc,2,8.25998146360757,intron
+Tn,mmu-miR-466i-5p,Rnasel,1,8.88888123811397,3' UTR
+Tn,mmu-miR-466i-5p,Rcsd1,3,28.7531765268717,intron
+Tn,mmu-miR-466i-5p,Cd247,4,46.0946238956489,intron
+Tn,mmu-miR-466i-5p,Arhgap30,2,14.2604408365405,intron
+Tn,mmu-miR-466f-3p,Ifi213,1,4.26882716049383,5' UTR
+Tn,mmu-miR-466i-5p,Akt3,2,26.1251729813888,intron
+Tn,mmu-miR-466i-5p,Smyd3,1,11.4176439232409,intron
+Tn,mmu-miR-466i-5p,Itpkb,5,46.1290998659687,intron
+Tn,mmu-miR-466i-5p,Wdr26,2,11.3555988902643,3' UTR
+Tn,mmu-miR-92a-3p,Wdr26,1,3.71763689526847,3' UTR
+Tn,mmu-miR-466i-5p,Hsd11b1,3,34.5372226055831,intron
+Tn,mmu-miR-466i-5p,Ipcef1,3,17.9096869801445,intron
+Tn,mmu-miR-466i-5p,Zc3h12d,1,3.93202764976959,3' UTR
+Tn,mmu-miR-466i-5p,Utrn,2,16.5495845946983,intron
+Tn,mmu-miR-466i-5p,Hbs1l,1,3.69979147888556,intron
+Tn,mmu-miR-26a-5p,Rps12,4,276.140470510406,ncRNA_exon
+Tn,mmu-miR-26b-5p,Rps12,4,248.632601635816,ncRNA_exon
+Tn,mmu-miR-466i-5p,Themis,8,61.7845938236868,intron
+Tn,mmu-miR-466i-5p,Fyn,2,11.6716660533596,intron
+Tn,mmu-miR-466i-5p,Scml4,15,347.37307302372,intron
+Tn,mmu-let-7d-5p,Ascc3,1,9.50740559376582,CDS
+Tn,mmu-miR-466i-5p,Vsir,3,25.0661037157054,intron
+Tn,mmu-miR-466i-5p,Abca7,1,15.2797600787381,CDS
+Tn,mmu-miR-466i-5p,Hcfc2,1,10.3732885373108,3' UTR
+Tn,mmu-miR-466i-5p,Btbd11,1,4.48837209302326,intron
+Tn,mmu-miR-466i-5p,Cdk17,2,14.372854606476,intron
+Tn,mmu-miR-150-5p,Btg1,1,8.40331691297209,3' UTR
+Tn,mmu-miR-466i-5p,Ppp1r12a,1,4.92207792207792,intron
+Tn,mmu-miR-466i-5p,Cpm,2,12.1733161510076,intron
+Tn,mmu-miR-466i-5p,Ppm1h,9,86.6521730431045,intron
+Tn,mmu-miR-466f-3p,Ppm1h,1,5.61288798920378,intron
+Tn,mmu-miR-466f-3p,Agap2,1,6.41986687147977,intron
+Tn,mmu-miR-466i-5p,Dgka,2,10.1255693604364,intron
+Tn,mmu-miR-466i-5p,Mtmr3,2,20.5030726268395,intron
+Tn,mmu-miR-466i-5p,Znrf3,2,9.76426434676435,intron
+Tn,mmu-miR-466i-5p,Ccm2,3,19.5975131091266,intron
+Tn,mmu-miR-466i-5p,Ikzf1,2,23.8198351112548,intron
+Tn,mmu-miR-92a-3p,Ikzf1,1,9.57656034993396,3' UTR
+Tn,mmu-miR-27a-3p,Ikzf1,1,23.147450849783,3' UTR
+Tn,mmu-miR-142a-3p,Peli1,1,10.5221563680745,ncRNA_exon
+Tn,mmu-let-7a-5p,Sptbn1,1,6.63197029172248,3' UTR
+Tn,mmu-let-7c-5p,Sptbn1,1,8.78697648260405,3' UTR
+Tn,mmu-miR-142a-3p,Sptbn1,1,4.73274726592781,3' UTR
+Tn,mmu-miR-466i-5p,Nsg2,2,15.5563971005712,intron
+Tn,mmu-miR-466i-5p,Stk10,1,9.37867604075969,intron
+Tn,mmu-miR-466i-5p,Dock2,9,51.9315898288148,intron
+Tn,mmu-miR-466f-3p,Dock2,1,4.98733670009269,intron
+Tn,mmu-miR-142a-3p,Dock2,6,56.6739087675958,intron
+Tn,mmu-miR-30d-5p,Dock2,2,9.82202180841993,intron
+Tn,mmu-let-7a-5p,Dock2,1,10.8546698924909,intron
+Tn,mmu-let-7f-5p,Dock2,3,31.837289812001,intron
+Tn,mmu-let-7g-5p,Dock2,2,19.927433454051,intron
+Tn,mmu-miR-16-5p,Dock2,1,6.31104558176729,intron
+Tn,mmu-miR-30b-5p,Dock2,2,7.9429175361581,intron
+Tn,mmu-miR-30c-5p,Dock2,1,4.09743526307109,intron
+Tn,mmu-miR-30e-5p,Dock2,2,16.3624730649631,intron
+Tn,mmu-miR-466i-5p,Adam19,2,11.9042947886251,3' UTR
+Tn,mmu-miR-466i-5p,Cyfip2,2,8.66504498698086,intron
+Tn,mmu-miR-155-5p,Itk,1,8.97137941035,3' UTR
+Tn,mmu-miR-466i-5p,Itk,1,5.96212121212121,intron
+Tn,mmu-miR-26a-5p,Itk,1,31.6649978169552,intron
+Tn,mmu-miR-466i-5p,Tcf7,1,6.91960585914224,intron
+Tn,mmu-miR-466i-5p,Rapgef6,1,4.66880211854857,intron
+Tn,mmu-miR-142a-3p,Rapgef6,1,58.1264975740661,3' UTR
+Tn,mmu-miR-466i-5p,Galnt10,5,30.8704515301705,intron
+Tn,mmu-miR-466i-5p,Larp1,1,15.8808475509043,3' UTR
+Tn,mmu-miR-466i-5p,Gid4,1,10.7775009147728,5' UTR
+Tn,mmu-miR-466i-5p,Pik3r5,1,6.76273468587873,intron
+Tn,mmu-miR-466i-5p,Spag7,2,18.3414769023936,3' UTR
+Tn,mmu-miR-92a-3p,Zzef1,1,8.11655689009428,CDS
+Tn,mmu-miR-466i-5p,Inpp5k,4,34.0535448105934,intron
+Tn,mmu-miR-466i-5p,Nxn,1,5.19816239552776,intron
+Tn,mmu-miR-466i-5p,Ssh2,2,17.0330923473106,3' UTR
+Tn,mmu-miR-142a-3p,Taok1,2,25.182333289661,3' UTR
+Tn,mmu-miR-466i-5p,Nufip2,2,42.2195563343351,3' UTR
+Tn,mmu-miR-466i-5p,Trim25,2,16.7591241522816,3' UTR
+Tn,mmu-miR-466i-5p,Spop,2,17.9708582548128,5' UTR
+Tn,mmu-miR-466i-5p,Skap1,10,102.103923168685,intron
+Tn,mmu-miR-3960,Mllt6,1,3.45061728395062,5' UTR
+Tn,mmu-miR-466i-5p,Lasp1,1,5.98401826484018,3' UTR
+Tn,mmu-miR-466i-5p,Ikzf3,1,9.34912495850524,intron
+Tn,mmu-miR-466i-5p,Msl1,1,10.4724582971462,3' UTR
+Tn,mmu-miR-15a-5p,Ccr7,1,7.20543479099836,3' UTR
+Tn,mmu-miR-16-5p,Ccr7,1,21.1620223241144,3' UTR
+Tn,mmu-miR-466i-5p,Stat5b,1,6.41791044776119,intron
+Tn,mmu-miR-142a-5p,Stat3,1,4.27148101996565,3' UTR
+Tn,mmu-miR-466i-5p,Itgb3,1,8.11541935660801,3' UTR
+Tn,mmu-miR-142a-3p,Tlk2,1,7.23057813911473,intron
+Tn,mmu-miR-142a-3p,Ddx42,1,6.27994957601699,intron
+Tn,mmu-miR-466f-3p,Pitpnc1,1,15.2910913801493,intron
+Tn,mmu-miR-466i-5p,Pitpnc1,13,100.011871273599,intron
+Tn,mmu-miR-706,Pitpnc1,1,3.86997126436782,intron
+Tn,mmu-miR-466i-5p,Prkca,3,13.2628242194551,intron
+Tn,mmu-miR-466i-5p,Septin9,1,6.40182457020935,intron
+Tn,mmu-miR-142a-5p,Tnrc6c,1,9.76864147088866,intron
+Tn,mmu-miR-466i-5p,Cyth1,5,34.7690132243847,intron
+Tn,mmu-miR-142a-3p,Slc38a10,1,27.4974387806097,3' UTR
+Tn,mmu-miR-466i-5p,Ncoa1,1,7.85169349429913,intron
+Tn,mmu-miR-142a-3p,Rock2,1,9.54400692608089,3' UTR
+Tn,mmu-miR-466i-5p,Hpcal1,2,11.3678524769476,intron
+Tn,mmu-miR-150-5p,Cfl2,1,12.5,3' UTR
+Tn,mmu-miR-466i-5p,Prkch,3,18.5261057093243,intron
+Tn,mmu-miR-466i-5p,Gphn,1,3.31367874201914,intron
+Tn,mmu-miR-466i-5p,Sipa1l1,1,4.30273876404494,intron
+Tn,mmu-miR-466i-5p,Elmsan1,1,9.85402351504046,intron
+Tn,mmu-miR-101c,Fos,1,29.2225608037406,3' UTR
+Tn,mmu-miR-466i-5p,Foxn3,3,13.365875872579,intron
+Tn,mmu-miR-466i-5p,Ccdc88c,3,37.8134158090112,intron
+Tn,mmu-miR-466i-5p,Itpk1,3,21.8467568905773,"3' UTR,intron"
+Tn,mmu-miR-103-3p,Dicer1,1,17.8616011761561,CDS
+Tn,mmu-miR-466i-5p,Bcl11b,14,193.142460401943,intron
+Tn,mmu-miR-466f-3p,Bcl11b,3,26.7345703988397,intron
+Tn,mmu-miR-466h-3p,Bcl11b,1,9.13282376048334,intron
+Tn,mmu-miR-342-3p,Evl,1,3.64037878787879,ncRNA_exon
+Tn,mmu-miR-466i-5p,Evl,2,34.4839200205547,ncRNA_exon
+Tn,mmu-miR-466f-3p,Evl,1,5.19573634051322,intron
+Tn,mmu-miR-466i-5p,Ppp2r5c,1,3.91685765215177,intron
+Tn,mmu-miR-26b-5p,Ppp2r5c,1,5,3' UTR
+Tn,mmu-miR-466i-5p,Klc1,3,14.5266870105561,intron
+Tn,mmu-miR-466i-5p,Gpr132,3,19.1374735874472,intron
+Tn,mmu-miR-466i-5p,Elmo1,2,12.4430978132449,intron
+Tn,mmu-miR-466i-5p,Cmah,2,9.02002853992474,intron
+Tn,mmu-miR-466i-5p,Ripor2,5,32.6330826043965,intron
+Tn,mmu-miR-466i-5p,Cdyl,1,3.86525974025974,intron
+Tn,mmu-miR-466i-5p,Nedd9,9,65.0635636599421,intron
+Tn,mmu-miR-466i-5p,Hivep1,1,3,intron
+Tn,mmu-miR-466i-5p,Atxn1,1,6.97597254004577,intron
+Tn,mmu-miR-142a-3p,Fam120a,1,10.6638087488949,CDS
+Tn,mmu-miR-466i-5p,Sema4d,4,30.8507044129411,intron
+Tn,mmu-miR-142a-3p,Nsd1,1,3.82114030286444,3' UTR
+Tn,mmu-miR-466i-5p,Grk6,1,4.64275739398992,ncRNA_exon
+Tn,mmu-miR-16-5p,Grk6,1,11.3620689655172,3' UTR
+Tn,mmu-miR-7a-5p,Hnrnpk,1,7,ncRNA_exon
+Tn,mmu-miR-466i-5p,Aopep,1,3.85499859945846,intron
+Tn,mmu-miR-466i-5p,Slc12a7,1,10.4545851161922,intron
+Tn,mmu-miR-466i-5p,Xrcc4,1,12.664686482592,intron
+Tn,mmu-miR-466i-5p,Zfyve16,1,7.12426534428638,intron
+Tn,mmu-miR-142a-3p,Hexb,1,24.2573095628132,intron
+Tn,mmu-miR-150-5p,Hexb,1,11.1252026994615,intron
+Tn,mmu-miR-16-5p,Hexb,1,8.22717522871819,intron
+Tn,mmu-miR-24-3p,Hexb,1,3,intron
+Tn,mmu-miR-27a-3p,Hexb,1,28.0091082868037,intron
+Tn,mmu-miR-466i-5p,Pik3r1,1,5.48958333333333,intron
+Tn,mmu-miR-466i-5p,Il6st,1,5.34347225232645,intron
+Tn,mmu-miR-142a-3p,Il31ra,1,6.07595022279037,intron
+Tn,mmu-miR-150-5p,Il31ra,1,9.83669862391884,intron
+Tn,mmu-miR-142a-5p,Emb,1,5.62575757575758,intron
+Tn,mmu-miR-466i-5p,Emb,1,3.43181818181818,intron
+Tn,mmu-miR-150-5p,Rtraf,1,18.1054464169431,3' UTR
+Tn,mmu-miR-466i-5p,Arhgef3,3,20.6998169961449,intron
+Tn,mmu-miR-466i-5p,Zdhhc20,1,17.7314023695603,intron
+Tn,mmu-miR-466i-5p,Ptk2b,1,4.16533494753834,intron
+Tn,mmu-miR-466i-5p,Fam160b2,4,42.2491511499704,3' UTR
+Tn,mmu-miR-466i-5p,Lrch1,1,3.85383129245617,intron
+Tn,mmu-miR-466i-5p,Lcp1,1,5.75508374475766,intron
+Tn,mmu-miR-466i-5p,Epsti1,3,14.7302891836722,intron
+Tn,mmu-miR-466i-5p,Ubac2,1,3.94759205931432,intron
+Tn,mmu-miR-142a-3p,Tm9sf2,1,7.71512405589359,3' UTR
+Tn,mmu-miR-466i-5p,Fyb,1,7.38676808208793,intron
+Tn,mmu-miR-466i-5p,Rictor,2,21.2328807429683,3' UTR
+Tn,mmu-miR-15b-5p,Il7r,3,143.514434034893,3' UTR
+Tn,mmu-miR-466i-5p,Il7r,5,35.9952615409213,intron
+Tn,mmu-miR-466i-5p,Sntb1,2,18.3507349176778,intron
+Tn,mmu-miR-466i-5p,Fam49b,6,63.5097076515364,intron
+Tn,mmu-miR-466i-5p,Ago2,1,4.3646645021645,intron
+Tn,mmu-miR-16-5p,Ly6e,1,5.39931885908897,3' UTR
+Tn,mmu-miR-142a-3p,Myh9,1,6.43610833602265,CDS
+Tn,mmu-miR-466i-5p,Myh9,3,23.8984809151403,"3' UTR,intron"
+Tn,mmu-miR-26b-5p,Rac2,1,8.84408258833546,3' UTR
+Tn,mmu-miR-466i-5p,Rac2,3,78.6851713085193,intron
+Tn,mmu-miR-466i-5p,Mfng,1,4.43301971326165,ncRNA_exon
+Tn,mmu-miR-466i-5p,Sun2,1,8.45658779802048,intron
+Tn,mmu-miR-142a-3p,Grap2,1,4.22190106105737,intron
+Tn,mmu-miR-466i-5p,Grap2,7,105.732625814291,"3' UTR,intron"
+Tn,mmu-miR-466f-3p,Grap2,1,5,intron
+Tn,mmu-miR-466i-5p,Tnrc6b,5,56.6187942763432,"3' UTR,intron"
+Tn,mmu-miR-142a-3p,Tnrc6b,1,7.79505010709372,CDS
+Tn,mmu-miR-466i-5p,Mrtfa,9,214.590963844826,intron
+Tn,mmu-miR-466i-5p,Tcf20,1,4.49411764705882,intron
+Tn,mmu-miR-466i-5p,Zbed4,1,5.71304203499582,intron
+Tn,mmu-miR-30d-5p,Sbf1,1,10.5952695560254,3' UTR
+Tn,mmu-miR-466i-5p,Hdac7,2,8.58289721867008,intron
+Tn,mmu-miR-466i-5p,Ccnt1,1,9.93983361552408,3' UTR
+Tn,mmu-miR-466i-5p,Arf3,2,45.835052653495,3' UTR
+Tn,mmu-miR-3473b,Rhebl1,1,8.5,intron
+Tn,mmu-miR-466i-5p,Dip2b,1,6.05289250825878,3' UTR
+Tn,mmu-miR-466f-3p,Bin2,1,7.42857142857143,3' UTR
+Tn,mmu-miR-466i-5p,Coro7,1,6.40805623318725,intron
+Tn,mmu-miR-466i-5p,1810013L24Rik,1,4.47407097425685,intron
+Tn,mmu-miR-150-5p,Lrch3,1,4.43283582089552,ncRNA_exon
+Tn,mmu-miR-466i-5p,Gsk3b,1,11.9211085183139,3' UTR
+Tn,mmu-miR-3473b,Zbtb20,1,42.0416199016022,intron
+Tn,mmu-miR-690,Zbtb20,1,8.59619047801144,intron
+Tn,mmu-miR-466i-5p,Sidt1,2,16.2744128673028,intron
+Tn,mmu-miR-466i-5p,Cblb,1,3.74831754108459,intron
+Tn,mmu-miR-466i-5p,Cep97,1,14.9585168603301,3' UTR
+Tn,mmu-miR-142a-3p,Cmss1,1,11.8489704109305,intron
+Tn,mmu-miR-466i-5p,D16Ertd472e,1,8.17782910360375,3' UTR
+Tn,mmu-miR-466i-5p,Grik1,1,13.0217704824613,intron
+Tn,mmu-miR-466i-5p,Runx1,20,273.261864410092,intron
+Tn,mmu-miR-466i-5p,Dyrk1a,1,8.06855362626978,intron
+Tn,mmu-miR-466i-5p,Arid1b,1,6.85854175423847,intron
+Tn,mmu-miR-92a-3p,Tagap,1,9.76957131572703,3' UTR
+Tn,mmu-miR-466i-5p,Lnpep,2,63.3017476058052,3' UTR
+Tn,mmu-miR-26a-5p,Atp6v0e,1,28.370952057749,3' UTR
+Tn,mmu-miR-26b-5p,Atp6v0e,1,27.3372599490196,3' UTR
+Tn,mmu-miR-466i-5p,Pacsin1,1,4,intron
+Tn,mmu-miR-466i-5p,Def6,2,25.9523974240982,intron
+Tn,mmu-miR-26a-5p,Pim1,1,31.4665914760287,3' UTR
+Tn,mmu-miR-466i-5p,Tbc1d22b,1,12.6555983625807,3' UTR
+Tn,mmu-miR-466i-5p,Zfp871,4,27.4806976554389,3' UTR
+Tn,mmu-miR-466i-5p,Vps52,1,3.41914340448823,intron
+Tn,mmu-miR-342-3p,Ltb,1,42.410661622272,3' UTR
+Tn,mmu-miR-3473a,H2-D1,1,8.31168975713267,3' UTR
+Tn,mmu-miR-466i-5p,Enpp4,1,6.29462064676617,3' UTR
+Tn,mmu-miR-3473b,Ccnd3,1,5.89375,ncRNA_exon
+Tn,mmu-miR-466h-3p,Ccnd3,3,16.6457008769638,intron
+Tn,mmu-miR-466i-5p,Ccnd3,15,236.547256236379,intron
+Tn,mmu-miR-466i-5p,Plcl2,2,12.0801358402052,intron
+Tn,mmu-miR-3473b,Plcl2,1,3.96164772727273,intron
+Tn,mmu-miR-466f-3p,Plcl2,2,17.340019361008,intron
+Tn,mmu-miR-466i-5p,Satb1,1,6.32045020906914,intron
+Tn,mmu-miR-466i-5p,Vav1,1,4.52314953015293,intron
+Tn,mmu-miR-466i-5p,Crim1,2,9.27655554880697,"3' UTR,intron"
+Tn,mmu-miR-466i-5p,Thada,2,17.3825961803888,intron
+Tn,mmu-miR-466i-5p,Ppm1b,2,9.47700426400956,intron
+Tn,mmu-miR-466i-5p,Zeb1,2,11.264869559505,intron
+Tn,mmu-miR-466i-5p,Wdr33,1,11.2968482445474,intron
+Tn,mmu-miR-466i-5p,Camk4,3,14.9060248678995,intron
+Tn,mmu-miR-466i-5p,Fam53c,1,8.9285276207794,3' UTR
+Tn,mmu-miR-26a-5p,Etf1,1,14.1262626262626,3' UTR
+Tn,mmu-miR-466i-5p,Matr3,1,5.83950617283951,intron
+Tn,mmu-miR-466i-5p,Cxxc5,1,3.43273460410557,intron
+Tn,mmu-miR-466i-5p,Gramd3,1,4.33201700538371,intron
+Tn,mmu-miR-15b-5p,Gramd3,1,4.97821765427399,3' UTR
+Tn,mmu-miR-16-5p,Adrb2,1,12,3' UTR
+Tn,mmu-miR-466i-5p,Ldlrad4,2,24.7588537370966,intron
+Tn,mmu-miR-466i-5p,Mbd2,2,15.3049228479998,intron
+Tn,mmu-miR-15b-5p,Rpl17,1,8.98496155585708,ncRNA_exon
+Tn,mmu-miR-219a-5p,Rpl17,1,40.9920634920635,ncRNA_exon
+Tn,mmu-miR-29a-3p,Rpl17,1,9.61401377553427,ncRNA_exon
+Tn,mmu-miR-466i-5p,Smad7,1,3.24390243902439,intron
+Tn,mmu-miR-466i-5p,Nfatc1,2,12.3008850743223,intron
+Tn,mmu-miR-466i-5p,Mbp,9,104.371342548459,intron
+Tn,mmu-let-7f-5p,Cd226,1,5.5,CDS
+Tn,mmu-miR-142a-3p,Cd226,1,5.14470284237726,CDS
+Tn,mmu-miR-466i-5p,Cd226,2,11.4916763254483,intron
+Tn,mmu-miR-466i-5p,Cd6,2,14.4975656417767,intron
+Tn,mmu-miR-466i-5p,Ms4a4c,1,7.11590241456714,3' UTR
+Tn,mmu-miR-142a-3p,Ms4a4b,2,29.062116849696,3' UTR
+Tn,mmu-miR-20a-5p,Ms4a4b,1,4.5,3' UTR
+Tn,mmu-miR-466i-5p,Dock8,2,8.66744313510551,intron
+Tn,mmu-miR-466i-5p,Sgms1,1,6.14959676609275,3' UTR
+Tn,mmu-miR-26a-5p,Tnks2,1,5.6599553262184,3' UTR
+Tn,mmu-miR-466i-5p,Wbp1l,2,13.6246753246753,"3' UTR,intron"
+Tn,mmu-miR-466i-5p,Sh3pxd2a,1,3.55913817195463,intron
+Tn,mmu-miR-466f-3p,Pdcd4,3,20.8829605700021,intron
+Tn,mmu-miR-466i-5p,Pdcd4,1,4.85714285714286,intron
+Tn,mmu-miR-466i-5p,Ablim1,2,16.3207525872561,intron
+Tn,mmu-miR-466i-5p,Fam107b,8,69.7556441829491,intron
+Tn,mmu-miR-706,Fam107b,1,3.8065087620414,intron
+Tn,mmu-miR-142a-3p,Camk1d,1,5.99411764705882,intron
+Tn,mmu-miR-150-5p,Camk1d,1,8.8089785706687,intron
+Tn,mmu-miR-466i-5p,Camk1d,3,19.5635242894522,intron
+Tn,mmu-miR-466i-5p,Prkcq,4,28.6309980881899,intron
+Tn,mmu-miR-466i-5p,Arl5b,1,5.72933112638995,3' UTR
+Tn,mmu-miR-466i-5p,Pip4k2a,1,5.83149210903874,intron
+Tn,mmu-miR-466i-5p,Apbb1ip,1,3,intron
+Tn,mmu-let-7g-5p,Apbb1ip,1,14.9522024978,ncRNA_exon
+Tn,mmu-miR-466i-5p,Psd4,1,6.7787566839291,intron
+Tn,mmu-miR-25-3p,Rpl7a,2,142.967575055044,ncRNA_exon
+Tn,mmu-miR-26b-5p,Rpl7a,1,16.1864904886701,ncRNA_exon
+Tn,mmu-miR-92a-3p,Rpl7a,2,18.8783723775402,ncRNA_exon
+Tn,mmu-miR-466i-5p,Cacfd1,4,61.1651031365386,3' UTR
+Tn,mmu-miR-466i-5p,Fnbp1,7,67.047569729389,"3' UTR,intron"
+Tn,mmu-miR-191-5p,Fam78a,1,51.5012960788042,3' UTR
+Tn,mmu-let-7a-5p,Fam78a,2,66.0794218881178,3' UTR
+Tn,mmu-miR-466i-5p,Fam78a,1,9.53044049431036,intron
+Tn,mmu-miR-466i-5p,Arhgap15,6,31.4736937314762,intron
+Tn,mmu-miR-26a-5p,Arhgap15,1,8.89204994603274,intron
+Tn,mmu-miR-142a-3p,Arhgap15,1,4.5,intron
+Tn,mmu-miR-466i-5p,Dapl1,1,5.07444281825604,intron
+Tn,mmu-let-7g-5p,Marchf7,1,53.1818348437649,CDS
+Tn,mmu-miR-466i-5p,Itga4,1,4.44638888888889,intron
+Tn,mmu-miR-142a-3p,Itga4,1,16.6146955383267,3' UTR
+Tn,mmu-miR-466i-5p,Madd,2,27.9752760800376,3' UTR
+Tn,mmu-miR-466i-5p,Cry2,1,7.70611404191993,3' UTR
+Tn,mmu-miR-466i-5p,Spg11,1,4.74847546254408,intron
+Tn,mmu-miR-26a-5p,B2m,1,18.4524382311673,CDS
+Tn,mmu-miR-361-5p,B2m,1,12.9814814093027,CDS
+Tn,mmu-miR-142a-5p,B2m,1,27.2632994188289,3' UTR
+Tn,mmu-miR-466i-5p,Bloc1s6,1,5.42527070306543,3' UTR
+Tn,mmu-miR-24-3p,Nop56,2,23.6534737315613,ncRNA_exon
+Tn,mmu-miR-484,Nop56,1,12.6025947110434,ncRNA_exon
+Tn,mmu-miR-466i-5p,Cds2,1,7.33468732136243,3' UTR
+Tn,mmu-miR-466i-5p,Shld1,1,3.44910822640266,intron
+Tn,mmu-miR-345-5p,Snx5,1,4,ncRNA_exon
+Tn,mmu-miR-466i-5p,Ralgapa2,1,5.08827997729857,intron
+Tn,mmu-miR-466i-5p,Xrn2,1,4.90098292606516,intron
+Tn,mmu-miR-466i-5p,Ppp1r16b,3,16.028140742097,intron
+Tn,mmu-let-7g-5p,Serinc3,1,6.31942545997492,CDS
+Tn,mmu-miR-466i-5p,Stk4,1,7.5838324881845,intron
+Tn,mmu-miR-466i-5p,Prex1,3,14.6116067583216,intron
+Tn,mmu-miR-706,Prex1,1,4.5,intron
+Tn,mmu-miR-466i-5p,Nfatc2,1,9.5568559126358,intron
+Tn,mmu-miR-466i-5p,Stx16,1,4.85544217687075,3' UTR
+Tn,mmu-miR-16-5p,Gnas,1,112.173570695513,3' UTR
+Tn,mmu-miR-466i-5p,Zfp831,1,8.22020607606262,intron
+Tn,mmu-miR-466i-5p,Tbl1xr1,2,24.6609867918211,3' UTR
+Tn,mmu-miR-466i-5p,Tnik,6,38.3573676422456,"intron,ncRNA_exon"
+Tn,mmu-miR-466i-5p,Mgst2,1,5.56851786657279,intron
+Tn,mmu-miR-466i-5p,Foxo1,2,12.7680491977644,intron
+Tn,mmu-miR-466i-5p,Mbnl1,10,67.0287971497742,"intron,ncRNA_exon"
+Tn,mmu-miR-466i-5p,Kpna4,4,199.240630117672,"intron,ncRNA_exon"
+Tn,mmu-miR-342-3p,Kpna4,1,6.43192227951479,ncRNA_exon
+Tn,mmu-miR-466i-5p,Ash1l,2,16.8615066509658,3' UTR
+Tn,mmu-miR-142a-3p,Txnip,1,23.7748558734136,3' UTR
+Tn,mmu-miR-466i-5p,Cd2,1,4.8242781965581,intron
+Tn,mmu-miR-466i-5p,Nras,1,7.27224362276208,3' UTR
+Tn,mmu-miR-142a-5p,Hipk1,1,10.6263741260711,3' UTR
+Tn,mmu-miR-466i-5p,Ptpn22,2,6.99333333333333,"CDS,intron"
+Tn,mmu-miR-16-5p,Stxbp3,1,9.38091085271318,3' UTR
+Tn,mmu-miR-466i-5p,Stxbp3,1,12.4027203792994,intron
+Tn,mmu-miR-466i-5p,Lef1,9,69.9580474558873,"5' UTR,intron"
+Tn,mmu-miR-466i-5p,Ppp3ca,1,9.19433498778434,intron
+Tn,mmu-miR-466i-5p,Miga1,4,42.7905797614776,intron
+Tn,mmu-miR-466i-5p,Mmp16,1,7.03329483045536,intron
+Tn,mmu-miR-466i-5p,Bach2,8,357.825867443934,"3' UTR,intron"
+Tn,mmu-miR-142a-3p,Bach2,1,101.638539534253,intron
+Tn,mmu-miR-466f-3p,Bach2,1,9.48412698412698,intron
+Tn,mmu-miR-466i-5p,B4galt1,2,9.7019007696879,intron
+Tn,mmu-miR-466i-5p,Dcaf12,1,16.7019122944929,3' UTR
+Tn,mmu-miR-142a-5p,Rnf38,1,6.81318681318681,3' UTR
+Tn,mmu-miR-466i-5p,Slc25a51,1,4.83267978352596,3' UTR
+Tn,mmu-miR-466i-5p,Trim14,2,11.6184895908424,intron
+Tn,mmu-miR-466i-5p,Tmeff1,1,5.41576476402273,intron
+Tn,mmu-miR-466i-5p,Rgs3,1,3.40441176470588,intron
+Tn,mmu-miR-466i-5p,Akna,2,36.5424207785724,"3' UTR,intron"
+Tn,mmu-let-7a-5p,Akna,1,68.6296824757083,CDS
+Tn,mmu-let-7d-5p,Akna,2,125.233426790454,CDS
+Tn,mmu-miR-466i-5p,Rraga,2,19.6437531885842,3' UTR
+Tn,mmu-miR-466i-5p,Pde4b,4,23.165175013516,intron
+Tn,mmu-miR-142a-3p,Pde4b,1,4.89955745641391,3' UTR
+Tn,mmu-miR-466i-5p,Nrd1,1,7.4403452133662,intron
+Tn,mmu-miR-15b-5p,Rps8,1,6.5,ncRNA_exon
+Tn,mmu-miR-103-3p,Rps8,1,15.2196594864755,ncRNA_exon
+Tn,mmu-miR-150-5p,Nfyc,1,4.5,ncRNA_exon
+Tn,mmu-miR-466i-5p,Inpp5b,1,3.71556941320793,intron
+Tn,mmu-let-7b-5p,Laptm5,1,9.95402298850574,intron
+Tn,mmu-miR-466i-5p,Arid1a,1,6.37023317947087,intron
+Tn,mmu-miR-16-5p,Cd52,1,6.02173490206668,3' UTR
+Tn,mmu-miR-142a-3p,Cd52,1,12.3823109471673,CDS
+Tn,mmu-miR-466i-5p,Runx3,1,4.6687908496732,intron
+Tn,mmu-miR-466f-3p,Runx3,2,14.5715223175405,3' UTR
+Tn,mmu-miR-466i-5p,Eif4g3,2,14.6613931378584,intron
+Tn,mmu-miR-466i-5p,Capzb,1,8.40687226809131,intron
+Tn,mmu-miR-3473b,Pik3cd,1,3.3406779661017,intron
+Tn,mmu-miR-466i-5p,Rere,1,9.01360544217687,intron
+Tn,mmu-miR-466i-5p,Klhl21,2,11.3683553731554,3' UTR
+Tn,mmu-miR-466i-5p,Kcnab2,1,4.36461754771294,intron
+Tn,mmu-miR-466i-5p,Ski,1,6.37380381838482,intron
+Tn,mmu-miR-142a-3p,Kmt2c,1,28.9767243802214,intron
+Tn,mmu-miR-466i-5p,Jakmip1,2,24.3124278412634,intron
+Tn,mmu-miR-17-5p,Wdr1,1,6.70716284281783,3' UTR
+Tn,mmu-miR-466i-5p,Arap2,1,5.05641247641113,intron
+Tn,mmu-miR-466i-5p,Tbc1d1,3,32.0174362263847,intron
+Tn,mmu-miR-466i-5p,Ankrd17,1,5.92376339744071,intron
+Tn,mmu-miR-466i-5p,Lrrc8c,2,10.3908884797457,intron
+Tn,mmu-miR-142a-5p,Cdc7,1,11.5,intron
+Tn,mmu-miR-466i-5p,Ttc28,1,4.5,intron
+Tn,mmu-miR-466i-5p,Tpst2,3,33.5917481259654,intron
+Tn,mmu-miR-466i-5p,Taok3,1,4.33132183908046,intron
+Tn,mmu-miR-466i-5p,Mlxip,2,28.2918305383094,3' UTR
+Tn,mmu-miR-466f-3p,Orai2,1,4.82003043941728,intron
+Tn,mmu-miR-466i-5p,Trim56,1,12.5217320261438,3' UTR
+Tn,mmu-miR-466i-5p,Tsc22d4,4,32.3779989913472,intron
+Tn,mmu-miR-24-3p,Gpr146,1,17.6502346047686,CDS
+Tn,mmu-miR-142a-3p,Gpr146,1,8.78584356819651,3' UTR
+Tn,mmu-miR-466i-5p,Card11,9,72.599921883008,intron
+Tn,mmu-let-7a-5p,Actb,2,28.5970176590212,CDS
+Tn,mmu-miR-142a-3p,Actb,2,34.0943069683109,CDS
+Tn,mmu-let-7g-5p,Actb,1,8.72466147039199,CDS
+Tn,mmu-miR-142a-3p,Trrap,1,5.89675329410442,intron
+Tn,mmu-miR-15b-5p,Trrap,1,7.43292288938439,intron
+Tn,mmu-miR-150-5p,Trrap,1,4.19602646436304,intron
+Tn,mmu-miR-466i-5p,Trrap,1,6.7753216110296,intron
+Tn,mmu-miR-150-5p,Cdk8,1,4.19240210693699,intron
+Tn,mmu-miR-378a-3p,Cdk8,1,15.8450498786516,intron
+Tn,mmu-miR-142a-3p,Cdk8,1,4.8064424984149,intron
+Tn,mmu-miR-466i-5p,Phf14,1,4.30048923679061,intron
+Tn,mmu-miR-92a-3p,Ndufa5,1,4.20094683064794,3' UTR
+Tn,mmu-miR-142a-3p,Wasl,1,6.9099923027361,3' UTR
+Tn,mmu-miR-466i-5p,Ube2h,1,4.23579575625381,intron
+Tn,mmu-let-7b-5p,Cnot4,1,19.8682610993658,CDS
+Tn,mmu-miR-466i-5p,Mtpn,2,14.5596031454332,3' UTR
+Tn,mmu-miR-26b-5p,Ubn2,1,3.48216899322339,3' UTR
+Tn,mmu-miR-142a-3p,Gimap4,1,13.1060393258427,3' UTR
+Tn,mmu-miR-15a-5p,Gimap4,1,3.2655303030303,3' UTR
+Tn,mmu-miR-16-5p,Gimap4,1,8.01948343371726,3' UTR
+Tn,mmu-miR-466i-5p,Gimap6,1,8.5439574518085,intron
+Tn,mmu-miR-92a-3p,Gimap6,1,15.5,CDS
+Tn,mmu-miR-466i-5p,Gimap3,2,13.3256477208871,"5' UTR,intron"
+Tn,mmu-miR-466i-5p,Herc3,1,5.3807540521494,intron
+Tn,mmu-miR-92a-3p,Cd8b1,1,15.5718700755956,3' UTR
+Tn,mmu-miR-466i-5p,Tet3,1,12.2551757576811,intron
+Tn,mmu-miR-466i-5p,Aak1,1,4.5,3' UTR
+Tn,mmu-miR-142a-3p,Foxp1,1,6.4069065547742,CDS
+Tn,mmu-miR-466i-5p,Foxp1,13,103.775565277069,intron
+Tn,mmu-miR-466i-5p,Il17ra,2,34.8544534265819,3' UTR
+Tn,mmu-miR-15b-5p,Ccnd2,1,4.47981986802212,3' UTR
+Tn,mmu-miR-466i-5p,Cracr2a,1,8.96102491258741,3' UTR
+Tn,mmu-miR-92a-3p,Cd69,2,73.26014994886,3' UTR
+Tn,mmu-miR-92a-3p,Klrd1,1,10.0920901804284,CDS
+Tn,mmu-miR-142a-3p,Cdkn1b,1,34.5400114591291,3' UTR
+Tn,mmu-miR-24-3p,Cdkn1b,1,6.20570359872686,3' UTR
+Tn,mmu-miR-466i-5p,Atf7ip,3,55.2686358573145,intron
+Tn,mmu-miR-466i-5p,St8sia1,1,3.9951990666903,intron
+Tn,mmu-miR-466i-5p,Itpr2,1,5.64855794790005,intron
+Tn,mmu-miR-16-5p,Rps5,1,10.3694478486366,3' UTR
+Tn,mmu-miR-466i-5p,Kcnn4,1,6.14000521143538,intron
+Tn,mmu-miR-466i-5p,Arhgef1,1,6.76622036023712,intron
+Tn,mmu-miR-92a-3p,Sertad3,3,114.749478545883,3' UTR
+Tn,mmu-miR-29a-3p,Zfp36,1,23.1987197776119,3' UTR
+Tn,mmu-miR-466i-5p,Gramd1a,1,5.47093193031235,intron
+Tn,mmu-miR-15b-5p,Rpl13a,1,17.7153739596909,ncRNA_exon
+Tn,mmu-miR-142a-3p,Rpl13a,2,19.5141944944465,ncRNA_exon
+Tn,mmu-miR-5121,Rpl13a,2,143.419473809955,ncRNA_exon
+Tn,mmu-miR-466i-5p,Kcnc1,1,4.11863935857744,intron
+Tn,mmu-miR-466i-5p,Klf13,2,9.02877060283075,"3' UTR,intron"
+Tn,mmu-miR-466i-5p,Fam169b,7,57.9914554379017,intron
+Tn,mmu-miR-466f-3p,Fam169b,1,3.84166666666667,intron
+Tn,mmu-miR-3960,Slco3a1,1,4.98484848484848,5' UTR
+Tn,mmu-miR-466i-5p,Iqgap1,1,10.2091401252758,intron
+Tn,mmu-miR-466i-5p,Il16,1,5.82089552238806,intron
+Tn,mmu-miR-466i-5p,Rnf169,1,4.39444085326438,intron
+Tn,mmu-miR-466i-5p,Gm45837,1,8.74229326316049,intron
+Tn,mmu-miR-466f-3p,Stim1,1,7.65589970666607,intron
+Tn,mmu-miR-466i-5p,Rras2,2,10.4900975225696,intron
+Tn,mmu-miR-466i-5p,Pde3b,1,3.86522014570795,intron
+Tn,mmu-miR-466i-5p,Prkcb,9,81.8636693789632,intron
+Tn,mmu-miR-26b-5p,Tnrc6a,1,5.97665773602865,CDS
+Tn,mmu-miR-466i-5p,Il21r,3,99.8393088997395,"3' UTR,intron"
+Tn,mmu-miR-466i-5p,Mcmbp,2,13.4794916684332,intron
+Tn,mmu-miR-142a-3p,Tnfrsf26,1,4.74672401786537,3' UTR
+Tn,mmu-miR-466i-5p,Arhgef18,6,42.8849396799699,"3' UTR,intron"
+Tn,mmu-miR-7238-3p,Ankrd10,1,4,5' UTR
+Tn,mmu-miR-466i-5p,Rasa3,1,4.86088864011135,intron
+Tn,mmu-miR-466i-5p,Tdrp,1,4.59414250217903,ncRNA_exon
+Tn,mmu-miR-466i-5p,Nsd3,1,4.32656922418426,3' UTR
+Tn,mmu-miR-466i-5p,Zfp827,1,5.28621993390117,3' UTR
+Tn,mmu-miR-466i-5p,Inpp4b,7,59.3328311449144,intron
+Tn,mmu-miR-466i-5p,Dnajb1,1,6.59285086893783,3' UTR
+Tn,mmu-miR-466i-5p,Nfatc3,1,3.88906636884664,intron
+Tn,mmu-miR-466i-5p,Znrf1,1,6.12134406437096,intron
+Tn,mmu-miR-466i-5p,Wwox,1,3.49954556721474,intron
+Tn,mmu-miR-466i-5p,Cdyl2,1,6.86985889378022,intron
+Tn,mmu-miR-466i-5p,Cmip,8,58.1668836607814,intron
+Tn,mmu-miR-3473b,Cmip,1,6,intron
+Tn,mmu-miR-466i-5p,Cotl1,3,24.5956115907017,intron
+Tn,mmu-miR-466f-3p,Cotl1,2,21.6852662035979,intron
+Tn,mmu-miR-466i-5p,Gse1,3,26.6020050806448,intron
+Tn,mmu-miR-466i-5p,Ankrd11,5,42.6569917381464,intron
+Tn,mmu-miR-466i-5p,Ttc13,1,4.86952517655572,intron
+Tn,mmu-miR-466i-5p,Maml2,26,370.945480812656,intron
+Tn,mmu-miR-24-3p,Taf1d,1,1579.87388994474,3' UTR
+Tn,mmu-miR-466i-5p,Cep295,3,126.830429409012,"intron,ncRNA_exon"
+Tn,mmu-miR-24-3p,Ppan,1,18.7441067888682,ncRNA_exon
+Tn,mmu-miR-15b-5p,Ppan,1,8.26044498372345,ncRNA_exon
+Tn,mmu-miR-466i-5p,Slc44a2,2,8.71377682130513,intron
+Tn,mmu-miR-466i-5p,Fli1,2,18.5948355851884,intron
+Tn,mmu-miR-466i-5p,Ets1,6,46.9498224039615,"3' UTR,intron"
+Tn,mmu-miR-24-3p,Ets1,1,20.575100308618,3' UTR
+Tn,mmu-miR-15a-5p,Hspa8,1,13.615003062567,CDS
+Tn,mmu-miR-15b-5p,Hspa8,1,31.4840592604195,CDS
+Tn,mmu-miR-466i-5p,Ubash3b,1,4.38666666666667,intron
+Tn,mmu-miR-16-5p,Thy1,1,10.741975405496,3' UTR
+Tn,mmu-miR-466i-5p,Sik2,1,8.74805844392593,intron
+Tn,mmu-miR-466i-5p,Sin3a,1,4.39441224833322,3' UTR
+Tn,mmu-miR-466i-5p,Iqch,1,10.4757158366084,intron
+Tn,mmu-miR-142a-3p,Smad3,1,7.32860548888255,CDS
+Tn,mmu-miR-466i-5p,Smad3,2,13.2803285410923,intron
+Tn,mmu-miR-466i-5p,Rab8b,1,11.0678322608629,3' UTR
+Tn,mmu-miR-142a-3p,Mindy2,1,10.6428555330178,3' UTR
+Tn,mmu-miR-26b-5p,Mindy2,1,39.1559453757674,3' UTR
+Tn,mmu-miR-466i-5p,Tcf12,1,4.78915966386555,intron
+Tn,mmu-miR-466i-5p,Elovl5,2,10.5014833362545,intron
+Tn,mmu-miR-703,Eef1a1,1,3.50482800650054,3' UTR
+Tn,mmu-miR-466f-3p,Bckdhb,1,8.07280024739108,intron
+Tn,mmu-miR-466i-5p,Slc9a9,1,5.36542909368996,intron
+Tn,mmu-miR-378a-3p,Shisa5,1,22.9561585443656,3' UTR
+Tn,mmu-miR-142a-3p,Ubp1,1,4.40456081660662,3' UTR
+Tn,mmu-miR-466i-5p,Tgfbr2,2,23.1835943258252,intron
+Tn,mmu-miR-466i-5p,Snrk,1,3.82583119380872,intron
+Tn,mmu-miR-142a-3p,Lars2,1,28.4568188450182,3' UTR
+Tn,mmu-miR-150-5p,Lars2,1,16.5901450422633,3' UTR
+Tn,mmu-miR-15b-5p,Lars2,1,14.6937705071067,3' UTR
+Tn,mmu-miR-16-5p,Lars2,1,7.85843240414092,3' UTR
+Tn,mmu-miR-181a-5p,Lars2,1,4.60634715235758,3' UTR
+Tn,mmu-miR-27a-3p,Lars2,1,4.95652173913044,3' UTR
+Tn,mmu-miR-142a-3p,Fyco1,1,4.44318181818182,3' UTR
+Tn,mmu-miR-155-5p,mt-Nd1,2,173.457016227989,CDS
+Tn,mmu-miR-142a-3p,mt-Nd1,2,42.8902521464944,CDS
+Tn,mmu-miR-142a-3p,mt-Co1,2,15.0323691209618,CDS
+Tn,mmu-miR-142a-3p,mt-Nd4,3,105.257958416976,CDS
+Tn,mmu-let-7a-5p,mt-Nd4,2,14.5114581850649,CDS
+Tn,mmu-let-7b-5p,mt-Nd4,1,5.9651417388994,CDS
+Tn,mmu-let-7c-5p,mt-Nd4,2,15.4110078054684,CDS
+Tn,mmu-miR-142a-3p,mt-Nd5,2,16.5290864201154,CDS
+Tn,mmu-miR-24-3p,mt-Nd5,1,39.6631562567558,CDS
+Tn,mmu-miR-142a-3p,mt-Cytb,2,27.0587574690612,CDS
+Tn,mmu-miR-142a-5p,Usp9x,1,8.83486590038314,5' UTR
+Tn,mmu-miR-466i-5p,Septin6,1,4.15878489326765,intron
+Tn,mmu-miR-24-3p,Rpl39,2,18.7678130200736,ncRNA_exon
+Tn,mmu-miR-17-5p,Xiap,1,15.9496032344564,3' UTR
+Tn,mmu-miR-466i-5p,Elf4,2,21.3523691777057,"5' UTR,intron"
+Tn,mmu-miR-466i-5p,Msn,1,5.92999571183534,intron
+Tn,mmu-miR-466i-5p,Sh3kbp1,1,6.27400812404081,intron
+Tn,mmu-miR-142a-3p,Ddx3y,1,18.0583967245026,intron
+Teff,mmu-miR-92a-3p,Pcmtd1,1,5.53389402162192,3' UTR
+Teff,mmu-miR-466f-3p,Casp8,1,7.38842746400886,3' UTR
+Teff,mmu-let-7g-5p,Nop58,1,5.91119001046777,ncRNA_exon
+Teff,mmu-miR-466i-5p,Ikzf2,1,4.36440677966102,3' UTR
+Teff,mmu-miR-3535,Ncl,1,31.4681091250701,ncRNA_exon
+Teff,mmu-miR-466i-5p,Arl4c,1,5.37190197716514,3' UTR
+Teff,mmu-miR-466i-5p,Bcl2,4,29.5371733345199,intron
+Teff,mmu-miR-342-3p,Ptprc,1,4.25568181818182,3' UTR
+Teff,mmu-miR-466i-5p,Ptprc,1,4.04656432748538,3' UTR
+Teff,mmu-miR-27a-3p,Ptprc,1,3.90362415429101,CDS
+Teff,mmu-miR-466i-5p,Rnasel,1,10.1265115081263,3' UTR
+Teff,mmu-miR-92a-3p,Wdr26,1,3.47752808988764,3' UTR
+Teff,mmu-miR-26a-5p,Rps12,3,155.462799860283,ncRNA_exon
+Teff,mmu-miR-26b-5p,Rps12,3,127.638697479651,ncRNA_exon
+Teff,mmu-let-7d-5p,Ascc3,1,4.61579153605016,CDS
+Teff,mmu-miR-142a-3p,Cisd1,1,7.54149200505456,3' UTR
+Teff,mmu-miR-466i-5p,Zbtb7a,1,4.30100937274694,3' UTR
+Teff,mmu-miR-8104,Ppm1h,1,5.47009466437177,CDS
+Teff,mmu-miR-466f-3p,Ppm1h,1,4.83041135397693,intron
+Teff,mmu-miR-324-5p,Suox,1,4.8554600886918,3' UTR
+Teff,mmu-miR-92a-3p,Ikzf1,1,5.99438202247191,3' UTR
+Teff,mmu-miR-142a-3p,Dock2,1,3.19681166446337,intron
+Teff,mmu-miR-466i-5p,Larp1,1,14.3624464032282,3' UTR
+Teff,mmu-miR-466i-5p,Gid4,1,5.12408441408751,5' UTR
+Teff,mmu-miR-103-3p,Pfn1,1,5.60032009998968,3' UTR
+Teff,mmu-miR-466i-5p,Spag7,1,8.37748018780246,3' UTR
+Teff,mmu-miR-92a-3p,Myo1c,1,10.3270537406903,3' UTR
+Teff,mmu-miR-423-3p,Nsrp1,1,6,ncRNA_exon
+Teff,mmu-miR-466i-5p,Nufip2,2,17.9990445435335,3' UTR
+Teff,mmu-miR-21a-3p,Vmp1,1,7.22974504718407,3' UTR
+Teff,mmu-miR-21a-5p,Vmp1,2,12.8986016231169,3' UTR
+Teff,mmu-miR-301a-3p,Ska2,1,4.5,ncRNA_exon
+Teff,mmu-miR-466i-5p,Trim25,1,5.75948599047191,3' UTR
+Teff,mmu-miR-466i-5p,Msl1,2,10.0241339966965,3' UTR
+Teff,mmu-miR-16-5p,Ccr7,1,4.84229989322414,3' UTR
+Teff,mmu-miR-466i-5p,Itgb3,1,6.85472723944651,3' UTR
+Teff,mmu-miR-466f-3p,Pitpnc1,1,5.21561706675987,intron
+Teff,mmu-miR-30d-5p,Ccdc71l,1,5.5,3' UTR
+Teff,mmu-miR-30e-5p,Ccdc71l,1,9.46090597941883,3' UTR
+Teff,mmu-miR-466f-3p,Atxn7l1,1,4.57575757575758,intron
+Teff,mmu-miR-466i-5p,Srsf5,2,29.3022398665052,5' UTR
+Teff,mmu-miR-466i-5p,Tshr,1,3.76021455766101,intron
+Teff,mmu-miR-466i-5p,Itpk1,2,26.4520654132655,3' UTR
+Teff,mmu-let-7g-5p,Dicer1,1,4.88953488372093,CDS
+Teff,mmu-miR-466f-3p,Bcl11b,1,5.91216216216216,intron
+Teff,mmu-miR-342-3p,Evl,1,6.98275862068966,ncRNA_exon
+Teff,mmu-miR-466i-5p,Evl,2,15.4424466142541,ncRNA_exon
+Teff,mmu-miR-466f-3p,Evl,1,5.34375,intron
+Teff,mmu-miR-466i-5p,Gpr132,1,4.9318050370682,intron
+Teff,mmu-miR-466i-5p,Tedc1,1,3.55092592592593,3' UTR
+Teff,mmu-miR-466f-3p,Elmo1,1,3.99921592096003,intron
+Teff,mmu-miR-34a-5p,H2bc4,2,22.3231515773514,"3' UTR,CDS"
+Teff,mmu-miR-466i-5p,Ripor2,1,4.79148451730419,intron
+Teff,mmu-miR-466i-5p,Nedd9,1,4.38064923582165,intron
+Teff,mmu-miR-466i-5p,Atxn1,3,12.8726259324353,intron
+Teff,mmu-miR-466f-3p,Atxn1,1,4.00862068965517,intron
+Teff,mmu-miR-7a-5p,Hnrnpk,1,4.5505065006594,ncRNA_exon
+Teff,mmu-miR-150-5p,Aopep,1,6.5,ncRNA_exon
+Teff,mmu-miR-21a-5p,Ssbp2,1,3.48663349175663,intron
+Teff,mmu-let-7g-5p,Hexb,1,3.5,intron
+Teff,mmu-miR-150-5p,Hexb,1,3.92452574525745,intron
+Teff,mmu-miR-27a-3p,Hexb,1,7.9921875,intron
+Teff,mmu-miR-17-5p,Paip1,1,6.4765625,3' UTR
+Teff,mmu-miR-20a-5p,Paip1,1,6.26118305913423,3' UTR
+Teff,mmu-miR-466i-5p,Spata13,1,6.27214582618636,3' UTR
+Teff,mmu-miR-466i-5p,Reep4,1,5.34003717727328,3' UTR
+Teff,mmu-miR-466i-5p,Fam160b2,2,25.8022833090844,3' UTR
+Teff,mmu-miR-466f-3p,Dnajc3,2,13.2372564323711,intron
+Teff,mmu-miR-466i-5p,Rictor,1,12.2524499233276,3' UTR
+Teff,mmu-miR-15b-5p,Il7r,1,10.6286297281801,3' UTR
+Teff,mmu-miR-744-5p,Pabpc1,1,4.34844877344877,5' UTR
+Teff,mmu-miR-466i-5p,Asap1,1,4.35042735042735,intron
+Teff,mmu-miR-671-5p,Ly6e,1,3.8672814755413,3' UTR
+Teff,mmu-let-7i-5p,Rac2,1,12.6248952504528,3' UTR
+Teff,mmu-miR-466i-5p,Rac2,1,3.72437697437697,intron
+Teff,mmu-let-7f-5p,Apobec3,1,4.5,3' UTR
+Teff,mmu-miR-466i-5p,Grap2,2,56.6039327742831,3' UTR
+Teff,mmu-miR-466i-5p,Prr5,2,10.73608214163,3' UTR
+Teff,mmu-miR-466i-5p,Gxylt1,1,4.32558139534884,3' UTR
+Teff,mmu-miR-466i-5p,Ccnt1,1,8,3' UTR
+Teff,mmu-miR-466i-5p,Arf3,1,8.69333105340143,3' UTR
+Teff,mmu-miR-466i-5p,Dip2b,1,4.41333333333333,3' UTR
+Teff,mmu-miR-466f-3p,Bin2,1,3.80710074339913,3' UTR
+Teff,mmu-miR-466i-5p,Galnt6,1,3.82439007217039,intron
+Teff,mmu-miR-92a-3p,Itgb7,1,3.42233586159484,CDS
+Teff,mmu-miR-150-5p,Lrch3,1,5,ncRNA_exon
+Teff,mmu-miR-3473b,Zbtb20,4,66.7234951351326,intron
+Teff,mmu-miR-690,Zbtb20,3,39.2857909671826,intron
+Teff,mmu-miR-142a-3p,Cmss1,1,4.197139598232,intron
+Teff,mmu-miR-466i-5p,Lnpep,2,47.8374984869296,3' UTR
+Teff,mmu-miR-26b-5p,Atp6v0e,1,4.4438202247191,3' UTR
+Teff,mmu-miR-26a-5p,Pim1,2,31.4262836117744,3' UTR
+Teff,mmu-miR-16-5p,Pim1,1,3.53592332402327,3' UTR
+Teff,mmu-miR-33-5p,Pim1,1,33.5727563702377,3' UTR
+Teff,mmu-miR-142a-3p,Pglyrp2,1,5.15750528541226,CDS
+Teff,mmu-miR-342-3p,Ltb,1,29.1668245901796,3' UTR
+Teff,mmu-miR-466i-5p,Ccnd3,1,4.33401979833441,intron
+Teff,mmu-miR-466i-5p,Plcl2,1,7.30076179015755,intron
+Teff,mmu-miR-466f-3p,Plcl2,4,33.5428987609233,intron
+Teff,mmu-miR-466i-5p,Strn,1,4.37048665620094,3' UTR
+Teff,mmu-miR-15b-5p,Rpl17,1,5.62327540936724,ncRNA_exon
+Teff,mmu-miR-219a-5p,Rpl17,1,17.1255356280598,ncRNA_exon
+Teff,mmu-miR-142a-3p,Nxf1,1,5.8659229208925,3' UTR
+Teff,mmu-miR-142a-3p,Ms4a4b,2,9.90714561588128,3' UTR
+Teff,mmu-miR-17-5p,Tnks2,1,3.5,3' UTR
+Teff,mmu-let-7i-5p,Dusp5,1,6,CDS
+Teff,mmu-miR-466f-3p,Pdcd4,2,15.0133194790101,intron
+Teff,mmu-miR-15b-5p,Pdcd4,1,3.9149554436265,3' UTR
+Teff,mmu-miR-466i-5p,Ablim1,2,16.1122177599739,intron
+Teff,mmu-miR-29a-3p,Camk1d,1,4.00032643946978,intron
+Teff,mmu-miR-34a-5p,Camk1d,1,16.0043850226369,intron
+Teff,mmu-let-7i-5p,Prkcq,1,6.83125152540009,3' UTR
+Teff,mmu-miR-25-3p,Rpl7a,4,203.948981632808,ncRNA_exon
+Teff,mmu-miR-26b-5p,Rpl7a,1,3.79408884723236,ncRNA_exon
+Teff,mmu-miR-92a-3p,Rpl7a,1,9.15918551019717,ncRNA_exon
+Teff,mmu-miR-466i-5p,Cacfd1,1,7.34152036018502,3' UTR
+Teff,mmu-miR-466i-5p,Fnbp1,2,22.5237791974166,3' UTR
+Teff,mmu-miR-191-5p,Fam78a,1,24.6921733715091,3' UTR
+Teff,mmu-let-7a-5p,Fam78a,1,9.17157812737498,3' UTR
+Teff,mmu-let-7g-5p,Marchf7,1,13.1384229335752,CDS
+Teff,mmu-miR-142a-5p,Dync1i2,2,17.3421052631579,intron
+Teff,mmu-miR-466i-5p,Madd,2,14.2192275915647,3' UTR
+Teff,mmu-miR-21a-5p,Snrnp200,1,7.7741669318339,CDS
+Teff,mmu-miR-466i-5p,Dusp2,2,17.489247311828,3' UTR
+Teff,mmu-miR-24-3p,Nop56,1,14.1873365583088,ncRNA_exon
+Teff,mmu-miR-484,Nop56,1,3.37138905532739,ncRNA_exon
+Teff,mmu-miR-466f-3p,Cdk5rap1,1,3.16125922199866,intron
+Teff,mmu-miR-20a-5p,Znfx1,1,5.73352523912869,3' UTR
+Teff,mmu-miR-142a-3p,Adnp,1,4.29013007521452,3' UTR
+Teff,mmu-miR-16-5p,Gnas,1,39.5713009860648,3' UTR
+Teff,mmu-miR-466i-5p,Tbl1xr1,3,36.006429422978,3' UTR
+Teff,mmu-miR-3963,Naaladl2,1,6.03196203854676,intron
+Teff,mmu-miR-142a-3p,Elf2,1,4.29723468704871,3' UTR
+Teff,mmu-miR-30c-5p,Exosc8,1,9.84827586206897,ncRNA_exon
+Teff,mmu-miR-466i-5p,Mbnl1,1,5.41809908998989,intron
+Teff,mmu-miR-466i-5p,Kpna4,3,51.4517549978116,ncRNA_exon
+Teff,mmu-miR-342-3p,Kpna4,1,3.77807704012869,ncRNA_exon
+Teff,mmu-miR-29a-3p,Mcl1,1,3.90176423416199,3' UTR
+Teff,mmu-miR-17-5p,Txnip,1,6.02197430696417,3' UTR
+Teff,mmu-miR-142a-3p,Txnip,1,4,3' UTR
+Teff,mmu-miR-15a-5p,Polr3c,1,6.0568676817944,ncRNA_exon
+Teff,mmu-miR-142a-5p,Hipk1,1,3.88827098078868,3' UTR
+Teff,mmu-miR-16-5p,Stxbp3,1,3.47701149425287,3' UTR
+Teff,mmu-miR-466f-3p,Frrs1,1,7.02967171717172,intron
+Teff,mmu-miR-142a-3p,Pkn2,1,4.39750957854406,3' UTR
+Teff,mmu-miR-690,Col24a1,1,3.5,intron
+Teff,mmu-miR-466i-5p,Mmp16,1,4.37640754307421,intron
+Teff,mmu-miR-466i-5p,Bach2,1,8.27876830545354,intron
+Teff,mmu-miR-466i-5p,Dcaf12,2,9.16148871633157,3' UTR
+Teff,mmu-miR-20a-5p,Sigmar1,1,5.98255813953488,CDS
+Teff,mmu-miR-142a-3p,Clta,1,3.75862068965517,3' UTR
+Teff,mmu-miR-466i-5p,Akna,2,28.4549095971473,3' UTR
+Teff,mmu-let-7a-5p,Akna,2,22.7147385037972,CDS
+Teff,mmu-let-7d-5p,Akna,2,45.2404156853815,CDS
+Teff,mmu-miR-466i-5p,Rraga,1,6.76818039453862,3' UTR
+Teff,mmu-miR-142a-3p,Tmem59,1,3.29126963153126,3' UTR
+Teff,mmu-miR-15a-5p,Rps8,1,4.53510905896691,ncRNA_exon
+Teff,mmu-miR-15b-5p,Rps8,1,4.52151055227054,ncRNA_exon
+Teff,mmu-miR-16-5p,Rps8,1,10.6049203354066,ncRNA_exon
+Teff,mmu-miR-103-3p,Rps8,2,19.417204020223,ncRNA_exon
+Teff,mmu-miR-30e-3p,Nfyc,1,4.36734693877551,ncRNA_exon
+Teff,mmu-miR-466i-5p,Laptm5,2,10.2634238121894,"CDS,intron"
+Teff,mmu-miR-744-5p,Sh3bgrl3,1,16.1440478577902,3' UTR
+Teff,mmu-miR-466f-3p,Runx3,1,10.1988782785393,3' UTR
+Teff,mmu-miR-18a-5p,Pik3cd,1,3.23563218390805,3' UTR
+Teff,mmu-miR-466i-5p,Klhl21,1,4.17582417582418,3' UTR
+Teff,mmu-miR-466f-3p,Cdk6,1,3.56567284938622,intron
+Teff,mmu-miR-466i-5p,Cdk6,1,3.68585474174045,3' UTR
+Teff,mmu-miR-30e-5p,Dmtf1,1,3.38953488372093,3' UTR
+Teff,mmu-let-7i-5p,Nelfa,1,4.86778536101382,CDS
+Teff,mmu-miR-17-5p,Wdr1,1,4.3448275862069,3' UTR
+Teff,mmu-miR-466f-3p,Lrrc8c,1,3.38726638943901,intron
+Teff,mmu-miR-142a-5p,Cdc7,1,11,intron
+Teff,mmu-miR-466i-5p,Mlxip,1,3.86480600035066,3' UTR
+Teff,mmu-let-7d-5p,Lrwd1,1,9.92820069414366,CDS
+Teff,mmu-miR-30c-5p,Gigyf1,1,8.98390600778637,3' UTR
+Teff,mmu-miR-106b-3p,Mcm7,1,6,ncRNA_exon
+Teff,mmu-miR-106b-5p,Mcm7,1,3.5,ncRNA_exon
+Teff,mmu-miR-466i-5p,Card11,1,4.2911804158283,intron
+Teff,mmu-miR-466f-3p,Card11,1,3.9047619047619,intron
+Teff,mmu-let-7a-5p,Actb,1,8.61365103964872,CDS
+Teff,mmu-let-7d-5p,Actb,1,4.57471264367816,CDS
+Teff,mmu-let-7f-5p,Actb,1,3.89080459770115,CDS
+Teff,mmu-let-7g-5p,Actb,1,7.5238679902473,CDS
+Teff,mmu-let-7i-5p,Actb,1,5.00000907007042,CDS
+Teff,mmu-miR-3473b,Eif2ak1,1,11.7822113679417,intron
+Teff,mmu-miR-142a-3p,Samd9l,1,4.04676311123235,CDS
+Teff,mmu-miR-466i-5p,Pon2,2,13.8144242602545,3' UTR
+Teff,mmu-miR-147-3p,Ndufa4,1,18.0437650631098,3' UTR
+Teff,mmu-miR-92a-3p,Ndufa5,1,7.08664880788075,3' UTR
+Teff,mmu-miR-466i-5p,Mtpn,1,5.24652777777778,3' UTR
+Teff,mmu-miR-142a-3p,Gimap4,1,21.3821011697916,3' UTR
+Teff,mmu-miR-15a-5p,Gimap4,1,6.99763789581205,3' UTR
+Teff,mmu-miR-15b-5p,Gimap4,1,6.35647946241917,3' UTR
+Teff,mmu-miR-16-5p,Gimap4,1,5.89893101084962,3' UTR
+Teff,mmu-miR-92a-3p,Znrf2,1,12.9243499516755,3' UTR
+Teff,mmu-miR-466i-5p,Vgll4,1,3.5,5' UTR
+Teff,mmu-miR-466i-5p,Il17ra,1,3.72795394836833,3' UTR
+Teff,mmu-miR-466i-5p,Cracr2a,1,3.90878169449598,3' UTR
+Teff,mmu-miR-92a-3p,Cd69,1,38.2205742058738,3' UTR
+Teff,mmu-miR-142a-3p,Cdkn1b,1,9.74195907355401,3' UTR
+Teff,mmu-miR-24-3p,Cdkn1b,1,8.92647058823529,3' UTR
+Teff,mmu-miR-155-5p,Sae1,1,6.28582887700535,CDS
+Teff,mmu-miR-191-5p,Ethe1,1,8.34124487004104,3' UTR
+Teff,mmu-miR-92a-3p,Sertad3,2,51.9976168856257,3' UTR
+Teff,mmu-let-7i-5p,Zfp36,1,4.97159090909091,CDS
+Teff,mmu-miR-92a-3p,Pop4,1,6.68729942587389,3' UTR
+Teff,mmu-miR-185-5p,Emc10,1,8.97843081440247,3' UTR
+Teff,mmu-miR-15b-5p,Rpl13a,2,45.0200607296491,ncRNA_exon
+Teff,mmu-miR-16-5p,Rpl13a,1,7.62524216147597,ncRNA_exon
+Teff,mmu-miR-142a-3p,Rpl13a,1,3.41937728185025,ncRNA_exon
+Teff,mmu-miR-5121,Rpl13a,2,60.8456434816863,ncRNA_exon
+Teff,mmu-miR-466f-3p,E2f8,1,5.02950375797017,3' UTR
+Teff,mmu-miR-466i-5p,Klf13,1,7.20225519245359,3' UTR
+Teff,mmu-miR-3960,Slco3a1,1,3,5' UTR
+Teff,mmu-miR-142a-3p,Lrrc32,1,4.31034482758621,3' UTR
+Teff,mmu-miR-24-3p,Spcs2,1,5.13924502236146,3' UTR
+Teff,mmu-miR-466f-3p,Stim1,1,4.77027186480934,intron
+Teff,mmu-miR-93-5p,Eif4g2,1,3.47647058823529,CDS
+Teff,mmu-miR-466i-5p,Il21r,2,28.6639162383186,3' UTR
+Teff,mmu-miR-16-5p,Aldoa,1,5.20506407892311,3' UTR
+Teff,mmu-miR-466i-5p,Fus,1,13.4321297280539,3' UTR
+Teff,mmu-miR-3473b,Wdr17,1,6.97368421052632,intron
+Teff,mmu-miR-466i-5p,Inpp4b,3,24.5861372757361,intron
+Teff,mmu-miR-142a-3p,Herpud1,1,3.29411764705882,3' UTR
+Teff,mmu-let-7g-5p,Nfatc3,1,3.8484381997313,CDS
+Teff,mmu-miR-342-3p,Nfatc3,1,5.36262837517391,3' UTR
+Teff,mmu-miR-466i-5p,Cmip,1,4.34461462450593,intron
+Teff,mmu-miR-466f-3p,Cmip,1,3.88832167832168,intron
+Teff,mmu-miR-3473b,Cmip,1,5.01057863879684,intron
+Teff,mmu-miR-466i-5p,Cotl1,2,8.76622045397776,intron
+Teff,mmu-miR-466f-3p,Cotl1,3,15.458952101349,intron
+Teff,mmu-miR-466f-3p,Maml2,1,3.48245614035088,intron
+Teff,mmu-miR-466i-5p,Maml2,3,15.8875069669773,intron
+Teff,mmu-miR-142a-3p,Taf1d,1,6.9484290113008,3' UTR
+Teff,mmu-miR-24-3p,Taf1d,1,3274.79605175493,3' UTR
+Teff,mmu-miR-466i-5p,Cep295,2,137.360466072452,"intron,ncRNA_exon"
+Teff,mmu-miR-466i-5p,Smco4,1,3.98823529411765,3' UTR
+Teff,mmu-miR-24-3p,Ppan,2,18.2703977245605,ncRNA_exon
+Teff,mmu-miR-15b-5p,Ppan,3,30.2116466857499,ncRNA_exon
+Teff,mmu-miR-466i-5p,Ets1,1,5.67692307692308,3' UTR
+Teff,mmu-miR-15a-5p,Hspa8,1,11.0175388641025,CDS
+Teff,mmu-miR-15b-5p,Hspa8,1,7.88490973872604,CDS
+Teff,mmu-let-7i-5p,H2ax,1,3.03944618599791,5' UTR
+Teff,mmu-miR-466i-5p,Pclaf,1,9.12004183137639,3' UTR
+Teff,mmu-miR-466i-5p,Rab8b,2,17.3223138052327,3' UTR
+Teff,mmu-miR-142a-3p,Rps27l,1,14.474699021165,3' UTR
+Teff,mmu-miR-26b-5p,Mindy2,1,4.43924731182796,3' UTR
+Teff,mmu-miR-466f-3p,Bckdhb,1,4.3160147061015,intron
+Teff,mmu-miR-378a-3p,Shisa5,1,4.38947615691802,3' UTR
+Teff,mmu-miR-16-5p,Rpl14,1,6.42857142857143,3' UTR
+Teff,mmu-miR-142a-3p,Lars2,1,6.00863587762144,3' UTR
+Teff,mmu-miR-15b-5p,Lars2,1,16.9915254237288,3' UTR
+Teff,mmu-miR-16-5p,Lars2,1,3.98333333333333,3' UTR
+Teff,mmu-miR-484,Lars2,1,5,3' UTR
+Teff,mmu-miR-155-5p,mt-Nd1,3,274.563848815461,CDS
+Teff,mmu-miR-142a-3p,mt-Nd1,2,46.3463771108172,CDS
+Teff,mmu-miR-191-5p,mt-Nd1,1,4.22423681505245,CDS
+Teff,mmu-miR-21a-5p,mt-Nd2,1,830.941184677306,CDS
+Teff,mmu-miR-1198-5p,mt-Co1,1,3,CDS
+Teff,mmu-miR-142a-3p,mt-Co1,1,7.61659731113956,CDS
+Teff,mmu-miR-150-3p,mt-Co1,1,5.2183908045977,CDS
+Teff,mmu-let-7a-5p,mt-Nd4,1,7.96356255012029,CDS
+Teff,mmu-let-7d-5p,mt-Nd4,1,3.99411764705882,CDS
+Teff,mmu-miR-142a-3p,mt-Nd4,1,33.5703594843201,CDS
+Teff,mmu-miR-142a-3p,mt-Nd5,1,5.84684750814642,CDS
+Teff,mmu-miR-24-3p,mt-Nd5,1,30.4271829955106,CDS
+Teff,mmu-miR-142a-3p,mt-Cytb,2,14.560627539528,CDS
+Teff,mmu-miR-17-5p,Xiap,1,7.27120194584356,3' UTR
+Teff,mmu-miR-20a-5p,Xiap,1,5.96511627906977,3' UTR
+Teff,mmu-miR-93-5p,Xiap,1,4.38751480759677,3' UTR
+Teff,mmu-miR-466i-5p,Elf4,1,7.84848127797726,5' UTR
+Teff,mmu-miR-652-3p,Tmem164,2,13.4428927553928,ncRNA_exon
+Tmem,mmu-miR-92a-3p,Pcmtd1,1,11.9392760310469,3' UTR
+Tmem,mmu-miR-92a-3p,Tram2,1,4.47894736842105,3' UTR
+Tmem,mmu-miR-484,Ptpn18,1,5.86720089519375,3' UTR
+Tmem,mmu-miR-466i-5p,Fam168b,1,3.5593537414966,3' UTR
+Tmem,mmu-miR-92a-3p,Map4k4,1,3.98876404494382,CDS
+Tmem,mmu-miR-17-5p,Nabp1,1,6.01615433538266,3' UTR
+Tmem,mmu-miR-20a-5p,Nabp1,1,4.5,3' UTR
+Tmem,mmu-miR-466i-5p,Ankrd44,1,6.29084284819579,intron
+Tmem,mmu-miR-466f-3p,Casp8,2,16.2688822763323,3' UTR
+Tmem,mmu-let-7f-5p,Nop58,1,6.61254065255235,ncRNA_exon
+Tmem,mmu-let-7g-5p,Nop58,1,5.6726787656811,ncRNA_exon
+Tmem,mmu-miR-142a-3p,Nop58,1,5.40766876134934,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Ino80d,1,3.45180722891566,intron
+Tmem,mmu-let-7a-5p,Arpc2,1,5.96300287356322,CDS
+Tmem,mmu-miR-1839-5p,Arpc2,1,3.5,CDS
+Tmem,mmu-miR-31-5p,Mrpl44,1,14.9828239289446,5' UTR
+Tmem,mmu-miR-3535,Ncl,2,58.5889601892125,ncRNA_exon
+Tmem,mmu-miR-16-5p,Hjurp,1,8.81645303211073,3' UTR
+Tmem,mmu-miR-466i-5p,Arl4c,1,7.35812198067633,3' UTR
+Tmem,mmu-miR-142a-5p,Septin2,1,4.05430133591898,3' UTR
+Tmem,mmu-miR-15a-5p,Septin2,1,7.23346527068437,3' UTR
+Tmem,mmu-miR-15b-5p,Bcl2,1,4.27885597548519,3' UTR
+Tmem,mmu-miR-466i-5p,Bcl2,6,43.5653515082307,intron
+Tmem,mmu-miR-142a-3p,Bcl2,1,4.7794707297514,intron
+Tmem,mmu-miR-106b-5p,Atp2b4,1,3.94750908713981,3' UTR
+Tmem,mmu-miR-27a-3p,Btg2,1,4.96511627906977,3' UTR
+Tmem,mmu-miR-27b-3p,Btg2,1,4,3' UTR
+Tmem,mmu-miR-92a-3p,Btg2,1,6.99462365591398,3' UTR
+Tmem,mmu-miR-342-3p,Ptprc,1,7.94089147286822,3' UTR
+Tmem,mmu-miR-27a-3p,Ptprc,1,18.5542788902682,CDS
+Tmem,mmu-miR-19b-3p,Ivns1abp,1,6.32236842105263,3' UTR
+Tmem,mmu-miR-20a-5p,Smg7,1,7.72547702358352,CDS
+Tmem,mmu-miR-466i-5p,Rnasel,1,11.4436905910348,3' UTR
+Tmem,mmu-miR-210-3p,Prrc2c,1,3.17486255914433,CDS
+Tmem,mmu-miR-17-5p,Uhmk1,1,3.46022727272727,3' UTR
+Tmem,mmu-miR-142a-3p,Fcrla,1,6.25275491074173,ncRNA_exon
+Tmem,mmu-miR-103-3p,Tagln2,1,4.73091939952323,3' UTR
+Tmem,mmu-miR-210-3p,Adss,1,3.69983141533249,CDS
+Tmem,mmu-miR-92a-3p,Wdr26,1,8.13372093023256,3' UTR
+Tmem,mmu-miR-142a-3p,Mia3,1,7.64236666929108,CDS
+Tmem,mmu-miR-26a-5p,Rps12,3,196.181410390805,ncRNA_exon
+Tmem,mmu-miR-26b-5p,Rps12,3,245.097003865088,ncRNA_exon
+Tmem,mmu-miR-93-5p,Rps12,1,4.84015761234071,ncRNA_exon
+Tmem,mmu-miR-142a-5p,Themis,1,4.4409604763053,3' UTR
+Tmem,mmu-miR-147-3p,Tspyl4,1,4.72065348994449,3' UTR
+Tmem,mmu-miR-92a-3p,Fyn,1,8.97985769183847,5' UTR
+Tmem,mmu-miR-466f-3p,Traf3ip2,1,5.79111335230836,intron
+Tmem,mmu-miR-142a-3p,Rev3l,1,6.19118552444803,3' UTR
+Tmem,mmu-miR-142a-3p,Sesn1,1,4.85542104478282,CDS
+Tmem,mmu-let-7d-5p,Ascc3,1,14.2601605881895,CDS
+Tmem,mmu-miR-24-3p,Vsir,1,6.77495745887691,3' UTR
+Tmem,mmu-miR-92a-3p,Vsir,1,4.75094996089226,3' UTR
+Tmem,mmu-miR-142a-3p,Cisd1,1,15.8197633955478,3' UTR
+Tmem,mmu-miR-23a-3p,Zwint,2,8.67155205905206,3' UTR
+Tmem,mmu-let-7a-5p,Pfkl,1,3.62165257223397,CDS
+Tmem,mmu-let-7a-5p,Cdc34,1,4,3' UTR
+Tmem,mmu-let-7g-5p,Cdc34,1,5.47023117654656,3' UTR
+Tmem,mmu-miR-142a-3p,Bsg,1,5.74942220754286,3' UTR
+Tmem,mmu-miR-92a-3p,Cnn2,1,7.27349748132677,3' UTR
+Tmem,mmu-miR-23a-3p,Cnn2,1,9.74934304040869,3' UTR
+Tmem,mmu-miR-155-5p,Csnk1g2,1,21.5016420361248,3' UTR
+Tmem,mmu-miR-26b-5p,Mknk2,1,8.3692085804478,3' UTR
+Tmem,mmu-miR-466i-5p,Zbtb7a,2,8.10241912906715,3' UTR
+Tmem,mmu-miR-142a-3p,Tmpo,1,4.39759994760381,3' UTR
+Tmem,mmu-miR-92a-3p,Cdk17,1,4.30041797283177,3' UTR
+Tmem,mmu-miR-210-3p,Cdk17,1,5.33970756012987,3' UTR
+Tmem,mmu-miR-25-3p,Rassf3,1,9.93219256246758,3' UTR
+Tmem,mmu-miR-16-5p,Xpot,1,4.18548495456558,CDS
+Tmem,mmu-miR-466f-3p,Ppm1h,1,6.47807253353177,intron
+Tmem,mmu-miR-677-5p,Atp5b,1,7.43333333333333,ncRNA_exon
+Tmem,mmu-miR-142a-3p,Baz2a,1,5.0421188630491,CDS
+Tmem,mmu-miR-324-5p,Suox,1,5.1164208925403,3' UTR
+Tmem,mmu-miR-24-3p,Myo1g,1,3.96022727272727,3' UTR
+Tmem,mmu-miR-92a-3p,Ikzf1,1,27.7767369270275,3' UTR
+Tmem,mmu-miR-27a-3p,Ikzf1,1,20.1962294845164,3' UTR
+Tmem,mmu-miR-26b-5p,B3gnt2,1,3.85871212121212,3' UTR
+Tmem,mmu-let-7a-5p,Stk10,1,5.29434430512017,CDS
+Tmem,mmu-miR-210-3p,Dock2,1,5,3' UTR
+Tmem,mmu-let-7f-5p,Dock2,1,6.48866011116679,intron
+Tmem,mmu-miR-466i-5p,Adam19,1,11.5329618477908,3' UTR
+Tmem,mmu-miR-155-5p,Itk,1,11.8614803305712,3' UTR
+Tmem,mmu-miR-423-3p,Rack1,1,6.12756102908148,5' UTR
+Tmem,mmu-miR-92a-3p,Irgm1,1,8.31446791521598,CDS
+Tmem,mmu-miR-342-3p,Zfp62,1,4.94230769230769,CDS
+Tmem,mmu-miR-142a-3p,Rapgef6,1,7.9978966714531,3' UTR
+Tmem,mmu-miR-671-5p,Anxa6,1,3.57160166574467,3' UTR
+Tmem,mmu-miR-466i-5p,Larp1,2,23.9312128246142,3' UTR
+Tmem,mmu-miR-466i-5p,Gid4,1,5.80966393576694,5' UTR
+Tmem,mmu-miR-466i-5p,Akap10,1,3.45505617977528,3' UTR
+Tmem,mmu-miR-92a-3p,Akap10,1,4.00406189461234,CDS
+Tmem,mmu-let-7g-5p,Cox10,1,6.46067415730337,CDS
+Tmem,mmu-miR-92a-3p,Trappc1,1,5.88626056899573,CDS
+Tmem,mmu-miR-210-3p,Kdm6b,2,12.7568974312416,CDS
+Tmem,mmu-miR-29b-3p,Eif5a,1,4.89755639097744,CDS
+Tmem,mmu-miR-21a-5p,Rnf167,1,5.21853334293293,3' UTR
+Tmem,mmu-miR-103-3p,Pfn1,1,11.6868740824594,3' UTR
+Tmem,mmu-miR-16-5p,Pfn1,1,4.12940895913148,3' UTR
+Tmem,mmu-miR-92a-3p,Pfn1,1,12.2786857856092,3' UTR
+Tmem,mmu-miR-466i-5p,Spag7,1,8.18658168937093,3' UTR
+Tmem,mmu-miR-26a-5p,Mybbp1a,1,4.28749703970739,CDS
+Tmem,mmu-miR-92a-3p,Zzef1,1,9.05480307035991,CDS
+Tmem,mmu-miR-24-3p,Prpf8,1,3.82858693364083,CDS
+Tmem,mmu-miR-92a-3p,Myo1c,2,31.7716815619778,3' UTR
+Tmem,mmu-miR-29b-3p,Blmh,1,4.39130212434425,3' UTR
+Tmem,mmu-miR-423-3p,Nsrp1,1,8,ncRNA_exon
+Tmem,mmu-miR-23a-3p,Ssh2,1,5.35800889877642,ncRNA_exon
+Tmem,mmu-miR-23b-3p,Ssh2,1,6.66273844715179,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Nufip2,2,22.1149496099459,3' UTR
+Tmem,mmu-let-7d-5p,Fam222b,1,4.80143540669856,CDS
+Tmem,mmu-miR-142a-3p,Aatf,1,8.99302584147496,CDS
+Tmem,mmu-miR-21a-3p,Vmp1,2,7.88591061781221,3' UTR
+Tmem,mmu-miR-21a-5p,Vmp1,2,9.17945539967279,3' UTR
+Tmem,mmu-miR-466i-5p,Trim25,2,11.2897978315188,3' UTR
+Tmem,mmu-miR-466i-5p,Spop,2,17.6969233838409,5' UTR
+Tmem,mmu-miR-466i-5p,Skap1,2,10.3920215068386,intron
+Tmem,mmu-miR-466i-5p,Msl1,2,12.2499573873068,3' UTR
+Tmem,mmu-miR-29b-3p,Top2a,1,3.5,CDS
+Tmem,mmu-miR-15a-5p,Ccr7,1,10.5284090909091,3' UTR
+Tmem,mmu-miR-15b-5p,Ccr7,1,12.9845808802916,3' UTR
+Tmem,mmu-miR-16-5p,Ccr7,1,16.2948446794448,3' UTR
+Tmem,mmu-miR-27a-3p,Acly,1,3.96111111111111,3' UTR
+Tmem,mmu-miR-466i-5p,Ubtf,1,4.71991185897436,3' UTR
+Tmem,mmu-miR-466i-5p,Itgb3,1,14.6306125765948,3' UTR
+Tmem,mmu-miR-210-3p,Bptf,1,5.62650838202161,CDS
+Tmem,mmu-miR-103-3p,Gga3,1,6.57170923667093,3' UTR
+Tmem,mmu-miR-142a-3p,Gga3,1,4.71511627906977,3' UTR
+Tmem,mmu-miR-142a-3p,H3f3b,1,4.77305581544054,3' UTR
+Tmem,mmu-miR-142a-3p,Tnrc6c,1,5.23786682494548,CDS
+Tmem,mmu-miR-92a-3p,Rnf213,1,4.96993625441178,CDS
+Tmem,mmu-miR-142a-3p,Slc38a10,1,10.3086564605694,3' UTR
+Tmem,mmu-miR-16-5p,Arhgdia,1,4.96066573875563,3' UTR
+Tmem,mmu-miR-484,Fasn,1,5.45872463028137,CDS
+Tmem,mmu-miR-425-5p,Fasn,1,8.25119423872195,CDS
+Tmem,mmu-miR-18a-5p,Fasn,1,7.88388482659924,CDS
+Tmem,mmu-miR-92a-3p,Slc16a3,1,3.4438202247191,CDS
+Tmem,mmu-miR-24-3p,Dtnb,1,3.83832721009049,3' UTR
+Tmem,mmu-miR-142a-5p,Id2,1,33.3755798844893,3' UTR
+Tmem,mmu-miR-30d-5p,Ccdc71l,1,14.9635931597139,3' UTR
+Tmem,mmu-miR-30e-5p,Ccdc71l,1,30.6635178832158,3' UTR
+Tmem,mmu-miR-466f-3p,Atxn7l1,1,9.06278940982658,intron
+Tmem,mmu-miR-142a-3p,Hectd1,1,4.2850533672449,3' UTR
+Tmem,mmu-miR-15a-5p,Mthfd1,1,3.5,CDS
+Tmem,mmu-miR-142a-3p,Gphn,1,4.5,intron
+Tmem,mmu-miR-423-3p,Gphn,1,7.5,intron
+Tmem,mmu-miR-106b-5p,Zfyve26,1,3.47252747252747,3' UTR
+Tmem,mmu-miR-466i-5p,Srsf5,2,12.8377518686664,5' UTR
+Tmem,mmu-miR-142a-3p,Elmsan1,1,4.46720430107527,3' UTR
+Tmem,mmu-miR-27a-3p,Erg28,1,7.48295009145545,3' UTR
+Tmem,mmu-miR-142a-3p,Psmc1,1,6.80937508232133,CDS
+Tmem,mmu-miR-466i-5p,Itpk1,2,26.2576680720164,3' UTR
+Tmem,mmu-miR-24-3p,Gm20604,1,5.43103448275862,3' UTR
+Tmem,mmu-let-7g-5p,Dicer1,1,9.6560015446822,CDS
+Tmem,mmu-miR-466i-5p,Bcl11b,2,10.7420111235352,"3' UTR,intron"
+Tmem,mmu-miR-466f-3p,Bcl11b,1,9.67003003003003,intron
+Tmem,mmu-miR-466h-3p,Bcl11b,1,3.39021461111677,intron
+Tmem,mmu-miR-92a-3p,Ccnk,1,5.80670330488025,CDS
+Tmem,mmu-miR-342-3p,Evl,1,5.80534946063432,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Evl,2,22.6569543903637,ncRNA_exon
+Tmem,mmu-miR-466f-3p,Evl,2,10.2924596345516,intron
+Tmem,mmu-miR-92a-3p,Mta1,1,4.00367885671623,CDS
+Tmem,mmu-miR-466i-5p,Tedc1,2,9.3533382301712,3' UTR
+Tmem,mmu-miR-23a-3p,Zfp386,1,4.00194013303769,CDS
+Tmem,mmu-miR-17-5p,Tasor2,1,4.32405094905095,CDS
+Tmem,mmu-miR-20a-5p,Tasor2,1,7.7948625330398,CDS
+Tmem,mmu-miR-17-5p,Pfkp,1,9.79930534581698,3' UTR
+Tmem,mmu-miR-20a-5p,Pfkp,1,6.83643546971027,3' UTR
+Tmem,mmu-miR-466f-3p,Pfkp,2,9.84222325293754,intron
+Tmem,mmu-miR-142a-3p,Lyst,1,5.26091538901496,3' UTR
+Tmem,mmu-miR-466f-3p,Elmo1,2,12.1096546323959,intron
+Tmem,mmu-miR-142a-3p,H4c11,1,4.76872533147668,3' UTR
+Tmem,mmu-miR-16-5p,H4c11,1,7.25069323439284,3' UTR
+Tmem,mmu-miR-24-3p,H2bc12,1,4.19844717391571,5' UTR
+Tmem,mmu-miR-24-3p,H2bc11,1,15.5542017714179,5' UTR
+Tmem,mmu-miR-24-3p,H2bc9,1,4.50300894001861,5' UTR
+Tmem,mmu-miR-484,H4c6,1,4.65111962724795,CDS
+Tmem,mmu-miR-23a-3p,H1f3,2,11.1161676657067,CDS
+Tmem,mmu-miR-23b-3p,H1f3,1,4.56426396274515,CDS
+Tmem,mmu-miR-671-5p,H1f4,1,7.91885470426023,5' UTR
+Tmem,mmu-miR-34a-5p,H2bc4,2,20.7872688114837,"3' UTR,intron"
+Tmem,mmu-miR-652-3p,H3c3,1,6.41490040858018,3' UTR
+Tmem,mmu-miR-652-3p,H3c2,1,4.38098928064058,3' UTR
+Tmem,mmu-miR-24-3p,BC005537,1,3.5,CDS
+Tmem,mmu-miR-23a-3p,Riok1,1,5.50276576071355,3' UTR
+Tmem,mmu-miR-466i-5p,Atxn1,1,3.69246794871795,intron
+Tmem,mmu-miR-92a-3p,Fam120a,1,5.84659090909091,CDS
+Tmem,mmu-miR-142a-3p,Hnrnpa0,1,3.86242596518905,3' UTR
+Tmem,mmu-miR-466f-3p,Fancc,1,3.87592273879869,intron
+Tmem,mmu-miR-23a-3p,Zfp429,1,4.42044867504961,3' UTR
+Tmem,mmu-miR-425-5p,Sdha,1,4.31072796934866,CDS
+Tmem,mmu-miR-142a-3p,Rasa1,1,3.48594378807022,CDS
+Tmem,mmu-miR-21a-5p,Ssbp2,1,9.24337669666459,intron
+Tmem,mmu-miR-142a-3p,Iqgap2,1,4.78964737935274,CDS
+Tmem,mmu-miR-142a-3p,Hexb,1,13.9451219512195,intron
+Tmem,mmu-miR-210-3p,Hexb,1,3,intron
+Tmem,mmu-miR-23a-3p,Hexb,1,5,intron
+Tmem,mmu-miR-27a-3p,Hexb,1,18.9811649808162,intron
+Tmem,mmu-miR-27b-3p,Hexb,1,9.97826086956522,intron
+Tmem,mmu-miR-92a-3p,Hexb,1,5.97093023255814,intron
+Tmem,mmu-miR-27a-3p,Tnpo1,1,3,3' UTR
+Tmem,mmu-miR-34a-5p,Il31ra,1,3.5,intron
+Tmem,mmu-miR-106a-5p,Paip1,1,3.5,3' UTR
+Tmem,mmu-miR-17-5p,Paip1,1,11.049231792666,3' UTR
+Tmem,mmu-miR-20a-5p,Paip1,1,7.95819084687732,3' UTR
+Tmem,mmu-miR-20b-5p,Paip1,1,4.42548328108673,3' UTR
+Tmem,mmu-miR-93-5p,Paip1,1,5.94117647058824,3' UTR
+Tmem,mmu-miR-29b-3p,Hmgcs1,1,4.42928478187117,3' UTR
+Tmem,mmu-miR-466f-3p,Gng2,1,3.5,intron
+Tmem,mmu-miR-92a-3p,Dnajc9,1,10.4431743750673,CDS
+Tmem,mmu-miR-155-5p,Tspan14,1,6.51901427703285,3' UTR
+Tmem,mmu-miR-466i-5p,Mapk1ip1l,1,9.69960265462883,3' UTR
+Tmem,mmu-miR-210-3p,Oxa1l,1,5.44470811580446,3' UTR
+Tmem,mmu-miR-466i-5p,Spata13,1,4.33141207951891,3' UTR
+Tmem,mmu-miR-466f-3p,Dpysl2,1,4.62225703854261,intron
+Tmem,mmu-miR-210-3p,Kctd9,1,4.76350680677829,3' UTR
+Tmem,mmu-miR-466i-5p,Reep4,2,14.9907710305893,3' UTR
+Tmem,mmu-miR-466i-5p,Fam160b2,2,20.0557730219049,3' UTR
+Tmem,mmu-miR-466i-5p,Rnf219,1,12.3155049065293,3' UTR
+Tmem,mmu-miR-466f-3p,Dnajc3,3,23.3913822234332,intron
+Tmem,mmu-miR-23a-3p,Dnajc3,1,4.82506132393461,CDS
+Tmem,mmu-miR-24-3p,Tm9sf2,1,5.66434040009655,CDS
+Tmem,mmu-miR-142a-3p,Tm9sf2,1,5.69326391998806,CDS
+Tmem,mmu-miR-18a-5p,Tm9sf2,1,5.51531280707501,3' UTR
+Tmem,mmu-miR-142a-3p,Ttc33,1,4.45037239848076,CDS
+Tmem,mmu-miR-466i-5p,Rictor,1,10.423791973792,3' UTR
+Tmem,mmu-miR-15b-5p,Il7r,1,14.9139937391269,3' UTR
+Tmem,mmu-miR-24-3p,Sub1,1,12.5242709143146,3' UTR
+Tmem,mmu-miR-210-3p,Marchf6,1,5.70415664260893,3' UTR
+Tmem,mmu-miR-744-5p,Pabpc1,1,5.41502662228641,5' UTR
+Tmem,mmu-let-7b-5p,Myc,2,8.52133714523041,3' UTR
+Tmem,mmu-miR-24-3p,Ptp4a3,1,6.15243250467789,5' UTR
+Tmem,mmu-miR-16-5p,Ly6e,1,4.15505050505051,3' UTR
+Tmem,mmu-miR-24-3p,Ly6e,1,6.93965517241379,3' UTR
+Tmem,mmu-miR-671-5p,Ly6e,1,15.2098789188558,3' UTR
+Tmem,mmu-miR-16-5p,Ly6a,1,6.68651903651904,3' UTR
+Tmem,mmu-miR-92a-3p,Ly6a,1,4.48843205795453,3' UTR
+Tmem,mmu-miR-24-3p,Plec,1,6.89084949712644,3' UTR
+Tmem,mmu-miR-26b-5p,Rac2,1,4.43911544896456,3' UTR
+Tmem,mmu-let-7i-5p,Rac2,2,41.2232432208862,3' UTR
+Tmem,mmu-miR-466i-5p,Rac2,1,7.1708455165692,intron
+Tmem,mmu-miR-142a-3p,Lgals1,1,3.74167324426967,3' UTR
+Tmem,mmu-miR-103-3p,Sun2,1,4.92249417249417,3' UTR
+Tmem,mmu-let-7f-5p,Apobec3,1,6.04713795863052,3' UTR
+Tmem,mmu-miR-466i-5p,Grap2,2,52.6104080692872,3' UTR
+Tmem,mmu-miR-24-3p,Tob2,1,5.10297001961334,CDS
+Tmem,mmu-miR-92a-3p,Tcf20,1,6.71934460887949,CDS
+Tmem,mmu-miR-466i-5p,Prr5,1,13.8719852485478,3' UTR
+Tmem,mmu-miR-30e-5p,Sbf1,1,5.25325900422278,3' UTR
+Tmem,mmu-miR-466i-5p,Ccnt1,1,6.44827586206897,3' UTR
+Tmem,mmu-miR-466i-5p,Arf3,2,9.56156872827555,3' UTR
+Tmem,mmu-miR-130b-5p,Kmt2d,1,3.16749027376919,3' UTR
+Tmem,mmu-miR-24-3p,Lmbr1l,1,6.18151852734852,3' UTR
+Tmem,mmu-miR-24-3p,Tuba1b,2,78.5339503630213,CDS
+Tmem,mmu-miR-24-3p,Tuba1c,1,4.97687784014969,CDS
+Tmem,mmu-miR-210-3p,Dip2b,1,5.38806037716326,3' UTR
+Tmem,mmu-miR-466f-3p,Bin2,1,3.35448717948718,3' UTR
+Tmem,mmu-miR-92a-3p,Itgb7,1,13.2108030799578,CDS
+Tmem,mmu-miR-23a-3p,Glyr1,1,3.5,3' UTR
+Tmem,mmu-miR-19b-3p,Socs1,1,7.2009765464045,3' UTR
+Tmem,mmu-miR-18a-5p,Socs1,1,5.18445220911139,CDS
+Tmem,mmu-miR-466i-5p,Rmi2,1,6.01785714285714,3' UTR
+Tmem,mmu-miR-210-3p,Zdhhc8,1,9.85294893126749,CDS
+Tmem,mmu-let-7b-5p,Alg3,1,4.15086206896552,3' UTR
+Tmem,mmu-miR-92a-3p,Eif4a2,1,8.49272409257517,3' UTR
+Tmem,mmu-miR-19b-3p,Fam162a,1,3.77091090670725,3' UTR
+Tmem,mmu-miR-466i-5p,Gsk3b,1,4.75481886591416,3' UTR
+Tmem,mmu-miR-3473b,Zbtb20,2,41.7551673081008,intron
+Tmem,mmu-miR-690,Zbtb20,1,22.0222317679654,intron
+Tmem,mmu-miR-142a-3p,Cd47,1,3.96491228070175,CDS
+Tmem,mmu-let-7i-5p,Bbx,1,5.35496209881189,3' UTR
+Tmem,mmu-miR-466i-5p,Cep97,1,5.02146293843264,3' UTR
+Tmem,mmu-miR-23a-3p,Tomm70a,1,22.5039914430062,CDS
+Tmem,mmu-miR-23b-3p,Tomm70a,1,13.5101335438087,CDS
+Tmem,mmu-miR-210-3p,Cmss1,2,12.472685359042,intron
+Tmem,mmu-miR-142a-3p,Cmss1,1,7.04509406703071,intron
+Tmem,mmu-miR-24-3p,Scaf4,1,3.81329454702338,CDS
+Tmem,mmu-miR-103-3p,Atp5o,1,6.99495800473301,5' UTR
+Tmem,mmu-miR-466i-5p,Lnpep,2,24.3898308226309,3' UTR
+Tmem,mmu-let-7d-5p,Kremen2,1,4.98214285714286,3' UTR
+Tmem,mmu-miR-31-5p,Pgp,1,8.81249776298907,3' UTR
+Tmem,mmu-miR-466i-5p,Neurl1b,1,8.28372759035455,3' UTR
+Tmem,mmu-miR-26b-5p,Atp6v0e,1,6.48387096774194,3' UTR
+Tmem,mmu-miR-16-5p,Pim1,1,6.16109752258631,3' UTR
+Tmem,mmu-miR-26a-5p,Pim1,1,49.4961885122075,3' UTR
+Tmem,mmu-miR-26b-5p,Pim1,1,9.42312280189493,3' UTR
+Tmem,mmu-let-7f-5p,Pim1,1,4.34892146949781,3' UTR
+Tmem,mmu-let-7g-5p,Pim1,1,6.71264367816092,3' UTR
+Tmem,mmu-let-7i-5p,Pim1,1,4.82053231639845,3' UTR
+Tmem,mmu-miR-210-3p,Pim1,1,10.6959180770872,3' UTR
+Tmem,mmu-miR-33-5p,Pim1,1,99.6221371025126,3' UTR
+Tmem,mmu-miR-342-5p,Pim1,1,3.99397590361446,3' UTR
+Tmem,mmu-miR-466i-5p,Tbc1d22b,1,4.84153182386183,3' UTR
+Tmem,mmu-miR-92a-3p,Sik1,1,3.93396535580524,3' UTR
+Tmem,mmu-miR-142a-3p,Pglyrp2,1,15.8039407457047,CDS
+Tmem,mmu-miR-466i-5p,Zfp871,3,13.7952855535933,3' UTR
+Tmem,mmu-let-7d-5p,Myo1f,1,3.94943820224719,3' UTR
+Tmem,mmu-miR-23b-3p,H2-K1,1,17.8819591238795,CDS
+Tmem,mmu-miR-466i-5p,Rnf5,1,3.36842105263158,5' UTR
+Tmem,mmu-miR-155-5p,Abhd16a,1,4.31048703849175,3' UTR
+Tmem,mmu-miR-342-3p,Ltb,1,58.2472524521204,3' UTR
+Tmem,mmu-miR-24-3p,Tubb5,1,9.95857214299327,3' UTR
+Tmem,mmu-miR-92a-3p,Tubb5,1,6.08637039636462,5' UTR
+Tmem,mmu-miR-466i-5p,Enpp4,1,3.35387800605192,3' UTR
+Tmem,mmu-miR-425-5p,Polh,1,5.04377649215259,3' UTR
+Tmem,mmu-miR-24-3p,Ccnd3,1,4.82183908045977,3' UTR
+Tmem,mmu-miR-671-5p,Ccnd3,1,4.53482543861521,3' UTR
+Tmem,mmu-miR-466i-5p,Plcl2,2,7.80396955152821,intron
+Tmem,mmu-miR-466f-3p,Plcl2,3,72.0780861206313,intron
+Tmem,mmu-miR-92a-3p,Plin3,1,3.58510638297872,3' UTR
+Tmem,mmu-miR-30b-5p,Birc6,1,3.85632183908046,intron
+Tmem,mmu-miR-466i-5p,Strn,1,5.05411040037906,3' UTR
+Tmem,mmu-miR-23a-3p,Zfp36l2,1,4.71812938617977,CDS
+Tmem,mmu-miR-210-3p,Zfp36l2,1,7.21900805478454,5' UTR
+Tmem,mmu-miR-466i-5p,Lrpprc,1,5.80987889846909,3' UTR
+Tmem,mmu-miR-24-3p,Gm10184,1,7.81641090131467,5' UTR
+Tmem,mmu-miR-26a-5p,Cul2,1,6.34069734826152,3' UTR
+Tmem,mmu-miR-466i-5p,Slc25a46,1,3.5157643370828,3' UTR
+Tmem,mmu-miR-26b-5p,Etf1,1,4.95454545454546,3' UTR
+Tmem,mmu-miR-30e-5p,Srfbp1,1,7.35206228956229,CDS
+Tmem,mmu-miR-29a-3p,Lmnb1,1,5.48246352413019,3' UTR
+Tmem,mmu-miR-17-5p,Csnk1a1,1,6,3' UTR
+Tmem,mmu-miR-15b-5p,Rpl17,1,7.95348837209302,ncRNA_exon
+Tmem,mmu-miR-219a-5p,Rpl17,1,44.3780489551424,ncRNA_exon
+Tmem,mmu-miR-92a-3p,Rpl17,1,3.4811736770692,ncRNA_exon
+Tmem,mmu-miR-23a-3p,Epg5,1,3,3' UTR
+Tmem,mmu-miR-17-5p,AI837181,1,4.4262897620957,3' UTR
+Tmem,mmu-miR-17-5p,Frmd8,1,5.97583594566353,3' UTR
+Tmem,mmu-miR-15b-5p,Arl2,1,4.94427210783423,3' UTR
+Tmem,mmu-miR-24-3p,Naa40,1,4.73076256455779,3' UTR
+Tmem,mmu-miR-17-5p,Atl3,1,7.97159090909091,3' UTR
+Tmem,mmu-miR-142a-3p,Nxf1,2,19.5728467144604,3' UTR
+Tmem,mmu-miR-30c-5p,Ahnak,1,8.41510774066834,3' UTR
+Tmem,mmu-miR-150-5p,Fth1,1,4.5,CDS
+Tmem,mmu-miR-92a-3p,Fth1,1,15.0364137306831,CDS
+Tmem,mmu-miR-142a-3p,Ddb1,1,5.5,CDS
+Tmem,mmu-miR-466i-5p,Ms4a4c,1,4,3' UTR
+Tmem,mmu-miR-106a-5p,Ms4a4b,1,3,3' UTR
+Tmem,mmu-miR-142a-3p,Ms4a4b,1,7.3528538393404,3' UTR
+Tmem,mmu-miR-17-5p,Ms4a4b,1,4.66666666666667,3' UTR
+Tmem,mmu-let-7d-5p,Patl1,1,10,3' UTR
+Tmem,mmu-let-7i-5p,Patl1,1,4.96078431372549,3' UTR
+Tmem,mmu-miR-466f-3p,Dock8,1,4.08075227373558,intron
+Tmem,mmu-let-7d-5p,Dock8,1,6.07931204523538,CDS
+Tmem,mmu-miR-17-5p,Tnks2,1,5.48707180500659,3' UTR
+Tmem,mmu-miR-18a-5p,Pdlim1,1,5.41258235451358,3' UTR
+Tmem,mmu-miR-103-3p,Scd2,1,5.19001485919147,CDS
+Tmem,mmu-miR-92a-3p,Oga,1,4.67723551808126,3' UTR
+Tmem,mmu-miR-92a-3p,Hps6,1,5.38077695994196,3' UTR
+Tmem,mmu-miR-466i-5p,Wbp1l,1,3.48591549295775,3' UTR
+Tmem,mmu-let-7d-5p,Dusp5,1,3.5,CDS
+Tmem,mmu-let-7i-5p,Dusp5,1,9.47300312360553,CDS
+Tmem,mmu-miR-466f-3p,Pdcd4,4,34.663358415771,intron
+Tmem,mmu-miR-466i-5p,Ablim1,3,21.0014228357128,intron
+Tmem,mmu-miR-142a-3p,Camk1d,1,3.41637497354438,intron
+Tmem,mmu-miR-29b-3p,Camk1d,1,4.79493288298441,intron
+Tmem,mmu-miR-34a-5p,Camk1d,2,15.5463431696877,intron
+Tmem,mmu-let-7i-5p,Prkcq,1,22.5395127398599,3' UTR
+Tmem,mmu-miR-142a-3p,Il2ra,1,6.70710372882582,3' UTR
+Tmem,mmu-miR-103-3p,Vim,1,23.2496967153219,CDS
+Tmem,mmu-miR-142a-3p,Vim,1,6.25910221752401,CDS
+Tmem,mmu-miR-15a-5p,Vim,1,7.7792532062195,CDS
+Tmem,mmu-miR-15b-5p,Vim,1,10.971636791056,CDS
+Tmem,mmu-miR-16-5p,Vim,1,23.5579846288245,CDS
+Tmem,mmu-miR-31-5p,Psd4,1,8.61543108054736,3' UTR
+Tmem,mmu-miR-193a-3p,Psd4,1,7.34805497539225,3' UTR
+Tmem,mmu-miR-23b-3p,Tubb4b,2,8.4458460512233,CDS
+Tmem,mmu-miR-342-3p,Rpl7a,1,12.1350498334253,ncRNA_exon
+Tmem,mmu-miR-25-3p,Rpl7a,3,298.249788584244,ncRNA_exon
+Tmem,mmu-miR-26b-5p,Rpl7a,2,12.6699949904824,ncRNA_exon
+Tmem,mmu-miR-92a-3p,Rpl7a,3,45.7358447263403,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Cacfd1,1,4.19014677233018,3' UTR
+Tmem,mmu-miR-466i-5p,Fnbp1,2,27.1313543889376,3' UTR
+Tmem,mmu-miR-210-3p,Fnbp1,1,8.45977011494253,CDS
+Tmem,mmu-miR-24-3p,Fam78a,1,17.2827850155721,3' UTR
+Tmem,mmu-miR-15b-5p,Fam78a,1,5.3,3' UTR
+Tmem,mmu-miR-191-5p,Fam78a,1,75.33500864296,3' UTR
+Tmem,mmu-let-7a-5p,Fam78a,1,17.8518778401497,3' UTR
+Tmem,mmu-let-7g-5p,Marchf7,1,18.0717647030373,CDS
+Tmem,mmu-let-7f-5p,Rbms1,1,5.40418274254481,3' UTR
+Tmem,mmu-let-7g-5p,Rbms1,1,7,3' UTR
+Tmem,mmu-miR-142a-3p,Ssb,1,8.49089598612874,CDS
+Tmem,mmu-miR-23a-3p,Ssb,1,5.08480393777778,CDS
+Tmem,mmu-miR-142a-5p,Dync1i2,1,6.84090909090909,intron
+Tmem,mmu-miR-210-3p,Dync1i2,1,4.55090987263308,CDS
+Tmem,mmu-miR-210-3p,Celf1,1,7.30020125223614,3' UTR
+Tmem,mmu-miR-466i-5p,Madd,1,5.10173745044466,3' UTR
+Tmem,mmu-miR-142a-3p,Arhgap1,1,6.4129243517776,CDS
+Tmem,mmu-miR-23a-3p,Cd44,1,3.49444463953451,intron
+Tmem,mmu-miR-92a-3p,Zfp770,1,6.93791983878191,CDS
+Tmem,mmu-miR-92a-3p,Bub1b,1,13.8650321327621,CDS
+Tmem,mmu-miR-142a-5p,Pdia3,1,3.5,3' UTR
+Tmem,mmu-miR-142a-5p,B2m,1,4.62661283698218,3' UTR
+Tmem,mmu-let-7d-5p,Atp8b4,1,5.5,3' UTR
+Tmem,mmu-let-7i-5p,Atp8b4,1,4.98275862068966,3' UTR
+Tmem,mmu-miR-92a-3p,Snrnp200,1,3.66250290662294,CDS
+Tmem,mmu-miR-21a-5p,Snrnp200,3,24.7653053476126,CDS
+Tmem,mmu-miR-466i-5p,Dusp2,2,19.5231811469447,3' UTR
+Tmem,mmu-miR-106b-5p,Dusp2,1,5.07271918635049,3' UTR
+Tmem,mmu-miR-24-3p,Nop56,1,21.9149122807018,ncRNA_exon
+Tmem,mmu-miR-484,Nop56,1,6.8560039545674,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Cds2,1,7.47173612939998,3' UTR
+Tmem,mmu-miR-92a-3p,Snx5,1,4,ncRNA_exon
+Tmem,mmu-miR-92a-3p,Xrn2,1,5.96754057428215,CDS
+Tmem,mmu-miR-24-3p,Entpd6,1,3.77478220174239,3' UTR
+Tmem,mmu-miR-210-3p,H13,1,11.8662790697674,5' UTR
+Tmem,mmu-miR-24-3p,Trpc4ap,1,8.70225966562174,3' UTR
+Tmem,mmu-miR-24-3p,Cpne1,1,5.93563426682914,3' UTR
+Tmem,mmu-let-7g-5p,Serinc3,1,10.6397083433208,CDS
+Tmem,mmu-miR-23a-3p,Pigt,1,3.4875,3' UTR
+Tmem,mmu-miR-466f-3p,Eya2,1,4.34054834054834,intron
+Tmem,mmu-miR-106a-5p,Znfx1,1,4,3' UTR
+Tmem,mmu-miR-17-5p,Znfx1,1,4.68468468468469,3' UTR
+Tmem,mmu-miR-20a-5p,Znfx1,1,15.1994245358875,3' UTR
+Tmem,mmu-miR-20b-5p,Znfx1,1,4.33139534883721,3' UTR
+Tmem,mmu-miR-210-3p,B4galt5,2,48.7035916039806,3' UTR
+Tmem,mmu-miR-142a-3p,Adnp,1,4.96680751170027,3' UTR
+Tmem,mmu-miR-466i-5p,Nfatc2,2,8.95467234422918,3' UTR
+Tmem,mmu-miR-24-3p,Zfp217,1,4.26520315423683,3' UTR
+Tmem,mmu-miR-210-3p,Zfp217,1,7.00970110120608,3' UTR
+Tmem,mmu-miR-744-5p,Rbm38,1,3.22271324354658,3' UTR
+Tmem,mmu-miR-16-5p,Gnas,1,74.2725447508789,3' UTR
+Tmem,mmu-miR-210-3p,Slco4a1,1,3.5,CDS
+Tmem,mmu-miR-466i-5p,Tbl1xr1,4,40.007139736886,3' UTR
+Tmem,mmu-miR-142a-3p,Ect2,1,4.88725593831613,3' UTR
+Tmem,mmu-miR-210-3p,Tnik,1,5.73432601880878,5' UTR
+Tmem,mmu-miR-142a-5p,Gnb4,1,3.91707717569787,3' UTR
+Tmem,mmu-miR-142a-3p,Elf2,1,5.69654765962535,3' UTR
+Tmem,mmu-miR-30c-5p,Exosc8,1,12.7942789968652,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Mbnl1,1,6.16723744292238,intron
+Tmem,mmu-miR-484,Mbnl1,1,7.05090637941446,5' UTR
+Tmem,mmu-miR-15a-5p,Smc4,1,3.5,ncRNA_exon
+Tmem,mmu-miR-16-5p,Smc4,1,4.85421052631579,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Kpna4,2,40.1130644646222,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Ash1l,1,4.26312576312576,3' UTR
+Tmem,mmu-miR-92a-3p,Dennd4b,1,5.84133141762452,3' UTR
+Tmem,mmu-miR-92a-3p,Mcl1,1,7.03277337518911,3' UTR
+Tmem,mmu-miR-17-5p,Txnip,2,14.0040256776692,3' UTR
+Tmem,mmu-miR-191-5p,Txnip,1,5.04104131935965,3' UTR
+Tmem,mmu-miR-20a-5p,Txnip,1,8.14818295739348,3' UTR
+Tmem,mmu-miR-142a-3p,Txnip,1,9.44952828684714,3' UTR
+Tmem,mmu-miR-15a-5p,Polr3c,2,14.5244059378894,ncRNA_exon
+Tmem,mmu-miR-155-5p,Sike1,1,4.18080783408092,3' UTR
+Tmem,mmu-miR-142a-5p,Hipk1,1,5.27587606486998,3' UTR
+Tmem,mmu-miR-155-5p,S1pr1,1,4.08518457522081,3' UTR
+Tmem,mmu-miR-466f-3p,Frrs1,1,6.84382914474966,intron
+Tmem,mmu-miR-92a-3p,Pkn2,1,3.88887166204582,3' UTR
+Tmem,mmu-miR-210-3p,Pigk,1,3.79452191619062,3' UTR
+Tmem,mmu-miR-92a-3p,Rps20,1,4.97191011235955,3' UTR
+Tmem,mmu-miR-210-3p,Ubap2,1,7.61345431789737,CDS
+Tmem,mmu-miR-466i-5p,Dcaf12,3,13.3809110260918,3' UTR
+Tmem,mmu-let-7i-5p,Sigmar1,1,11.0685976621553,CDS
+Tmem,mmu-miR-106b-5p,Sigmar1,1,7.74769038701623,CDS
+Tmem,mmu-miR-17-5p,Sigmar1,1,12.96875,CDS
+Tmem,mmu-miR-20a-5p,Sigmar1,1,22.0872830812867,CDS
+Tmem,mmu-miR-20b-5p,Sigmar1,1,7,CDS
+Tmem,mmu-miR-24-3p,Gba2,1,7.91846313505354,3' UTR
+Tmem,mmu-miR-210-3p,Glipr2,1,7.95732920154932,5' UTR
+Tmem,mmu-miR-142a-3p,Clta,1,9.90620477881072,3' UTR
+Tmem,mmu-miR-466i-5p,Slc25a51,1,5.65714984855098,3' UTR
+Tmem,mmu-miR-26b-5p,Hemgn,1,4.88774188794729,CDS
+Tmem,mmu-miR-142a-3p,Coro2a,1,9.4452750092285,3' UTR
+Tmem,mmu-miR-466i-5p,Akna,1,19.406463548963,3' UTR
+Tmem,mmu-let-7a-5p,Akna,1,52.4075085225446,CDS
+Tmem,mmu-let-7c-5p,Akna,1,4.99397590361446,CDS
+Tmem,mmu-let-7d-5p,Akna,1,116.966148245063,CDS
+Tmem,mmu-let-7f-5p,Akna,1,5.52521221969114,CDS
+Tmem,mmu-miR-466i-5p,Rraga,3,34.6356062403707,3' UTR
+Tmem,mmu-miR-466f-3p,Pgm1,1,3.92716165413534,intron
+Tmem,mmu-miR-106b-5p,Jak1,1,4.48503036437247,3' UTR
+Tmem,mmu-miR-92a-3p,Pars2,1,6.70068684436662,CDS
+Tmem,mmu-miR-20a-5p,Mast2,1,5.48611111111111,CDS
+Tmem,mmu-miR-15a-5p,Rps8,1,12.4652669441305,ncRNA_exon
+Tmem,mmu-miR-15b-5p,Rps8,1,7.45777915248995,ncRNA_exon
+Tmem,mmu-miR-16-5p,Rps8,1,15.4722222222222,ncRNA_exon
+Tmem,mmu-miR-103-3p,Rps8,2,41.560130012186,ncRNA_exon
+Tmem,mmu-miR-107-3p,Rps8,1,4.33105005345767,ncRNA_exon
+Tmem,mmu-miR-17-5p,Mtf1,1,6.26679354146022,3' UTR
+Tmem,mmu-miR-142a-3p,Pum1,1,7.21569020866774,3' UTR
+Tmem,mmu-let-7d-5p,Laptm5,1,3.20364532944551,CDS
+Tmem,mmu-miR-210-3p,Sytl1,1,15.0475996172326,CDS
+Tmem,mmu-miR-142a-3p,Cd52,1,5.98567155848169,CDS
+Tmem,mmu-miR-16-5p,Cd52,1,4.76716645622896,5' UTR
+Tmem,mmu-miR-24-3p,Cd52,1,6.407310879444,5' UTR
+Tmem,mmu-miR-744-5p,Sh3bgrl3,1,32.1574995765765,3' UTR
+Tmem,mmu-miR-466f-3p,Runx3,1,10.8584191670399,3' UTR
+Tmem,mmu-miR-23a-3p,Hp1bp3,1,5.95978935836455,CDS
+Tmem,mmu-miR-23b-3p,Hp1bp3,1,6.40152657551639,CDS
+Tmem,mmu-miR-191-5p,Iffo2,1,3.87790697674419,3' UTR
+Tmem,mmu-miR-210-3p,Sdhb,1,4.50699477162839,CDS
+Tmem,mmu-miR-18a-5p,Pik3cd,1,5.33362556010131,3' UTR
+Tmem,mmu-miR-466f-3p,Cdk6,1,8.19636185449139,intron
+Tmem,mmu-miR-466i-5p,Cdk6,1,3.95222189794073,intron
+Tmem,mmu-miR-142a-3p,Cyp51,1,6.24036242685267,CDS
+Tmem,mmu-miR-30e-5p,Dmtf1,1,7.02452234908528,3' UTR
+Tmem,mmu-miR-142a-3p,Fgl2,1,4.77844316555812,CDS
+Tmem,mmu-miR-210-3p,Prr14l,1,3.98466617754952,CDS
+Tmem,mmu-miR-155-5p,Nsd2,1,7.1432162106997,3' UTR
+Tmem,mmu-let-7i-5p,Nelfa,1,5.98133648096255,CDS
+Tmem,mmu-miR-17-5p,Wdr1,1,21.63644006998,3' UTR
+Tmem,mmu-miR-20a-5p,Wdr1,1,10.7565141494796,3' UTR
+Tmem,mmu-miR-20b-5p,Wdr1,1,8.37690717462169,3' UTR
+Tmem,mmu-miR-690,Tmprss11c,2,15.3201150157033,intron
+Tmem,mmu-miR-342-3p,Ccng2,1,3.35941440179322,3' UTR
+Tmem,mmu-miR-466f-3p,Lrrc8c,2,13.0829998087408,intron
+Tmem,mmu-miR-3470b,Lrrc8c,1,6.31315177154944,intron
+Tmem,mmu-miR-466i-5p,Lrrc8c,1,3.9360077247191,intron
+Tmem,mmu-miR-142a-5p,Cdc7,1,8,intron
+Tmem,mmu-miR-155-5p,Mlec,1,4.19442363837713,3' UTR
+Tmem,mmu-miR-92a-3p,Cit,1,10.2269648710673,3' UTR
+Tmem,mmu-let-7g-5p,Rfc5,1,3.730630539257,3' UTR
+Tmem,mmu-miR-210-3p,Pptc7,1,3.36239032285544,3' UTR
+Tmem,mmu-miR-142a-5p,Rnf34,1,3,3' UTR
+Tmem,mmu-miR-466i-5p,Mlxip,2,11.1411992787459,3' UTR
+Tmem,mmu-let-7a-5p,Lrwd1,1,15.3739495130204,CDS
+Tmem,mmu-let-7d-5p,Lrwd1,1,36.909592533349,CDS
+Tmem,mmu-miR-30c-5p,Gigyf1,1,14.7746515604707,3' UTR
+Tmem,mmu-let-7a-5p,Gm20605,1,4.02174062134108,3' UTR
+Tmem,mmu-miR-106b-3p,Mcm7,1,5.58778360748724,ncRNA_exon
+Tmem,mmu-miR-24-3p,Gpr146,1,5.4250233426704,CDS
+Tmem,mmu-miR-210-3p,Ints1,1,4.2362369075449,CDS
+Tmem,mmu-miR-466i-5p,Card11,1,4.2749758991472,intron
+Tmem,mmu-miR-466f-3p,Card11,2,10.5801514172525,intron
+Tmem,mmu-let-7a-5p,Actb,1,21.8538299808892,CDS
+Tmem,mmu-let-7b-5p,Actb,1,3.13071371291099,CDS
+Tmem,mmu-let-7c-5p,Actb,1,5.66555094656017,CDS
+Tmem,mmu-let-7d-5p,Actb,1,19.8390804597701,CDS
+Tmem,mmu-let-7f-5p,Actb,1,14.4619390418516,CDS
+Tmem,mmu-let-7g-5p,Actb,1,10.3723572938689,CDS
+Tmem,mmu-let-7i-5p,Actb,1,8.80086740011233,CDS
+Tmem,mmu-miR-142a-3p,Actb,1,9.22640575795622,CDS
+Tmem,mmu-miR-30c-5p,Actb,1,4.24075730471079,CDS
+Tmem,mmu-miR-92a-3p,Actb,1,7.75,CDS
+Tmem,mmu-miR-222-3p,Actb,1,4.08415133321502,CDS
+Tmem,mmu-miR-3473b,Eif2ak1,1,20.7757364361313,intron
+Tmem,mmu-miR-378a-3p,Cdk8,1,7.95454545454546,intron
+Tmem,mmu-miR-142a-3p,Samd9l,1,5.5919829962441,CDS
+Tmem,mmu-miR-466i-5p,Pon2,2,13.4067282204584,3' UTR
+Tmem,mmu-miR-147-3p,Ndufa4,2,46.9042871055615,3' UTR
+Tmem,mmu-miR-16-5p,Ndufa4,2,15.0681500211287,3' UTR
+Tmem,mmu-miR-210-3p,Ndufa4,2,29.6636029067499,3' UTR
+Tmem,mmu-miR-15b-5p,Capza2,1,7.79955965294639,3' UTR
+Tmem,mmu-miR-24-3p,Capza2,1,4.90435352209355,3' UTR
+Tmem,mmu-miR-92a-3p,Ndufa5,1,14.4142914067312,3' UTR
+Tmem,mmu-miR-17-5p,Slc35b4,1,5.03888280394305,3' UTR
+Tmem,mmu-miR-20a-5p,Slc35b4,1,5,3' UTR
+Tmem,mmu-miR-466i-5p,Mtpn,1,13.2640467081677,3' UTR
+Tmem,mmu-miR-142a-5p,Mtpn,1,3.52615999201625,3' UTR
+Tmem,mmu-miR-466i-5p,Zc3hav1l,1,5.48529411764706,3' UTR
+Tmem,mmu-let-7d-5p,Luc7l2,1,7.75168943959267,intron
+Tmem,mmu-miR-466i-5p,Luc7l2,1,8,3' UTR
+Tmem,mmu-miR-142a-3p,Gimap4,1,33.0609580883137,3' UTR
+Tmem,mmu-miR-15a-5p,Gimap4,1,12.9702448787405,3' UTR
+Tmem,mmu-miR-15b-5p,Gimap4,1,4.65750528541226,3' UTR
+Tmem,mmu-miR-16-5p,Gimap4,1,8.90942043093388,3' UTR
+Tmem,mmu-miR-92a-3p,Gimap6,2,8.83011501895941,"3' UTR,CDS"
+Tmem,mmu-miR-92a-3p,Znrf2,1,26.8259457672058,3' UTR
+Tmem,mmu-let-7a-5p,Gars,1,6.33257885999889,CDS
+Tmem,mmu-let-7d-5p,Gars,1,9.89748140635565,CDS
+Tmem,mmu-let-7a-5p,Kbtbd2,1,3.85057471264368,5' UTR
+Tmem,mmu-let-7d-5p,Kbtbd2,1,11.0525808021603,5' UTR
+Tmem,mmu-miR-92a-3p,Pyurf,1,5.54765888250972,3' UTR
+Tmem,mmu-miR-92a-3p,Cd8b1,1,10.2539325842697,3' UTR
+Tmem,mmu-miR-27a-3p,Tmsb10,2,24.0122031990306,3' UTR
+Tmem,mmu-miR-27b-3p,Tmsb10,1,10.639419731552,3' UTR
+Tmem,mmu-miR-423-5p,Tmsb10,1,3.88884236453202,3' UTR
+Tmem,mmu-miR-466i-5p,Hk2,2,26.2125152986316,3' UTR
+Tmem,mmu-miR-106a-5p,Mob1a,1,3.45894909688013,CDS
+Tmem,mmu-miR-17-5p,Mob1a,1,4.41846800959166,CDS
+Tmem,mmu-miR-20a-5p,Mob1a,1,8.77491181384826,CDS
+Tmem,mmu-miR-24-3p,Pcbp1,1,4.38337344028521,3' UTR
+Tmem,mmu-miR-17-5p,Aak1,1,7.09458133238683,3' UTR
+Tmem,mmu-miR-466i-5p,Aak1,1,4.8246563858759,3' UTR
+Tmem,mmu-miR-155-5p,Mcm2,1,6.08099272478547,3' UTR
+Tmem,mmu-miR-92a-3p,Edem1,1,4.49179646936656,CDS
+Tmem,mmu-miR-17-5p,Mtmr14,1,6.7299488469296,3' UTR
+Tmem,mmu-miR-27a-3p,Wnk1,1,4.78793490403718,3' UTR
+Tmem,mmu-miR-24-3p,Tpi1,1,7.29027794929907,3' UTR
+Tmem,mmu-let-7d-5p,Ncapd2,1,10.8066253297661,CDS
+Tmem,mmu-miR-92a-3p,Cd69,2,117.048419748921,3' UTR
+Tmem,mmu-miR-130b-3p,Cd69,1,5.7174275104335,3' UTR
+Tmem,mmu-miR-92a-3p,Klrd1,1,13.1789675237764,CDS
+Tmem,mmu-miR-142a-3p,Cdkn1b,1,22.658140629264,3' UTR
+Tmem,mmu-miR-24-3p,Cdkn1b,1,15.525689182127,3' UTR
+Tmem,mmu-miR-210-3p,Etnk1,1,3.59728094902514,CDS
+Tmem,mmu-miR-92a-3p,Kras,2,11.8208480983012,CDS
+Tmem,mmu-let-7d-5p,Ppp6r1,1,3.99227697408077,CDS
+Tmem,mmu-miR-16-5p,Rps5,1,4.37197906873374,3' UTR
+Tmem,mmu-miR-423-3p,Napa,1,4,5' UTR
+Tmem,mmu-miR-155-5p,Sae1,1,24.7485867240468,CDS
+Tmem,mmu-miR-191-5p,Ethe1,1,20.075657473556,3' UTR
+Tmem,mmu-miR-92a-3p,Sertad3,3,161.38389653987,3' UTR
+Tmem,mmu-miR-25-3p,Sertad3,1,4.92938005833607,3' UTR
+Tmem,mmu-let-7i-5p,Paf1,1,7.17084741796245,CDS
+Tmem,mmu-miR-16-5p,Capns1,1,4.61429463171036,3' UTR
+Tmem,mmu-miR-92a-3p,Pop4,2,13.2821934813847,3' UTR
+Tmem,mmu-miR-185-5p,Emc10,1,15.1697743067048,3' UTR
+Tmem,mmu-miR-142a-3p,Rpl13a,2,7.24569707319707,ncRNA_exon
+Tmem,mmu-miR-15b-5p,Rpl13a,1,35.9159194677609,ncRNA_exon
+Tmem,mmu-miR-16-5p,Rpl13a,1,3.99264705882353,ncRNA_exon
+Tmem,mmu-miR-24-3p,Rpl13a,1,6.5,ncRNA_exon
+Tmem,mmu-miR-5121,Rpl13a,1,109.453452650987,ncRNA_exon
+Tmem,mmu-miR-692,Ftl1,1,3,3' UTR
+Tmem,mmu-miR-24-3p,Emp3,1,3.79201728889545,5' UTR
+Tmem,mmu-miR-466f-3p,E2f8,1,6.64242047947412,3' UTR
+Tmem,mmu-miR-29a-3p,E2f8,1,6.7198691220538,CDS
+Tmem,mmu-miR-29b-3p,E2f8,1,11.2931608608406,CDS
+Tmem,mmu-let-7d-5p,E2f8,1,3.82954545454545,CDS
+Tmem,mmu-miR-671-5p,Klf13,1,5.16134101623887,3' UTR
+Tmem,mmu-miR-155-5p,Klf13,1,4.03735632183908,3' UTR
+Tmem,mmu-miR-142a-3p,Prc1,1,6,3' UTR
+Tmem,mmu-miR-142a-3p,Picalm,1,8.89282611601176,3' UTR
+Tmem,mmu-miR-142a-3p,Lrrc32,1,24.5077793872471,3' UTR
+Tmem,mmu-miR-24-3p,Spcs2,1,8.44198463489542,3' UTR
+Tmem,mmu-let-7d-5p,Pold3,1,11.4181325515281,3' UTR
+Tmem,mmu-miR-147-3p,Rrm1,1,5.94252114164905,CDS
+Tmem,mmu-miR-92a-3p,Rrm1,1,3.77564373503628,CDS
+Tmem,mmu-miR-3473b,Olfr477,1,4.93939393939394,3' UTR
+Tmem,mmu-miR-24-3p,Eif3f,1,4.47245445496542,3' UTR
+Tmem,mmu-miR-361-5p,Ipo7,1,6.86593696407467,CDS
+Tmem,mmu-miR-17-5p,Wee1,1,3.46551724137931,3' UTR
+Tmem,mmu-miR-20a-5p,Eif4g2,1,6.23489232529741,CDS
+Tmem,mmu-miR-17-5p,Rras2,1,4.99431818181818,3' UTR
+Tmem,mmu-miR-20a-5p,Rras2,1,4.56896551724138,3' UTR
+Tmem,mmu-miR-27b-3p,Arl6ip1,1,4.27724851880801,3' UTR
+Tmem,mmu-miR-147-3p,Rbbp6,1,5.48850422832981,3' UTR
+Tmem,mmu-miR-26b-5p,Tnrc6a,1,5.9036075036075,3' UTR
+Tmem,mmu-miR-466i-5p,Il21r,1,40.0593505667868,3' UTR
+Tmem,mmu-miR-142a-3p,Aldoa,1,3.65101923629055,3' UTR
+Tmem,mmu-miR-15a-5p,Aldoa,1,8.15959188859775,3' UTR
+Tmem,mmu-miR-15b-5p,Aldoa,1,14.9243826780005,3' UTR
+Tmem,mmu-miR-16-5p,Aldoa,1,22.54056918814,3' UTR
+Tmem,mmu-miR-30c-5p,Itgal,1,5.5,3' UTR
+Tmem,mmu-miR-466i-5p,Fus,2,19.5899775502132,3' UTR
+Tmem,mmu-miR-20a-5p,Bet1l,1,4.5,3' UTR
+Tmem,mmu-miR-671-5p,Lsp1,1,4.9909519848266,3' UTR
+Tmem,mmu-miR-15b-5p,Arhgef7,1,3.0121219164806,CDS
+Tmem,mmu-miR-27a-3p,Rasa3,1,5.4334525115299,3' UTR
+Tmem,mmu-miR-466i-5p,Plekha2,1,4.71820755158377,3' UTR
+Tmem,mmu-miR-92a-3p,Zfp703,1,17.9400403125732,3' UTR
+Tmem,mmu-miR-466i-5p,Ppp1r3b,2,20.9862894503392,3' UTR
+Tmem,mmu-miR-210-3p,Casp3,1,12.7411591504134,CDS
+Tmem,mmu-miR-466i-5p,Mast3,1,4.46407523510972,3' UTR
+Tmem,mmu-miR-142a-3p,Tpm4,1,16.6436781609195,3' UTR
+Tmem,mmu-miR-92a-3p,Klf2,1,4.06339093178981,3' UTR
+Tmem,mmu-miR-17-5p,Otud4,1,7.91573033707865,3' UTR
+Tmem,mmu-miR-466i-5p,Inpp4b,2,9.22128668231811,intron
+Tmem,mmu-miR-16-5p,Asf1b,1,5.24098667934554,3' UTR
+Tmem,mmu-miR-142a-3p,Herpud1,1,8.43774068091419,3' UTR
+Tmem,mmu-miR-142a-5p,Herpud1,1,5.66443327842341,3' UTR
+Tmem,mmu-miR-466i-5p,Fhod1,1,3.5,3' UTR
+Tmem,mmu-miR-484,Fhod1,1,3.57558139534884,3' UTR
+Tmem,mmu-let-7d-5p,Nfatc3,1,4.47126436781609,CDS
+Tmem,mmu-miR-342-3p,Nfatc3,1,8.770962089011,3' UTR
+Tmem,mmu-miR-23b-3p,Sf3b3,1,4.78216536586025,CDS
+Tmem,mmu-miR-466i-5p,Cmip,2,9.6309365584595,intron
+Tmem,mmu-miR-466f-3p,Cmip,2,10.5775862068966,intron
+Tmem,mmu-miR-31-5p,Cotl1,1,4.96479591836735,3' UTR
+Tmem,mmu-miR-466i-5p,Cotl1,1,5.16302447552448,intron
+Tmem,mmu-miR-466f-3p,Cotl1,3,23.3320790649286,intron
+Tmem,mmu-miR-210-3p,Usp10,1,9.01234413572967,CDS
+Tmem,mmu-miR-210-3p,Zfpm1,1,3.06251633133002,CDS
+Tmem,mmu-miR-466i-5p,Ankrd11,1,5.17625521466241,intron
+Tmem,mmu-miR-210-3p,Irf2bp2,1,12.3918449197861,CDS
+Tmem,mmu-miR-466i-5p,Maml2,2,11.4910340084421,intron
+Tmem,mmu-miR-142a-3p,Taf1d,1,5.63192837841389,3' UTR
+Tmem,mmu-miR-24-3p,Taf1d,2,8092.69451252264,3' UTR
+Tmem,mmu-miR-21a-5p,Taf1d,1,3.66362985929095,3' UTR
+Tmem,mmu-miR-27a-3p,Cep295,1,6.44915254237288,ncRNA_exon
+Tmem,mmu-miR-27b-3p,Cep295,1,7.48275862068966,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Cep295,2,217.301784062589,"intron,ncRNA_exon"
+Tmem,mmu-miR-466i-5p,Smco4,1,4.37827849860982,3' UTR
+Tmem,mmu-miR-24-3p,Ppan,3,43.1728308755192,ncRNA_exon
+Tmem,mmu-miR-15b-5p,Ppan,2,22.9978063977171,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Fli1,2,10.2035456474774,"intron,ncRNA_exon"
+Tmem,mmu-miR-24-3p,Ets1,1,5.70861833105335,3' UTR
+Tmem,mmu-miR-466i-5p,Ets1,2,12.5516134678417,3' UTR
+Tmem,mmu-miR-484,Ei24,1,4.37287489975942,3' UTR
+Tmem,mmu-miR-15a-5p,Hspa8,3,46.8672689314964,CDS
+Tmem,mmu-miR-15b-5p,Hspa8,3,26.4668490986682,CDS
+Tmem,mmu-miR-16-5p,Thy1,1,7.08066493955271,3' UTR
+Tmem,mmu-let-7a-5p,H2ax,1,6.91528203382136,5' UTR
+Tmem,mmu-let-7d-5p,H2ax,1,26.7366396992515,5' UTR
+Tmem,mmu-let-7i-5p,H2ax,1,12.8416993781525,5' UTR
+Tmem,mmu-miR-142a-3p,H2ax,1,3.90734635640925,5' UTR
+Tmem,mmu-miR-142a-3p,Sik2,1,5.2633654103181,3' UTR
+Tmem,mmu-miR-210-3p,Nptn,1,4.1563518219127,intron
+Tmem,mmu-miR-425-5p,Pkm,1,8.44212153732237,CDS
+Tmem,mmu-miR-142a-3p,Smad3,1,5.61962464394085,CDS
+Tmem,mmu-miR-142a-3p,Rpl4,1,4.87449290060852,ncRNA_exon
+Tmem,mmu-miR-23b-3p,Rpl4,1,6,ncRNA_exon
+Tmem,mmu-miR-466i-5p,Pclaf,2,28.0384248189946,3' UTR
+Tmem,mmu-miR-671-5p,Ppib,1,4.85909471470903,3' UTR
+Tmem,mmu-miR-27b-3p,Usp3,1,4.82628099869479,3' UTR
+Tmem,mmu-miR-466i-5p,Rab8b,1,11.5678269958456,3' UTR
+Tmem,mmu-miR-142a-3p,Rps27l,3,37.8829665762518,"3' UTR,CDS"
+Tmem,mmu-miR-142a-3p,Mindy2,1,4.88953488372093,3' UTR
+Tmem,mmu-miR-26b-5p,Mindy2,1,8.87365024284338,3' UTR
+Tmem,mmu-miR-155-5p,Tcf12,1,3,3' UTR
+Tmem,mmu-miR-703,Eef1a1,1,13.5845688810743,3' UTR
+Tmem,mmu-miR-466f-3p,Bckdhb,1,8.69715352849891,intron
+Tmem,mmu-let-7a-5p,Rnf7,1,4.80093582887701,3' UTR
+Tmem,mmu-let-7d-5p,Rnf7,1,7.8968023255814,3' UTR
+Tmem,mmu-miR-466i-5p,Armc8,2,7.7741522582547,3' UTR
+Tmem,mmu-miR-18a-5p,Armc8,1,6.89559231326466,3' UTR
+Tmem,mmu-miR-93-5p,Dnajc13,1,4.43621365035168,3' UTR
+Tmem,mmu-miR-378a-3p,Shisa5,1,12.9918546460864,3' UTR
+Tmem,mmu-miR-15a-5p,Cdc25a,1,3.98295454545455,3' UTR
+Tmem,mmu-miR-15b-5p,Cdc25a,1,3.98901098901099,3' UTR
+Tmem,mmu-miR-17-5p,Tgfbr2,1,3.98850574712644,3' UTR
+Tmem,mmu-miR-16-5p,Rpl14,1,5.98275862068966,3' UTR
+Tmem,mmu-miR-92a-3p,Ctnnb1,1,6.97493358039329,CDS
+Tmem,mmu-miR-142a-3p,Ctnnb1,1,13.4635131851734,3' UTR
+Tmem,mmu-miR-142a-3p,Lars2,1,4.74778831200026,3' UTR
+Tmem,mmu-miR-484,Lars2,2,11.2799932688219,3' UTR
+Tmem,mmu-miR-15b-5p,Lars2,1,16.5269145170278,3' UTR
+Tmem,mmu-let-7a-5p,mt-Nd1,2,12.014466064206,CDS
+Tmem,mmu-miR-142a-3p,mt-Nd1,3,76.847359966985,CDS
+Tmem,mmu-miR-155-5p,mt-Nd1,3,1610.14244731999,CDS
+Tmem,mmu-miR-18a-5p,mt-Nd1,1,8.36362698201196,CDS
+Tmem,mmu-miR-19a-3p,mt-Nd1,1,4.32987123294005,CDS
+Tmem,mmu-miR-19b-3p,mt-Nd1,2,26.9390509276022,CDS
+Tmem,mmu-let-7f-5p,mt-Nd1,1,4.69448363669193,CDS
+Tmem,mmu-miR-142a-5p,mt-Nd1,1,6.94120421320565,CDS
+Tmem,mmu-miR-191-5p,mt-Nd1,1,8.10812722396247,CDS
+Tmem,mmu-miR-21a-5p,mt-Nd1,1,6.12910792713658,CDS
+Tmem,mmu-miR-27a-3p,mt-Nd1,1,9.08087206177094,CDS
+Tmem,mmu-miR-27b-3p,mt-Nd1,1,5.06809695070565,CDS
+Tmem,mmu-miR-30e-5p,mt-Nd1,1,3.88426887041668,CDS
+Tmem,mmu-let-7a-5p,mt-Nd2,1,12.1864828949162,CDS
+Tmem,mmu-let-7b-5p,mt-Nd2,1,7.00321195241308,CDS
+Tmem,mmu-let-7d-5p,mt-Nd2,1,11.4056474940723,CDS
+Tmem,mmu-let-7f-5p,mt-Nd2,1,3.51004542537487,CDS
+Tmem,mmu-miR-142a-3p,mt-Nd2,1,8.4747362224843,CDS
+Tmem,mmu-miR-155-5p,mt-Nd2,1,7.99404150963074,CDS
+Tmem,mmu-miR-21a-5p,mt-Nd2,1,122.779304070137,CDS
+Tmem,mmu-miR-31-5p,mt-Nd2,1,6.43525679284913,CDS
+Tmem,mmu-miR-1198-5p,mt-Co1,1,5.93343147624266,CDS
+Tmem,mmu-miR-142a-3p,mt-Co1,2,31.5231349570483,CDS
+Tmem,mmu-miR-150-3p,mt-Co1,1,4.29332472006891,CDS
+Tmem,mmu-miR-155-5p,mt-Co1,2,14.5522427484232,CDS
+Tmem,mmu-miR-210-3p,mt-Co1,1,4.25477436574596,CDS
+Tmem,mmu-miR-17-5p,mt-Nd3,1,6.91580649373849,CDS
+Tmem,mmu-miR-142a-3p,mt-Nd4,2,64.0977172494602,CDS
+Tmem,mmu-let-7a-5p,mt-Nd4,1,7.0001002803291,CDS
+Tmem,mmu-let-7b-5p,mt-Nd4,1,3.5,CDS
+Tmem,mmu-let-7d-5p,mt-Nd4,1,5.5,CDS
+Tmem,mmu-let-7f-5p,mt-Nd4,1,3.14511494252874,CDS
+Tmem,mmu-miR-671-5p,mt-Nd4,1,3.43670886075949,CDS
+Tmem,mmu-let-7f-5p,mt-Nd5,1,4.80445649147312,CDS
+Tmem,mmu-miR-142a-3p,mt-Nd5,3,31.1489530025694,CDS
+Tmem,mmu-miR-24-3p,mt-Nd5,1,107.041854786585,CDS
+Tmem,mmu-miR-142a-3p,mt-Cytb,3,44.7829719312394,CDS
+Tmem,mmu-miR-20a-5p,mt-Cytb,1,4.44210585925702,CDS
+Tmem,mmu-miR-147-3p,mt-Cytb,1,10.9444226527094,CDS
+Tmem,mmu-miR-362-3p,Clcn5,1,3.5,ncRNA_exon
+Tmem,mmu-miR-92a-3p,Usp9x,1,5.14715762273902,CDS
+Tmem,mmu-miR-24-3p,Rpl39,1,22.0608530817214,ncRNA_exon
+Tmem,mmu-miR-15a-5p,Cul4b,1,3.37622747328646,3' UTR
+Tmem,mmu-miR-106a-5p,Xiap,1,10.366671021688,3' UTR
+Tmem,mmu-miR-17-5p,Xiap,1,33.4653363014722,3' UTR
+Tmem,mmu-miR-20a-5p,Xiap,1,32.4037152107738,3' UTR
+Tmem,mmu-miR-20b-5p,Xiap,1,10.0454545454545,3' UTR
+Tmem,mmu-miR-93-5p,Xiap,1,17.2840340627029,3' UTR
+Tmem,mmu-miR-106b-5p,Sash3,1,7.25888023493361,3' UTR
+Tmem,mmu-let-7a-5p,Elf4,1,4.32697398487553,CDS
+Tmem,mmu-miR-466i-5p,Elf4,2,11.079148389034,"5' UTR,intron"
+Tmem,mmu-miR-142a-3p,Fmr1,1,3.7769332452082,3' UTR
+Tmem,mmu-miR-142a-3p,Zfp275,1,4.09412675269131,3' UTR
+Tmem,mmu-miR-24-3p,2610002M06Rik,1,4.31945276085144,3' UTR
+Tmem,mmu-miR-652-3p,Tmem164,2,13.9590964590965,ncRNA_exon
+Tmem,mmu-miR-142a-3p,Tmsb4x,1,5,3' UTR
+Tmem,mmu-miR-466i-5p,Prps2,1,3.4157319528329,3' UTR
+Tex,mmu-miR-466i-5p,Il18r1,1,6.13649556879875,3' UTR
+Tex,mmu-miR-466f-3p,Casp8,1,4.97402597402597,3' UTR
+Tex,mmu-miR-3535,Ncl,2,46.5056721826584,ncRNA_exon
+Tex,mmu-miR-26a-5p,Rps12,1,56.3658051446688,ncRNA_exon
+Tex,mmu-miR-26b-5p,Rps12,1,55.3317446514905,ncRNA_exon
+Tex,mmu-miR-142a-3p,Cisd1,1,5.92288961038961,3' UTR
+Tex,mmu-miR-155-5p,Csnk1g2,1,11.6215947258929,3' UTR
+Tex,mmu-miR-3473b,Gas2l3,1,4,intron
+Tex,mmu-miR-466f-3p,Ppm1h,1,5.38043974731707,intron
+Tex,mmu-miR-677-3p,Atp5b,1,8.5,ncRNA_exon
+Tex,mmu-miR-677-5p,Atp5b,1,5.57858781810597,ncRNA_exon
+Tex,mmu-miR-24-3p,Myo1g,1,3.3452380952381,3' UTR
+Tex,mmu-miR-92a-3p,Ikzf1,1,5.32988234859766,3' UTR
+Tex,mmu-miR-155-5p,Itk,1,8.80578093306288,3' UTR
+Tex,mmu-miR-466i-5p,Larp1,1,5.56746705461897,3' UTR
+Tex,mmu-miR-92a-3p,Myo1c,1,6.82833248212462,3' UTR
+Tex,mmu-miR-466i-5p,Nufip2,1,3.63909655267969,3' UTR
+Tex,mmu-miR-301a-3p,Ska2,1,4.49663105413105,ncRNA_exon
+Tex,mmu-miR-466i-5p,Spop,1,5.08478145274797,5' UTR
+Tex,mmu-miR-466f-3p,Pitpnc1,1,7.99367806989758,intron
+Tex,mmu-miR-142a-3p,Slc38a10,1,7.3654411357724,3' UTR
+Tex,mmu-miR-142a-5p,Id2,1,9.7946143115318,3' UTR
+Tex,mmu-miR-30e-5p,Ccdc71l,1,9.33698811211872,3' UTR
+Tex,mmu-miR-466f-3p,Atxn7l1,1,8.46982161285567,intron
+Tex,mmu-miR-17-3p,Gphn,1,5.5,intron
+Tex,mmu-miR-423-3p,Gphn,1,9.85714285714286,intron
+Tex,mmu-miR-466i-5p,Srsf5,1,7.26998170748171,5' UTR
+Tex,mmu-miR-466i-5p,Itpk1,1,9.04991312825918,3' UTR
+Tex,mmu-miR-103-3p,Dicer1,1,3.79241174489771,CDS
+Tex,mmu-miR-466i-5p,Bcl11b,2,10.4533419348786,intron
+Tex,mmu-miR-466h-3p,Bcl11b,1,7.87073240263421,intron
+Tex,mmu-miR-466f-3p,Evl,1,4.79416557225546,intron
+Tex,mmu-miR-34a-5p,H2bc4,1,13.4347899246647,3' UTR
+Tex,mmu-miR-466f-3p,Atxn1,1,6.88516788437632,intron
+Tex,mmu-miR-466i-5p,Atxn1,4,29.3211907103761,"intron,ncRNA_exon"
+Tex,mmu-miR-466i-5p,Sema4d,1,4.89290852642738,intron
+Tex,mmu-miR-466i-5p,Aopep,1,3.83568860686194,intron
+Tex,mmu-miR-142a-3p,Hexb,1,8.41280193236715,intron
+Tex,mmu-miR-155-5p,Hexb,1,4.43689839572193,intron
+Tex,mmu-miR-27a-3p,Hexb,1,13.491935483871,intron
+Tex,mmu-miR-27b-3p,Hexb,1,12.5,intron
+Tex,mmu-miR-92a-3p,Hexb,1,3,intron
+Tex,mmu-miR-466i-5p,Fam160b2,1,5.75113015815775,3' UTR
+Tex,mmu-miR-466i-5p,Epsti1,2,8.25131178890979,intron
+Tex,mmu-miR-466f-3p,Dnajc3,1,4.33403034707541,intron
+Tex,mmu-miR-15b-5p,Il7r,1,6.44047204557353,3' UTR
+Tex,mmu-miR-24-3p,Sub1,1,7.31026272577997,3' UTR
+Tex,mmu-let-7i-5p,Rac2,1,4.96476071114541,3' UTR
+Tex,mmu-miR-466i-5p,Grap2,2,24.3810286275675,3' UTR
+Tex,mmu-miR-24-3p,Tuba1b,1,16.9827586206897,CDS
+Tex,mmu-miR-3473b,Zbtb20,2,115.12278342353,intron
+Tex,mmu-miR-690,Zbtb20,1,9.48181818181818,intron
+Tex,mmu-miR-466i-5p,Cblb,1,7.40694224752862,intron
+Tex,mmu-miR-23a-3p,Tomm70a,1,5.84530461474429,CDS
+Tex,mmu-miR-23b-3p,Tomm70a,1,3.47727272727273,CDS
+Tex,mmu-miR-142a-3p,Cmss1,2,11.440901602709,intron
+Tex,mmu-miR-92a-3p,Cmss1,1,4.78398692810458,intron
+Tex,mmu-miR-466i-5p,Lnpep,2,19.9107197723205,3' UTR
+Tex,mmu-miR-26a-5p,Pim1,1,6.01471215131537,3' UTR
+Tex,mmu-miR-33-5p,Pim1,1,21.163934098114,3' UTR
+Tex,mmu-miR-23b-3p,H2-K1,1,11.5302871288327,CDS
+Tex,mmu-miR-155-5p,Abhd16a,1,4.67407475153954,3' UTR
+Tex,mmu-miR-342-3p,Ltb,1,17.6639290632264,3' UTR
+Tex,mmu-miR-466i-5p,Plcl2,2,11.6347318252195,intron
+Tex,mmu-miR-3473b,Plcl2,1,3.47240980127339,intron
+Tex,mmu-miR-466f-3p,Plcl2,2,25.3422114890782,intron
+Tex,mmu-miR-24-3p,Gm10184,1,3.80990992049891,5' UTR
+Tex,mmu-miR-15b-5p,Arl2,1,3.00529877425945,3' UTR
+Tex,mmu-miR-155-5p,Mark2,1,5.08901527860018,3' UTR
+Tex,mmu-miR-142a-3p,Nxf1,1,7.2837466296442,3' UTR
+Tex,mmu-miR-142a-3p,Ms4a4b,1,4.829924432297,3' UTR
+Tex,mmu-let-7i-5p,Dusp5,1,5.82934296913395,CDS
+Tex,mmu-miR-466f-3p,Pdcd4,1,5.69711916049028,intron
+Tex,mmu-miR-34a-5p,Camk1d,1,11.3054160878008,intron
+Tex,mmu-let-7i-5p,Prkcq,1,4.54585169985307,3' UTR
+Tex,mmu-miR-103-3p,Vim,1,4,CDS
+Tex,mmu-miR-16-5p,Vim,1,5.28691162793813,CDS
+Tex,mmu-miR-25-3p,Rpl7a,1,130.592100138028,ncRNA_exon
+Tex,mmu-miR-92a-3p,Rpl7a,1,15.0645540342299,ncRNA_exon
+Tex,mmu-miR-466i-5p,Fnbp1,2,14.0727198958675,3' UTR
+Tex,mmu-miR-24-3p,Fam78a,1,5.4854686505365,3' UTR
+Tex,mmu-miR-191-5p,Fam78a,1,11.4709991158267,3' UTR
+Tex,mmu-let-7a-5p,Fam78a,1,6.9,3' UTR
+Tex,mmu-miR-142a-5p,Dync1i2,2,15.7355263157895,intron
+Tex,mmu-miR-23a-3p,Cd44,2,7.5787543006828,intron
+Tex,mmu-miR-23b-3p,Cd44,2,7.56666015172738,intron
+Tex,mmu-miR-21a-5p,Snrnp200,1,4.90911019773184,CDS
+Tex,mmu-miR-106b-5p,Dusp2,1,4.13716719010837,3' UTR
+Tex,mmu-miR-155-5p,Snrpb,1,3.98850574712644,3' UTR
+Tex,mmu-miR-466i-5p,Prex1,1,5.3556831228473,intron
+Tex,mmu-miR-20a-5p,Znfx1,1,6.30574102650339,3' UTR
+Tex,mmu-miR-210-3p,B4galt5,1,13.6671954307147,3' UTR
+Tex,mmu-miR-16-5p,Gnas,1,31.0121348061374,3' UTR
+Tex,mmu-miR-466i-5p,Tbl1xr1,1,6.13758310436393,3' UTR
+Tex,mmu-miR-30c-5p,Exosc8,1,8.84473608720597,ncRNA_exon
+Tex,mmu-miR-466i-5p,Mbnl1,3,15.0396535123119,intron
+Tex,mmu-miR-466i-5p,Kpna4,2,23.7248179931172,ncRNA_exon
+Tex,mmu-miR-466f-3p,Frrs1,1,5.98936170212766,intron
+Tex,mmu-miR-690,Col24a1,1,4,intron
+Tex,mmu-miR-20a-5p,Sigmar1,1,4.578125,CDS
+Tex,mmu-miR-24-3p,Gba2,1,3.49418604651163,3' UTR
+Tex,mmu-miR-142a-3p,Coro2a,1,4.49411764705882,3' UTR
+Tex,mmu-miR-466i-5p,Akna,2,21.2414981934868,3' UTR
+Tex,mmu-let-7a-5p,Akna,1,17.7400356974818,CDS
+Tex,mmu-let-7d-5p,Akna,1,37.9097534414424,CDS
+Tex,mmu-miR-466i-5p,Rraga,1,6.81178380022882,3' UTR
+Tex,mmu-miR-466i-5p,Laptm5,1,4.5641056538427,intron
+Tex,mmu-miR-466f-3p,Runx3,2,16.1030345458093,3' UTR
+Tex,mmu-miR-155-5p,Nsd2,1,4.21514536849223,3' UTR
+Tex,mmu-let-7i-5p,Nelfa,1,5.32621473354232,CDS
+Tex,mmu-miR-17-5p,Wdr1,1,4.82559790556158,3' UTR
+Tex,mmu-miR-3473b,Pcdh7,1,3.5,intron
+Tex,mmu-miR-690,Tmprss11c,2,12.2595094856124,intron
+Tex,mmu-miR-466f-3p,Lrrc8c,1,5.61702127659575,intron
+Tex,mmu-miR-466i-5p,Lrrc8c,1,4.429375,intron
+Tex,mmu-miR-466i-5p,Cit,1,4.04666666666667,intron
+Tex,mmu-let-7d-5p,Lrwd1,1,8.22413793103448,3' UTR
+Tex,mmu-miR-30c-5p,Gigyf1,1,6.62288087530197,3' UTR
+Tex,mmu-let-7a-5p,Gm20605,1,4.96990559407065,3' UTR
+Tex,mmu-let-7a-5p,Actb,1,5.16666666666667,CDS
+Tex,mmu-let-7d-5p,Actb,1,5.5,CDS
+Tex,mmu-miR-3473b,Eif2ak1,1,43.7736185373897,intron
+Tex,mmu-miR-142a-3p,Cdk8,1,3.09716671965897,intron
+Tex,mmu-miR-320-3p,Cdk8,1,3.94705882352941,intron
+Tex,mmu-miR-147-3p,Ndufa4,1,9.55442172969382,3' UTR
+Tex,mmu-miR-210-3p,Ndufa4,1,6.00479029167554,3' UTR
+Tex,mmu-miR-466i-5p,Mtpn,1,4.88805970149254,3' UTR
+Tex,mmu-miR-142a-3p,Gimap4,1,5.85852713178295,3' UTR
+Tex,mmu-miR-92a-3p,Znrf2,1,5.82575591808195,3' UTR
+Tex,mmu-miR-27a-3p,Tmsb10,1,3.40419339101004,3' UTR
+Tex,mmu-miR-27b-3p,Tmsb10,1,5.76869384328702,3' UTR
+Tex,mmu-miR-92a-3p,Cd69,1,9.983852512898,3' UTR
+Tex,mmu-miR-92a-3p,Kras,1,6.89655007944945,CDS
+Tex,mmu-miR-155-5p,Sae1,1,24.646806433385,CDS
+Tex,mmu-miR-92a-3p,Sertad3,1,41.6028996220179,3' UTR
+Tex,mmu-miR-185-5p,Emc10,1,4.39567214700193,3' UTR
+Tex,mmu-miR-5121,Rpl13a,1,81.3969647060653,ncRNA_exon
+Tex,mmu-miR-466i-5p,Il21r,2,12.1576331901935,3' UTR
+Tex,mmu-miR-466i-5p,Rasa3,1,3.87819514484754,intron
+Tex,mmu-miR-142a-3p,Tpm4,1,7.79484116605055,3' UTR
+Tex,mmu-miR-466i-5p,Inpp4b,1,4.79318546621918,intron
+Tex,mmu-miR-466i-5p,Cmip,2,10.99148622776,intron
+Tex,mmu-miR-466f-3p,Cmip,1,5.52394631742188,intron
+Tex,mmu-miR-3473b,Cmip,1,6.5,intron
+Tex,mmu-miR-466i-5p,Ankrd11,1,6.98101265822785,intron
+Tex,mmu-miR-24-3p,Taf1d,1,2047.06587252307,3' UTR
+Tex,mmu-miR-466i-5p,Cep295,2,78.7268683052422,"intron,ncRNA_exon"
+Tex,mmu-miR-15b-5p,Ppan,1,10.4911960699307,ncRNA_exon
+Tex,mmu-miR-15a-5p,Hspa8,1,6.96009510572892,CDS
+Tex,mmu-let-7d-5p,H2ax,1,4.62214061279319,5' UTR
+Tex,mmu-miR-466i-5p,Pclaf,1,6.71911632351471,3' UTR
+Tex,mmu-miR-466i-5p,Rab8b,1,12.3989500071022,3' UTR
+Tex,mmu-miR-142a-3p,Rps27l,1,7.96556612044855,3' UTR
+Tex,mmu-miR-26b-5p,Mindy2,1,4.75285857889601,3' UTR
+Tex,mmu-miR-18a-5p,Armc8,1,5.12054246412285,3' UTR
+Tex,mmu-miR-378a-3p,Shisa5,1,4.52414300815464,3' UTR
+Tex,mmu-miR-15b-5p,Lars2,1,5.49290526028776,3' UTR
+Tex,mmu-miR-142a-3p,mt-Nd1,2,47.3416766859336,CDS
+Tex,mmu-miR-155-5p,mt-Nd1,2,701.435137964936,CDS
+Tex,mmu-miR-18a-5p,mt-Nd1,1,4.93624223984265,CDS
+Tex,mmu-miR-19b-3p,mt-Nd1,1,8.6734633298231,CDS
+Tex,mmu-miR-191-5p,mt-Nd1,1,4.46022727272727,CDS
+Tex,mmu-miR-21a-5p,mt-Nd1,1,8.71792873243919,CDS
+Tex,mmu-miR-27a-3p,mt-Nd1,1,4.97191011235955,CDS
+Tex,mmu-miR-155-5p,mt-Nd2,1,5.3884555671015,CDS
+Tex,mmu-miR-21a-5p,mt-Nd2,1,86.9938094632656,CDS
+Tex,mmu-miR-142a-3p,mt-Co1,2,14.0728821515453,CDS
+Tex,mmu-miR-142a-3p,mt-Nd4,1,23.4375847500954,CDS
+Tex,mmu-miR-142a-3p,mt-Nd5,1,7.59167653989923,CDS
+Tex,mmu-miR-24-3p,mt-Nd5,1,40.4314756307902,CDS
+Tex,mmu-miR-142a-3p,mt-Cytb,2,14.8438964220017,CDS
+Tex,mmu-miR-24-3p,Rpl39,1,7.52979174796275,ncRNA_exon
+Tex,mmu-miR-20a-5p,Xiap,1,6.36,3' UTR
+Tex,mmu-miR-466i-5p,Elf4,1,5.36065952021834,5' UTR

@@ -1,0 +1,9 @@
+state,miRNA,gene,n_clusters,coverage,regions
+Tn,mmu-miR-466i-5p,Bach2,8,357.825867443934,"3' UTR,intron"
+Tn,mmu-miR-142a-3p,Bach2,1,101.638539534253,intron
+Tn,mmu-miR-466f-3p,Bach2,1,9.48412698412698,intron
+Teff,mmu-miR-466i-5p,Bach2,1,8.27876830545354,intron
+Tmem,mmu-miR-142a-5p,Id2,1,33.3755798844893,3' UTR
+Tex,mmu-miR-142a-5p,Id2,1,9.7946143115318,3' UTR
+Tn,mmu-miR-466i-5p,Lef1,9,69.9580474558873,"5' UTR,intron"
+Tn,mmu-miR-466i-5p,Tcf7,1,6.91960585914224,intron

@@ -1,0 +1,64 @@
+state,miRNA,gene,n_clusters,coverage,regions
+Teff,mmu-miR-150-5p,Aopep,1,6.5,ncRNA_exon
+Tn,mmu-miR-150-5p,Btg1,1,8.40331691297209,3' UTR
+Tn,mmu-miR-150-5p,Camk1d,1,8.8089785706687,intron
+Tn,mmu-miR-150-5p,Cfl2,1,12.5,3' UTR
+Tmem,mmu-miR-150-5p,Fth1,1,4.5,CDS
+Tn,mmu-miR-150-5p,Hexb,1,11.1252026994615,intron
+Teff,mmu-miR-150-5p,Hexb,1,3.92452574525745,intron
+Tn,mmu-miR-150-5p,Il31ra,1,9.83669862391884,intron
+Tn,mmu-miR-150-5p,Lars2,1,16.5901450422633,3' UTR
+Tn,mmu-miR-150-5p,Lrch3,1,4.43283582089552,ncRNA_exon
+Teff,mmu-miR-150-5p,Lrch3,1,5,ncRNA_exon
+Tn,mmu-miR-150-5p,Nfyc,1,4.5,ncRNA_exon
+Tn,mmu-miR-150-5p,Rtraf,1,18.1054464169431,3' UTR
+Tn,mmu-miR-150-5p,Trrap,1,4.19602646436304,intron
+Tmem,mmu-miR-155-5p,Abhd16a,1,4.31048703849175,3' UTR
+Tex,mmu-miR-155-5p,Abhd16a,1,4.67407475153954,3' UTR
+Tmem,mmu-miR-155-5p,Csnk1g2,1,21.5016420361248,3' UTR
+Tex,mmu-miR-155-5p,Csnk1g2,1,11.6215947258929,3' UTR
+Tex,mmu-miR-155-5p,Hexb,1,4.43689839572193,intron
+Tn,mmu-miR-155-5p,Itk,1,8.97137941035,3' UTR
+Tmem,mmu-miR-155-5p,Itk,1,11.8614803305712,3' UTR
+Tex,mmu-miR-155-5p,Itk,1,8.80578093306288,3' UTR
+Tex,mmu-miR-155-5p,Mark2,1,5.08901527860018,3' UTR
+Tmem,mmu-miR-155-5p,Mcm2,1,6.08099272478547,3' UTR
+Tmem,mmu-miR-155-5p,Mlec,1,4.19442363837713,3' UTR
+Tmem,mmu-miR-155-5p,Nsd2,1,7.1432162106997,3' UTR
+Tex,mmu-miR-155-5p,Nsd2,1,4.21514536849223,3' UTR
+Tmem,mmu-miR-155-5p,S1pr1,1,4.08518457522081,3' UTR
+Teff,mmu-miR-155-5p,Sae1,1,6.28582887700535,CDS
+Tmem,mmu-miR-155-5p,Sae1,1,24.7485867240468,CDS
+Tex,mmu-miR-155-5p,Sae1,1,24.646806433385,CDS
+Tmem,mmu-miR-155-5p,Sike1,1,4.18080783408092,3' UTR
+Tmem,mmu-miR-155-5p,Tspan14,1,6.51901427703285,3' UTR
+Tmem,mmu-miR-210-3p,B4galt5,2,48.7035916039806,3' UTR
+Tex,mmu-miR-210-3p,B4galt5,1,13.6671954307147,3' UTR
+Tmem,mmu-miR-210-3p,Casp3,1,12.7411591504134,CDS
+Tmem,mmu-miR-210-3p,Cmss1,2,12.472685359042,intron
+Tmem,mmu-miR-210-3p,Fnbp1,1,8.45977011494253,CDS
+Tmem,mmu-miR-210-3p,H13,1,11.8662790697674,5' UTR
+Tmem,mmu-miR-210-3p,Hexb,1,3,intron
+Tmem,mmu-miR-210-3p,Irf2bp2,1,12.3918449197861,CDS
+Tmem,mmu-miR-210-3p,Kdm6b,2,12.7568974312416,CDS
+Tmem,mmu-miR-210-3p,Ndufa4,2,29.6636029067499,3' UTR
+Tex,mmu-miR-210-3p,Ndufa4,1,6.00479029167554,3' UTR
+Tmem,mmu-miR-210-3p,Pim1,1,10.6959180770872,3' UTR
+Tmem,mmu-miR-210-3p,Sytl1,1,15.0475996172326,CDS
+Tmem,mmu-miR-210-3p,Usp10,1,9.01234413572967,CDS
+Tmem,mmu-miR-210-3p,Zdhhc8,1,9.85294893126749,CDS
+Tmem,mmu-miR-210-3p,Zfp36l2,1,7.21900805478454,5' UTR
+Tmem,mmu-miR-23a-3p,Cd44,1,3.49444463953451,intron
+Tex,mmu-miR-23a-3p,Cd44,2,7.5787543006828,intron
+Tmem,mmu-miR-23a-3p,Cnn2,1,9.74934304040869,3' UTR
+Tmem,mmu-miR-23a-3p,Dnajc3,1,4.82506132393461,CDS
+Tmem,mmu-miR-23a-3p,H1f3,2,11.1161676657067,CDS
+Tmem,mmu-miR-23a-3p,Hexb,1,5,intron
+Tmem,mmu-miR-23a-3p,Hp1bp3,1,5.95978935836455,CDS
+Tmem,mmu-miR-23a-3p,Riok1,1,5.50276576071355,3' UTR
+Tmem,mmu-miR-23a-3p,Ssb,1,5.08480393777778,CDS
+Tmem,mmu-miR-23a-3p,Ssh2,1,5.35800889877642,ncRNA_exon
+Tmem,mmu-miR-23a-3p,Tomm70a,1,22.5039914430062,CDS
+Tex,mmu-miR-23a-3p,Tomm70a,1,5.84530461474429,CDS
+Tmem,mmu-miR-23a-3p,Zfp36l2,1,4.71812938617977,CDS
+Tmem,mmu-miR-23a-3p,Zwint,2,8.67155205905206,3' UTR

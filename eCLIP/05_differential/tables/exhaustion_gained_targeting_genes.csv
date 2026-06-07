@@ -1,0 +1,14 @@
+gene,n,miRNAs,max_lfc
+CT010467.1,2,"let-7i-3p,miR-155-5p,miR-18a-3p,miR-21a-5p,miR-365-3p",3.61
+Atxn1,2,miR-466i-5p,3.48
+Sae1,2,miR-155-5p,3.23
+Snord47|Gas5,1,"miR-182-5p,miR-34a-5p,miR-449c-5p",5.08
+Camk1d,1,miR-34a-5p,4.13
+B4galt5,1,miR-210-3p,4.08
+H2bc4,1,miR-34a-5p,4.05
+Ndufa4,1,miR-147-3p,3.62
+Gphn,1,miR-423-3p,3.31
+Exosc8,1,miR-30c-5p,3.02
+Gas5|Gm23212,1,let-7i-5p,2.89
+Id2,1,miR-142a-5p,2.72
+Cblb,1,miR-466i-5p,2.72

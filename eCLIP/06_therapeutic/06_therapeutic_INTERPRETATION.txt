@@ -1,0 +1,118 @@
+=====================================================================
+ miR-eCLIP CD8 DIFFERENTIATION — STEP 6 / AIM 4 INTERPRETATION
+ Therapeutic candidate miRNAs + miR-29 / CAR-T cross-validation (final)
+=====================================================================
+
+PART A — WHAT WE SAW, AND WHAT IT MEANS
+---------------------------------------------------------------------
+
+OVERALL: a coherent memory/persistence candidate module emerges; the
+exhaustion-program target set is essentially empty (confirming aim 3); and
+the miR-29 / CAR-T link resolves to a clear NEGATIVE that redirects the
+CAR-T mechanism rather than confirming it.
+
+1) miR-29 / CAR-T — DEFINITIVE NEGATIVE (the key cross-project result)
+   - At RELAXED, single-replicate support, NONE of the 5 CAR-T miR-29a DE
+     targets (Dnmt3a, Tet2, Eomes, Tbx21, Ifng) are bound by any miR-29
+     family member in any CD8 state. The validation table is empty.
+   - What miR-29 DOES bind (311 protein-coding interactions): Camk1d (top,
+     78 cluster-rows), Dusp2, E2f8, Btg2, Mcl1, Zfp36, Eif5a, Lmnb1, Top2a -
+     a PROLIFERATION / SURVIVAL / signaling set, not epigenetic enzymes.
+   Interpretation: the CAR-T miR-29a phenotype is NOT explained by direct
+   miR-29 binding of its canonical (3'UTR-predicted) targets in CD8 T cells.
+   The effect is likely indirect, stage-specific (outside these 4 states or
+   below detection), or routed through the survival/signaling targets above
+   (Mcl1, Zfp36, Btg2 are all CD8-relevant). This is a real, publishable
+   finding that reorients the CAR-T mechanistic narrative.
+
+2) THERAPEUTIC CANDIDATES — a MEMORY / PERSISTENCE module dominates
+   The strongest program signal is memory-survival, where several miRNAs
+   converge on the same persistence genes:
+   - miR-466i-5p -> Bach2, Bcl2, Il7r, Lef1, Tcf7 (5 memory genes; caveat:
+     IP7-inflated, treat as lead)
+   - miR-15b-5p / miR-15a-5p / miR-16-5p -> Bcl2, Il7r, Ccr7 (the miR-15/16
+     cluster, classic Bcl2 regulators)
+   - miR-142a-3p -> Bach2, Bcl2
+   - miR-92a-3p -> Klf2 ; miR-210-3p & miR-23a-3p -> Zfp36l2 (memory quiescence)
+   Interpretation: a convergent miRNA program targets the memory/persistence
+   machinery (Bcl2/Il7r/Ccr7/Tcf7/Lef1/Klf2). For CAR-T persistence, these are
+   the miRNAs whose INHIBITION would be predicted to de-repress survival/
+   memory genes - the actionable direction for "promote memory/persistence".
+
+3) EFFECTOR AXIS — one clean lead
+   - miR-142a-5p -> Id2 3' UTR (memory + exhausted). Id2 drives terminal
+     effector differentiation; this is the cleanest canonical effector-axis
+     interaction and a candidate for tuning terminal vs memory fate.
+
+4) EXHAUSTION PROGRAM — essentially empty (confirms aim 3)
+   Only ONE exhaustion-program interaction: miR-466i-5p -> Cblb (intron, Tn+Tex,
+   and miR-466i is the inflated one). No reproducible/relaxed miRNA targeting of
+   Pdcd1, Havcr2, Lag3, Tigit, Tox, Nr4a in these data.
+   Interpretation: there is no direct miRNA->exhaustion-checkpoint axis to
+   exploit here. "Limit exhaustion" is therefore best pursued INDIRECTLY -
+   via the memory/persistence module (point 2) that keeps cells out of
+   terminal exhaustion - not by a miRNA that directly represses a checkpoint.
+
+5) EXHAUSTION-LEVERAGE CANDIDATES (effector/memory targeters loaded in Tex)
+   miRNAs that both target effector/memory programs AND are loaded in exhausted
+   cells (so modulating them could push exhausted cells toward function):
+   miR-466i (Bach2/Bcl2/Il7r/Lef1/Tcf7; Tex loading high), miR-142a-3p
+   (Bach2/Bcl2), miR-466f-3p (Bach2), miR-155-5p (S1pr1), miR-92a-3p (Klf2),
+   miR-210/miR-23a (Zfp36l2). These are the top mechanistic hypotheses to test.
+
+---------------------------------------------------------------------
+CAVEATS
+---------------------------------------------------------------------
+   * BINDING != functional repression. Every "candidate" is a hypothesis;
+     direction of effect (inhibit vs mimic) depends on functional validation.
+   * The single biggest gap for ANY therapeutic claim remains matched
+     differentiation-state RNA-seq (target derepression). Recommended next exp.
+   * miR-466i naive/Tex inflation (IP7, step-1 QC) - its leads need replication.
+   * n=2/state; Tex low capture; relaxed miR-29 search is sensitive but
+     single-rep (so its negative for the CAR-T targets is informative).
+
+---------------------------------------------------------------------
+PROJECT SYNTHESIS (aims 1-4, all complete at the binding level)
+---------------------------------------------------------------------
+   Aim 1 (loading): clean miR-150(down)/miR-155(up) gradient across the axis;
+     miR-155 dominant in exhaustion; miR-29a engaged throughout.
+   Aim 2 (targets): genic targeting shifts naive-intron -> memory-3'UTR; naive
+     stemness TFs (Bach2/Lef1/Tcf7) targeted; Id2 3'UTR by miR-142a-5p.
+   Aim 3 (dynamics): differentiation adds targeting at the activation switch;
+     memory-specific miR-210/miR-23a metabolic+quiescence module (Ndufa4,
+     Zfp36l2, Kdm6b); NO exhaustion-specific program.
+   Aim 4 (therapeutic): convergent memory/persistence module (Bcl2/Il7r/Ccr7/
+     Tcf7/Lef1 via miR-15/16, miR-466i, miR-142a) as the actionable axis;
+     miR-29/CAR-T canonical targets NOT directly bound -> CAR-T mechanism
+     redirected.
+   NEXT EXPERIMENT: matched bulk RNA-seq of the four sorted states to convert
+     binding maps into functional (derepression) evidence.
+
+=====================================================================
+PART B — MANUSCRIPT RESULTS SNIPPET (aim 4 + miR-29; edit to taste)
+=====================================================================
+
+Candidate regulatory miRNAs converge on the memory-persistence program.
+Integrating loading, targeting and differential analyses, we nominated
+miRNAs with potential to modulate CD8 state. Candidates converged on the
+memory/persistence machinery: the miR-15/16 family (miR-15a/15b/16-5p)
+together with miR-466i-5p and miR-142a-3p targeted Bcl2, Il7r, Ccr7, Tcf7,
+Lef1 and Bach2, while miR-142a-5p targeted the Id2 3' UTR and miR-210-3p
+and miR-23a-3p converged on Zfp36l2. In contrast, direct miRNA targeting of
+exhaustion checkpoints (Pdcd1, Havcr2, Lag3, Tox) was not observed,
+indicating that miRNA control of exhaustion is exerted indirectly through
+the memory program rather than via direct checkpoint repression. Finally,
+to test the basis of the miR-29a CAR-T phenotype, we asked whether miR-29
+family members directly bind their canonical targets in CD8 T cells; even
+under relaxed single-replicate criteria, none of Dnmt3a, Tet2, Eomes, Tbx21
+or Ifng were recovered as direct miR-29 chimeras. Instead, miR-29 engaged a
+proliferation/survival target set (Camk1d, Mcl1, Btg2, Zfp36, E2f8),
+indicating that the miR-29a-driven CAR-T phenotype is not mediated by direct
+binding of its predicted epigenetic targets in these states.
+
+=====================================================================
+SOURCE TABLES (eCLIP/06_therapeutic/tables): therapeutic_candidates_ranked.csv,
+miR_targeting_program_genes.csv, exhaustion_leverage_candidates.csv,
+miR29_targets_relaxed_persample.csv, miR29_CART_targets_summary.csv,
+miR29_CART_target_validation_relaxed.csv
+=====================================================================
