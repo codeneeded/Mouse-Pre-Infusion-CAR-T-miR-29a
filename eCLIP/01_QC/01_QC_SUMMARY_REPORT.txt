@@ -1,0 +1,134 @@
+=====================================================================
+ miR-eCLIP CD8 DIFFERENTIATION — STEP 1 QC INTERPRETATION REPORT
+ AGO2 miR-eCLIP | Naive / Effector / Memory / Exhausted | 2 reps each
+ Genome: UCSC GRCm38 (mm10), GENCODE vM25 | STAR 2.7.7a (EndToEnd)
+=====================================================================
+
+PART A — WHAT WE SAW, AND WHAT IT MEANS
+---------------------------------------------------------------------
+
+OVERALL VERDICT: GOOD-QUALITY DATASET. No re-sequencing required, no
+library should be dropped. Three caveats shape the analysis (below) but
+none invalidate the data.
+
+1) SEQUENCING DEPTH & PROCESSING (IP libraries)
+   - Initial reads:      40.99M (IP3) – 56.58M (IP7); mean ~50.6M. Ample.
+   - % pass trim:        96.4 – 98.4%. Adapters/quality clean.
+   - % uniquely aligned: 46.3 – 64.6%. Healthy for CLIP.
+   - % PCR duplicates:   20.4 – 24.2%. LOW -> high library complexity;
+                         UMI deduplication performed and effective.
+   - Final nonchimeric (AGO2) reads: 10.6M – 19.8M. Deep AGO2 maps.
+   - AGO2 peaks (sig.):  5,238 (IP2_Tex_1) – 16,862 (IP3_Teff_2).
+   Interpretation: the AGO2 IP and library prep worked across the board.
+
+2) CHIMERIC CAPTURE (the defining miR-eCLIP QC metric)
+   - % chimeras:         0.44% – 2.18%; mean ~0.96%. Normal range for
+                         miR-eCLIP (chimeras are intentionally a small
+                         fraction of reads). Every library captured them.
+   - Final chimeric reads: 48,667 (IP2_Tex_1) – 366,713 (IP7_Tn_1).
+   Interpretation: chimeric ligation succeeded everywhere; the spread is
+   expected and is handled by reproducibility filtering + normalization.
+
+3) DATA vs REPORT RECONCILIATION (we trust the files, not the summary)
+   - The per-sample .mir_targets_clusters.bed files carry 23–51% MORE
+     cluster rows than the report's "Chimeric clusters" value (consistent,
+     not random) — the report applies an extra significance/enrichment
+     filter the raw BED does not.
+   - Median per-cluster coverage is ~4.7–5.0 reads in EVERY library.
+   Interpretation: chimeric clusters are SHALLOW (median ~5 reads), so any
+   single cluster is thin evidence. This is precisely why we anchor on the
+   REPRODUCIBLE set (present in both replicates) rather than raw per-rep
+   clusters, and why the BED rows (analysis input) are ground truth while
+   the report numbers are treated as approximate.
+
+4) REPRODUCIBLE YIELD PER STATE (from files)
+   - Tn:   1,373 reproducible clusters | 68 distinct miRNAs
+   - Teff:   549 reproducible clusters | 81 distinct miRNAs
+   - Tmem: 1,152 reproducible clusters | 102 distinct miRNAs
+   - Tex:    322 reproducible clusters | 65 distinct miRNAs
+   Interpretation: naive shows many clusters but CONCENTRATED in few
+   miRNAs (consistent with miR-466i dominance); memory is the most
+   DIVERSE (102 miRNAs); exhausted is the thinnest layer.
+
+5) REPLICATE CONCORDANCE (Spearman, per-miRNA target coverage)
+   - Teff 0.87 | Tmem 0.86 | Tex 0.79 | Tn 0.71
+   Interpretation: all acceptable (>=0.71). Effector/memory are tight;
+   naive is the noisiest, reflecting the IP7/IP8 imbalance. (Note: the
+   concordance miRNA counts (115–151) exceed the reproducible unique-miRNA
+   counts above because concordance uses miRNAs seen in EITHER replicate,
+   while the reproducible set requires support in BOTH.)
+
+6) TARGET FEATURE DISTRIBUTION (design-validating)
+   - Chimeric targets: Intron 31% | Other 30% | 3'UTR 22% | CDS 17% | 5'UTR 1%
+   - AGO2 occupancy:   Intron 35% | 3'UTR 29% | CDS 28% | miRNA 4% | other/5'UTR
+   Interpretation: only ~22% of direct miR targets are 3'UTR — restricting
+   to 3'UTR would discard ~78% of the data. The large "Other" fraction in
+   chimeras (30% vs 2% for AGO2) must be resolved in step 3 annotation
+   (ncRNA / antisense / intergenic), NOT discarded.
+
+---------------------------------------------------------------------
+DO WE NEED TO CHANGE ANYTHING?
+---------------------------------------------------------------------
+   * Experiment / sequencing: NO. Depth, complexity, mapping and chimeric
+     capture are all sufficient; keep all 8 IP libraries.
+   * Analysis safeguards (already in the pipeline plan):
+       - Anchor every abundance/target analysis on the REPRODUCIBLE set.
+       - Use WITHIN-STATE normalization for cross-state comparison so the
+         naive (IP7) depth spike does not dominate.
+       - Interpret Tex conservatively: its low target counts are partly a
+         capture-efficiency floor, not purely biology. Normalize and word
+         "depletion into exhaustion" carefully.
+       - Report the naive IP7/IP8 imbalance transparently in the methods.
+       - Step 3: use a GENCODE vM25 / mm10 GTF (NOT the CAR-T GRCm39 ref)
+         and resolve the chimeric "Other" feature bucket.
+   * Optional precision (not required): per-miRNA quantification uses the
+     cluster "coverage" column; the chimeric BAM does NOT carry miRNA
+     identity, so it adds nothing here.
+
+=====================================================================
+PART B — MANUSCRIPT METHODS SNIPPET (edit to taste)
+=====================================================================
+
+miR-eCLIP and primary data processing.
+Direct microRNA–target interactions were profiled by AGO2 miR-eCLIP
+(Eclipse Bioinnovations) in CD8+ T cells across four differentiation
+states (naive, effector, memory and exhausted), with two biological
+replicates per state. For each replicate, an AGO2 immunoprecipitation
+(IP) library and a size-matched input library were sequenced. Reads were
+processed with the Eclipsebio pipeline: unique molecular identifiers
+(UMIs) were used to remove PCR duplicates, adapters were trimmed, and the
+genome-mapping (target) portion of chimeric reads was aligned to the
+mouse genome (UCSC GRCm38/mm10) with STAR v2.7.7a using end-to-end
+alignment. Peaks were annotated against GENCODE release M25. AGO2 read
+clusters were called with CLIPper; significant AGO2 peaks were defined as
+clusters with >=3 log2 fold enrichment over input and p < 0.001.
+microRNA–target chimeric reads were identified, and chimeric ("miRNA
+target") clusters were called and assigned to the targeting miRNA.
+Reproducible clusters/peaks were defined as those recovered in both
+replicates of a condition. Differential AGO2 occupancy and differential
+miRNA targeting between states were computed with DESeq2.
+
+Quality control.
+Across the eight IP libraries, sequencing depth ranged from 41.0 to 56.6
+million reads (mean 50.6 M); 96.4–98.4% of reads passed trimming and
+46.3–64.6% aligned uniquely. PCR-duplicate rates were 20.4–24.2%,
+indicating high library complexity. Chimeric reads represented 0.44–2.18%
+of mapped reads (mean ~0.96%), consistent with expected miR-eCLIP yields,
+and all libraries recovered chimeric miRNA–target interactions. Per-miRNA
+target coverage was reproducible between replicates (Spearman rho =
+0.87, 0.86, 0.79 and 0.71 for effector, memory, exhausted and naive,
+respectively). Reproducible chimeric clusters numbered 1,373 (naive,
+68 miRNAs), 549 (effector, 81 miRNAs), 1,152 (memory, 102 miRNAs) and
+322 (exhausted, 65 miRNAs). Direct miRNA target sites were distributed
+across introns (31%), unannotated/other regions (30%), 3' UTRs (22%) and
+coding sequence (17%); analyses were therefore not restricted to 3' UTRs.
+All downstream analyses used the reproducible cluster sets with
+within-state normalization to account for replicate-depth differences,
+most notably between the two naive replicates.
+
+=====================================================================
+SOURCE TABLES (eCLIP/01_QC/tables): qc_report_metrics_IP.csv,
+qc_report_metrics_input.csv, data_vs_report_reconciliation.csv,
+reproducible_yield_per_state.csv, replicate_concordance_stats.csv,
+feature_distribution.csv, persample_miRNA_coverage_rep1_rep2.csv
+=====================================================================
