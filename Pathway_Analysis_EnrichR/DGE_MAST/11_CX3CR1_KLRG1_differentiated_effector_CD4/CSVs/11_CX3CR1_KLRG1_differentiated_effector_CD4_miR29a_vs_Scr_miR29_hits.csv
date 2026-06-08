@@ -1,4 +1,0 @@
-"Term","Overlap","P.value","Adjusted.P.value","Old.P.value","Old.Adjusted.P.value","Odds.Ratio","Combined.Score","Genes","Database","gene_set"
-"mmu-miR-290-3p","1/1739",0.166343324794768,0.189464044968518,0,0,10.506329113924,18.8452172908986,"IRF4","TargetScan_microRNA_2017","DOWN"
-"mmu-miR-292-3p","1/1739",0.166343324794768,0.189464044968518,0,0,10.506329113924,18.8452172908986,"IRF4","TargetScan_microRNA_2017","DOWN"
-"hsa-miR-296-3p","1/1950",0.185497798396125,0.189464044968518,0,0,9.26064648537712,15.6015247202778,"IRF4","TargetScan_microRNA_2017","DOWN"

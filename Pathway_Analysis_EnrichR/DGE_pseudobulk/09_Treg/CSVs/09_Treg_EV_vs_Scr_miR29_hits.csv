@@ -1,3 +1,0 @@
-"Term","Overlap","P.value","Adjusted.P.value","Old.P.value","Old.Adjusted.P.value","Odds.Ratio","Combined.Score","Genes","Database","gene_set"
-"mmu-miR-296-3p","1/1605",0.0802497564896704,0.0999997471884245,0,0,18395,46403.4394875109,"MYO6","TargetScan_microRNA_2017","DOWN"
-"hsa-miR-2909","1/1912",0.0955997487646526,0.0999997471884245,0,0,18088,42463.1190520831,"MYO6","TargetScan_microRNA_2017","DOWN"
