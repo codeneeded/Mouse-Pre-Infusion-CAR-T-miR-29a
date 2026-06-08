@@ -1,0 +1,7 @@
+"sample_id","condition","replicate","n_cells"
+"EV-rep1","EV","rep1",435
+"EV-rep2","EV","rep2",706
+"miR29a-rep1","miR29a","rep1",661
+"miR29a-rep2","miR29a","rep2",938
+"Scr-rep1","Scr","rep1",491
+"Scr-rep2","Scr","rep2",753
