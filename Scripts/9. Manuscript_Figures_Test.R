@@ -80,17 +80,35 @@ obj$.sample   <- paste(obj$condition, obj$replicate, sep = "-")
 obj$clusters  <- droplevels(factor(obj$clusters))
 obj$tentative_state <- droplevels(factor(obj$tentative_state))
 
+# ---- Shift cluster numbering by +1 for manuscript readability ----
+# Internally and in plots, clusters now display as 1..N instead of 0..(N-1).
+# DE CSVs from script 05 are still on disk with 0-based stems; the
+# cluster_stem_lookup() helper below remaps a new (1-based) cluster ID to
+# the corresponding 0-based stem so file lookups still work without
+# touching the upstream pipeline.
+levels(obj$clusters) <- as.character(as.integer(levels(obj$clusters)) + 1L)
+
 umap_reduction <- if ("umap.harmony" %in% Reductions(obj)) "umap.harmony" else
   Reductions(obj)[grepl("umap", Reductions(obj), ignore.case = TRUE)][1]
 
-# Cluster name mapping + safe filename stem
+# Cluster name mapping + safe filename stem (rebuilt AFTER the +1 shift so
+# keys are the new 1-based IDs).
 cluster_label_map <- tapply(as.character(obj$tentative_state),
                             obj$clusters, function(x) x[1])
 safe_name <- function(x) gsub("[^A-Za-z0-9._-]+", "_", x)
+
+# OUTPUT stem -- new 1-based numbering for figures and folders
 cluster_stem <- function(cl_id) {
   lbl <- cluster_label_map[as.character(cl_id)]
   if (is.na(lbl) || nchar(lbl) == 0) return(paste0("cluster_", cl_id))
   safe_name(paste0(sprintf("%02d", as.integer(as.character(cl_id))), "_", lbl))
+}
+
+# LOOKUP stem -- 0-based; matches script 05 DE CSV file naming on disk
+cluster_stem_lookup <- function(cl_id) {
+  lbl <- cluster_label_map[as.character(cl_id)]
+  if (is.na(lbl) || nchar(lbl) == 0) return(paste0("cluster_", as.integer(cl_id) - 1L))
+  safe_name(paste0(sprintf("%02d", as.integer(as.character(cl_id)) - 1L), "_", lbl))
 }
 
 # Write the number -> name legend so figure captions can reference it
@@ -106,20 +124,38 @@ write.csv(cluster_legend, file.path(fig_base, "cluster_legend.csv"), row.names =
 cond_cols <- c(EV = "#E76F51", Scr = "#52B788", miR29a = "#5E60CE")
 
 # ============================ Gene panels ====================================
-# Wetlab collaborator's curated cluster-specific signatures
-panel_c2 <- list(
+# Wetlab collaborator's curated cluster-specific signatures.
+# Clusters 1 + 8 added per collaborator follow-up: cluster 1 has the largest
+# miR-29a abundance increase; cluster 8 chosen to test if Epas1 / hypoxia
+# repression generalises beyond clusters 3/5/6.
+panel_c1 <- list(
+  down_in_miR29a = c("Epas1","Slc2a6","Atf3","Xdh","Batf3","Ccr5","Gzma",
+                     "Ly6a","Serpina3g"),
+  up_in_miR29a   = c("Acss1","Nqo1","Nme4","Clybl","Cox7a1","Tcf7","Rtkn2",
+                     "Cd200","Cd200r1")
+)
+panel_c3 <- list(
   down_in_miR29a = c("Epas1","Gpx8","Slc2a6","Cox6a2","Pim3","Hacd1","Atf5",
                      "Adora2a","Adora2b","Irs2","Agpat4","Bhlhe40","Bhlhe41","Nr4a3"),
   up_in_miR29a   = c("Slc25a23","Ldhb","Rxra","Camkk1","Sgms1","Abca3",
                      "Atp8a2","Atp10d")
 )
-panel_c4 <- list(
+panel_c5 <- list(
   down_in_miR29a = c("Epas1","Gpx8","Pim3","Slc2a6","Slc16a3","Agpat4","Hacd1",
                      "Atf5","Adora2a","Bhlhe40","Nr4a3"),
   up_in_miR29a   = c("Foxo3","Cpt1a","Ldhb","Mgll","Rxra","S1pr1")
 )
-panel_c5 <- list(
-  up_in_miR29a = c("Tcf7","S1pr1","Ppargc1b","mt-Nd6","Pde4c","Btla")
+# Cluster 5 expanded with downregulated panel from collaborator follow-up.
+panel_c6 <- list(
+  down_in_miR29a = c("Epas1","Slc2a6","Atf3","Ccr5","Gzma","Gzmb","Ly6a",
+                     "Ly6c1","Ly6c2","Serpina3g","Batf","Cycs"),
+  up_in_miR29a   = c("Tcf7","S1pr1","Ppargc1b","mt-Nd6","Pde4c","Btla")
+)
+panel_c8 <- list(
+  down_in_miR29a = c("Epas1","Slc2a6","Atf3","Serpina3g","Ccr5","Ly6a","Ly6c1",
+                     "Ly6c2","P2ry14","Slc4a7","Tgm2","Mir155hg","Eomes"),
+  up_in_miR29a   = c("S1pr1","Tcf7","Klf2","Clybl","Gpd2","Slc25a24","Faah",
+                     "Hvcn1","Mt1","Smad7","Cd200r1")
 )
 
 # General-signature panel (collaborator-provided, mouse case)
@@ -133,12 +169,34 @@ cat_memory_TF   <- c("Bach2","Foxo3","Tcf7","Lef1","Myb")
 cat_exhaustion  <- c("Tox","Pdcd1","Havcr2","Lag3","Tigit","Entpd1","Ctla4")
 cat_cytotox     <- c("Gzmb","Prf1","Nkg7","Gzma","Gzmk","Ifng","Gzmh")
 
+# Hypoxia / central-metabolism priority list. When labelling top-N TargetScan
+# miR-29a targets in the highlight volcanoes, any non-panel target that's in
+# this list AND sig in the contrast is auto-labelled regardless of its
+# p-value rank, so the metabolic narrative (the "blue box" + OXPHOS / FAO
+# story) survives the 10-label cap even when other targets dominate by p.
+hypoxia_metabolic_priority <- c(
+  # HIF axis
+  "Hif1a","Epas1","Hif3a","Arnt","Vhl","Hif1an",
+  # HIF-target / hypoxia response
+  "Vegfa","Vegfb","Bnip3","Bnip3l","Ca9","Plod2","Loxl2","P4ha1","P4ha2",
+  # Glycolysis enzymes / glucose & lactate transporters
+  "Hk1","Hk2","Hk3","Pfkfb3","Pfkfb4","Pkm","Ldha","Ldhb","Pdk1","Pdk2",
+  "Slc2a1","Slc2a3","Slc2a6","Slc16a1","Slc16a3","Pim3",
+  # OXPHOS / mito biogenesis / dynamics
+  "Sdha","Sdhb","Sdhc","Sdhd","Cycs","Cox6a2","Cox7a1","Ndufa1","Atp5b",
+  "Ppargc1a","Ppargc1b","Tfam","Nrf1","Mfn1","Mfn2","Opa1","Drp1",
+  # FAO + lipid handling
+  "Cpt1a","Cpt1b","Cpt2","Acadm","Acadl","Acox1","Mgll","Hadha","Hadhb"
+)
+
 # Per-cluster wetlab panel (flat vector for volcano highlighting)
 cluster_specific_panel <- function(cl_id) {
   switch(as.character(cl_id),
-         "2" = c(panel_c2$down_in_miR29a, panel_c2$up_in_miR29a),
-         "4" = c(panel_c4$down_in_miR29a, panel_c4$up_in_miR29a),
-         "5" = c(panel_c5$up_in_miR29a),
+         "1" = c(panel_c1$down_in_miR29a, panel_c1$up_in_miR29a),
+         "3" = c(panel_c3$down_in_miR29a, panel_c3$up_in_miR29a),
+         "5" = c(panel_c5$down_in_miR29a, panel_c5$up_in_miR29a),
+         "6" = c(panel_c6$down_in_miR29a, panel_c6$up_in_miR29a),
+         "8" = c(panel_c8$down_in_miR29a, panel_c8$up_in_miR29a),
          character(0))
 }
 
@@ -230,7 +288,7 @@ sig_annot <- agg_y_max %>%
     y_secondary = y_top + pmax(y_top * 0.28, 0.022)
   )
 
-p_abund <- ggplot(agg, aes(x = factor(cluster_id), y = mean_prop, fill = condition)) +
+p_abund_all <- ggplot(agg, aes(x = factor(cluster_id), y = mean_prop, fill = condition)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.85),
            color = "grey20", linewidth = 0.3) +
   geom_errorbar(aes(ymin = pmax(mean_prop - sd_prop, 0),
@@ -250,7 +308,7 @@ p_abund <- ggplot(agg, aes(x = factor(cluster_id), y = mean_prop, fill = conditi
                 label = sig_lab_secondary),
             inherit.aes = FALSE, size = 4, fontface = "bold", color = "grey50") +
   scale_fill_manual(values = cond_cols) +
-  labs(title = "Cluster abundance by condition",
+  labs(title = "Cluster abundance by condition (all three groups)",
        subtitle = paste0("Bars: mean across replicates (n=2 each); points: replicates. ",
                          "Purple stars: miR29a vs EV (primary). Grey stars: miR29a vs Scr."),
        x = "Cluster",
@@ -263,8 +321,46 @@ p_abund <- ggplot(agg, aes(x = factor(cluster_id), y = mean_prop, fill = conditi
         panel.grid.minor   = element_blank(),
         legend.position    = "right")
 
-ggsave(file.path(dir_abundance, "cluster_proportions.png"),
-       p_abund, width = 14, height = 7, dpi = 300, bg = "white")
+ggsave(file.path(dir_abundance, "cluster_proportions_all_conditions.png"),
+       p_abund_all, width = 14, height = 7, dpi = 300, bg = "white")
+
+# ---- Primary version per collaborator request: EV vs miR29a only, boxplot
+# without individual replicate dots. With n=2 the boxplot is degenerate
+# (median = midpoint, no IQR), but matches the requested visual style.
+prop_df_2cond <- prop_df %>% dplyr::filter(condition %in% c("EV", "miR29a")) %>%
+  dplyr::mutate(condition = factor(condition, levels = c("EV", "miR29a")))
+
+sig_annot_2cond <- sig_annot %>%
+  dplyr::transmute(cluster_id,
+                   y_pos = y_primary,
+                   sig_lab = sig_lab_primary)
+
+cond_cols_2 <- cond_cols[c("EV", "miR29a")]
+
+p_abund_2cond <- ggplot(prop_df_2cond,
+                        aes(x = factor(cluster_id), y = prop, fill = condition)) +
+  geom_boxplot(position = position_dodge(width = 0.8),
+               width = 0.7, color = "grey20", linewidth = 0.4,
+               outlier.shape = NA) +
+  geom_text(data = sig_annot_2cond,
+            aes(x = factor(cluster_id), y = y_pos, label = sig_lab),
+            inherit.aes = FALSE, size = 5, fontface = "bold", color = "#5E60CE") +
+  scale_fill_manual(values = cond_cols_2) +
+  labs(title = "Cluster abundance: EV vs miR-29a",
+       subtitle = paste0("Boxplots over biological replicates (n=2 each). ",
+                         "Purple stars: propeller FDR (miR29a vs EV)."),
+       x = "Cluster",
+       y = "Proportion of cells",
+       fill = "Condition") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"),
+        plot.subtitle = element_text(color = "grey40", size = 10),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor   = element_blank(),
+        legend.position    = "right")
+
+ggsave(file.path(dir_abundance, "cluster_proportions_EV_vs_miR29a.png"),
+       p_abund_2cond, width = 14, height = 7, dpi = 300, bg = "white")
 
 
 # ============================================================================
@@ -286,7 +382,6 @@ p_split_umap <- DimPlot2(
   box         = TRUE,
   pt.size     = 0.6,
   index.title = "C",
-  cols='default',
   theme       = theme_umap_arrows()
 )
 ggsave(file.path(dir_umap, "UMAP_split_by_condition.png"),
@@ -301,7 +396,6 @@ p_combined_umap <- DimPlot2(
   box         = TRUE,
   pt.size     = 0.6,
   index.title = "C",
-  cols='default',
   theme       = theme_umap_arrows()
 )
 ggsave(file.path(dir_umap, "UMAP_combined.png"),
@@ -336,7 +430,7 @@ message("\n=== Section 4: Volcano plots ===")
 
 # Category color palette for the GENERAL volcano (standard T cell categories).
 # A separate highlight folder (Section 4b) emphasises the email gene lists for
-# clusters 2, 4, 5 with their own colour scheme.
+# clusters 3, 5, 6 with their own colour scheme.
 category_cols <- c(
   "miR-29a target"    = "#D97757",   # warm orange
   "Methylation axis"  = "#3B82F6",   # blue
@@ -377,7 +471,7 @@ make_volcano <- function(de_df, title, out_png,
   d$label[to_label] <- d$gene[to_label]
   
   # Drop non-finite rows BEFORE any axis-cap math -- these were the silent
-  # killer for cluster 10 (huge -log10 p-values cascading into bad viewports).
+  # killer for cluster 11 (huge -log10 p-values cascading into bad viewports).
   d <- d %>% dplyr::filter(is.finite(avg_log2FC), is.finite(neg_log10_padj))
   if (nrow(d) == 0) return(invisible(NULL))
   
@@ -427,18 +521,19 @@ make_volcano <- function(de_df, title, out_png,
   # Direction arrows below x-axis -- EXACTLY the human-template pattern.
   # grobTree + annotation_custom(xmin=-Inf, xmax=Inf) + clip="off". With
   # y_cap hard-capped above, -y_cap * 0.22 stays in safe range.
+  # Salmon up / deep ocean blue down; thicker (lwd=6) for high-DPI clarity.
   arrow_right <- grobTree(
     linesGrob(x = unit(c(0.52, 0.95), "npc"), y = unit(c(0.5, 0.5), "npc"),
-              arrow = arrow(length = unit(0.35, "cm"), type = "closed"),
-              gp = gpar(col = "#E76F51", lwd = 4)),                # salmon
+              arrow = arrow(length = unit(0.4, "cm"), type = "closed"),
+              gp = gpar(col = "#E76F51", lwd = 6)),                # salmon
     textGrob(dir_labels[1], x = unit(0.74, "npc"), y = unit(0, "npc"),
              gp = gpar(col = "#E76F51", fontsize = 12, fontface = "bold")))
   arrow_left <- grobTree(
     linesGrob(x = unit(c(0.48, 0.05), "npc"), y = unit(c(0.5, 0.5), "npc"),
-              arrow = arrow(length = unit(0.35, "cm"), type = "closed"),
-              gp = gpar(col = "#2A9D8F", lwd = 4)),                # teal
+              arrow = arrow(length = unit(0.4, "cm"), type = "closed"),
+              gp = gpar(col = "#1B4965", lwd = 6)),                # deep ocean blue
     textGrob(dir_labels[2], x = unit(0.26, "npc"), y = unit(0, "npc"),
-             gp = gpar(col = "#2A9D8F", fontsize = 12, fontface = "bold")))
+             gp = gpar(col = "#1B4965", fontsize = 12, fontface = "bold")))
   
   p_final <- p +
     theme(plot.margin = margin(10, 10, 70, 10)) +
@@ -465,9 +560,10 @@ for (ct in contrast_pair) {
   }
   
   for (cl in levels(obj$clusters)) {
-    stem <- cluster_stem(cl)
-    csv_path <- file.path(de_root, "DGE_MAST", "by_cluster", stem,
-                          paste0(stem, "_", ct, ".csv"))
+    stem_in  <- cluster_stem_lookup(cl)   # 0-based: matches script 05 file names
+    stem_out <- cluster_stem(cl)          # 1-based: new manuscript naming
+    csv_path <- file.path(de_root, "DGE_MAST", "by_cluster", stem_in,
+                          paste0(stem_in, "_", ct, ".csv"))
     if (!file.exists(csv_path)) {
       message("  missing: ", csv_path); next
     }
@@ -483,7 +579,7 @@ for (ct in contrast_pair) {
     make_volcano(
       de_df          = de,
       title          = title,
-      out_png        = file.path(ct_dir, paste0(stem, ".png")),
+      out_png        = file.path(ct_dir, paste0(stem_out, ".png")),
       mir29a_targets = mir29a_targets_top200,
       dir_labels     = dir_labs
     )
@@ -493,61 +589,126 @@ for (ct in contrast_pair) {
 
 
 # ============================================================================
-# SECTION 4b: HIGHLIGHT VOLCANOES -- clusters 2, 4, 5 with email gene panels
+# SECTION 4b: HIGHLIGHT VOLCANOES -- clusters 1, 3, 5, 6, 8 with email gene panels
 # ============================================================================
-# Per the wetlab collaborator, clusters 2 (Proliferative CD8), 4 (Non-cycling
-# exhaustion-like CD8) and 5 (CD4 TCF1hi stem-like) have curated gene panels.
-# These volcanoes label the panel genes regardless of significance (forced
-# labels) with distinct down-vs-up colours so the metabolic / lipid / redox
-# story reads off the plot directly.
+# Per the wetlab collaborator, the original highlights were clusters 3
+# (Proliferative CD8), 5 (Non-cycling exhaustion-like CD8) and 6 (CD4 TCF1hi
+# stem-like). Cluster 1 (largest miR-29a abundance increase) and cluster 8
+# were added in the follow-up so we can test if hypoxia/Epas1 repression
+# generalises. Volcanoes label panel genes regardless of significance
+# (forced labels) coloured by function so the metabolic / cytotoxic /
+# lipid / redox story reads off the plot directly.
 
 dir_volcano_hl <- file.path(fig_base, "Volcano_Plots_Highlight")
 dir.create(dir_volcano_hl, recursive = TRUE, showWarnings = FALSE)
 
 panel_function_cols <- c(
-  "Glycolysis / Hypoxia" = "#0072B2",   # deep blue   -- HIF axis, glucose import, lactate export
-  "OXPHOS / FAO"         = "#D55E00",   # vermillion  -- mito energy, fatty-acid oxidation
-  "Lipid metabolism"     = "#CC79A7",   # pink-purple -- lipid synthesis, membrane, peroxidation
-  "Transcription factor" = "#009E73",   # green       -- TFs (Bhlhe40/41, Atf5, Nr4a3, Foxo3, Rxra, Tcf7)
-  "Signaling / immune"   = "#E69F00",   # orange      -- adenosine, S1P, BTLA, kinases, immune
-  "Other"                = "grey80"
+  "Glycolysis / Hypoxia"     = "#0072B2",   # deep blue   -- HIF axis, glucose import, lactate export
+  "OXPHOS / FAO"             = "#D55E00",   # vermillion  -- mito energy, fatty-acid oxidation, redox-active mito enzymes
+  "Lipid / Redox"            = "#CC79A7",   # pink-purple -- lipid synth, membrane, peroxidation, antioxidant defence
+  "miR-29a x metabolic"      = "#F50057",   # vivid magenta -- INTERSECTION: gene is a TargetScan miR-29a target AND in a metabolic category. Overrides the metabolic colour so direct miR-29a-driven metabolic hits are trackable separately.
+  "Transcription factor"     = "#009E73",   # green       -- TFs (effector, memory, stress, activation)
+  "Cytotoxicity / Effector"  = "#6A3D9A",   # purple      -- Gzma/Gzmb, Ly6 activation cluster, chemokine receptors, IFN-induced
+  "Signaling / immune"       = "#E69F00",   # orange      -- adenosine, S1P, BTLA, kinases, immune modulation
+  "miR-29a target"           = "#8B4513",   # saddle brown-- non-metabolic TargetScan-predicted miR-29a targets (overlay)
+  "Other"                    = "grey80"
 )
 
-# Per-gene function map -- covers all 32 unique genes across the c2/c4/c5
-# panels. Categories chosen to make the metabolic-reprogramming story read
-# off the plot (glycolysis down, OXPHOS/FAO up, lipid remodelling, TF shifts).
+# Per-gene function map. Now BROADER than the wetlab panel set: any canonical
+# member of these categories gets coloured by function regardless of whether
+# it's in the cluster's email panel. This is what makes e.g. Gzma/Gzmb appear
+# purple in cluster 3 (Proliferative CD8) even though they're not in that
+# cluster's panel -- previously the Cytotoxicity legend entry was blank.
 panel_function_map <- c(
-  # Glycolysis / Hypoxia (HIF axis)
-  Epas1 = "Glycolysis / Hypoxia", Slc2a6 = "Glycolysis / Hypoxia",
+  # Glycolysis / Hypoxia (HIF axis, glucose import, lactate export)
+  Epas1 = "Glycolysis / Hypoxia", Hif1a = "Glycolysis / Hypoxia",
+  Hif3a = "Glycolysis / Hypoxia", Arnt = "Glycolysis / Hypoxia",
+  Vhl = "Glycolysis / Hypoxia",   Hif1an = "Glycolysis / Hypoxia",
+  Vegfa = "Glycolysis / Hypoxia", Vegfb = "Glycolysis / Hypoxia",
+  Bnip3 = "Glycolysis / Hypoxia", Bnip3l = "Glycolysis / Hypoxia",
+  Ca9 = "Glycolysis / Hypoxia",   Plod2 = "Glycolysis / Hypoxia",
+  Loxl2 = "Glycolysis / Hypoxia", P4ha1 = "Glycolysis / Hypoxia",
+  P4ha2 = "Glycolysis / Hypoxia",
+  Hk1 = "Glycolysis / Hypoxia",   Hk2 = "Glycolysis / Hypoxia",
+  Hk3 = "Glycolysis / Hypoxia",   Pfkfb3 = "Glycolysis / Hypoxia",
+  Pfkfb4 = "Glycolysis / Hypoxia", Pkm = "Glycolysis / Hypoxia",
+  Ldha = "Glycolysis / Hypoxia", Pdk1 = "Glycolysis / Hypoxia",
+  Pdk2 = "Glycolysis / Hypoxia",
+  Slc2a1 = "Glycolysis / Hypoxia", Slc2a3 = "Glycolysis / Hypoxia",
+  Slc2a6 = "Glycolysis / Hypoxia", Slc16a1 = "Glycolysis / Hypoxia",
   Slc16a3 = "Glycolysis / Hypoxia", Pim3 = "Glycolysis / Hypoxia",
   
   # OXPHOS / mitochondrial / FAO
-  Cox6a2 = "OXPHOS / FAO", `mt-Nd6` = "OXPHOS / FAO",
-  Slc25a23 = "OXPHOS / FAO", Ldhb = "OXPHOS / FAO",
-  Ppargc1b = "OXPHOS / FAO", Cpt1a = "OXPHOS / FAO",
+  Cox6a2 = "OXPHOS / FAO", Cox7a1 = "OXPHOS / FAO",
+  `mt-Nd6` = "OXPHOS / FAO", Ndufa1 = "OXPHOS / FAO",
+  Ndufa6 = "OXPHOS / FAO", Atp5b = "OXPHOS / FAO",
+  Slc25a23 = "OXPHOS / FAO", Slc25a24 = "OXPHOS / FAO",
+  Ldhb = "OXPHOS / FAO",    Acss1 = "OXPHOS / FAO",
+  Nme4 = "OXPHOS / FAO",    Clybl = "OXPHOS / FAO",
+  Cycs = "OXPHOS / FAO",    Gpd2 = "OXPHOS / FAO",
+  Xdh = "OXPHOS / FAO",
+  Sdha = "OXPHOS / FAO",    Sdhb = "OXPHOS / FAO",
+  Sdhc = "OXPHOS / FAO",    Sdhd = "OXPHOS / FAO",
+  Ppargc1a = "OXPHOS / FAO", Ppargc1b = "OXPHOS / FAO",
+  Tfam = "OXPHOS / FAO",    Nrf1 = "OXPHOS / FAO",
+  Mfn1 = "OXPHOS / FAO",    Mfn2 = "OXPHOS / FAO",
+  Opa1 = "OXPHOS / FAO",    Drp1 = "OXPHOS / FAO",
+  Cpt1a = "OXPHOS / FAO",   Cpt1b = "OXPHOS / FAO",
+  Cpt2 = "OXPHOS / FAO",    Acadm = "OXPHOS / FAO",
+  Acadl = "OXPHOS / FAO",   Acox1 = "OXPHOS / FAO",
+  Hadha = "OXPHOS / FAO",   Hadhb = "OXPHOS / FAO",
   Mgll = "OXPHOS / FAO",
   
-  # Lipid metabolism / membrane / redox
-  Hacd1 = "Lipid metabolism", Agpat4 = "Lipid metabolism",
-  Sgms1 = "Lipid metabolism", Atp8a2 = "Lipid metabolism",
-  Atp10d = "Lipid metabolism", Abca3 = "Lipid metabolism",
-  Gpx8 = "Lipid metabolism",
+  # Lipid metabolism / membrane / redox defence
+  Hacd1 = "Lipid / Redox",  Agpat4 = "Lipid / Redox",
+  Sgms1 = "Lipid / Redox",  Atp8a2 = "Lipid / Redox",
+  Atp10d = "Lipid / Redox", Abca3 = "Lipid / Redox",
+  Gpx8 = "Lipid / Redox",   Faah = "Lipid / Redox",
+  Nqo1 = "Lipid / Redox",   Mt1 = "Lipid / Redox",
+  Gpx1 = "Lipid / Redox",   Gpx4 = "Lipid / Redox",
+  Sod1 = "Lipid / Redox",   Sod2 = "Lipid / Redox",
+  Cat = "Lipid / Redox",    Txn1 = "Lipid / Redox",
+  Prdx1 = "Lipid / Redox",
   
-  # Transcription factors
+  # Transcription factors (effector, memory, stress, activation, exhaustion)
   Bhlhe40 = "Transcription factor", Bhlhe41 = "Transcription factor",
-  Atf5 = "Transcription factor",   Nr4a3 = "Transcription factor",
-  Foxo3 = "Transcription factor",  Rxra = "Transcription factor",
-  Tcf7 = "Transcription factor",
+  Atf5 = "Transcription factor",    Nr4a3 = "Transcription factor",
+  Foxo3 = "Transcription factor",   Rxra = "Transcription factor",
+  Tcf7 = "Transcription factor",    Atf3 = "Transcription factor",
+  Batf = "Transcription factor",    Batf3 = "Transcription factor",
+  Eomes = "Transcription factor",   Klf2 = "Transcription factor",
+  Tbx21 = "Transcription factor",   Bach2 = "Transcription factor",
+  Lef1 = "Transcription factor",    Myb = "Transcription factor",
+  Tox = "Transcription factor",
   
-  # Signaling / immune modulation
+  # Cytotoxicity / Effector / activation-stress program
+  Gzma = "Cytotoxicity / Effector", Gzmb = "Cytotoxicity / Effector",
+  Gzmk = "Cytotoxicity / Effector", Gzmh = "Cytotoxicity / Effector",
+  Prf1 = "Cytotoxicity / Effector", Nkg7 = "Cytotoxicity / Effector",
+  Ifng = "Cytotoxicity / Effector",
+  Ccr5 = "Cytotoxicity / Effector", Ly6a = "Cytotoxicity / Effector",
+  Ly6c1 = "Cytotoxicity / Effector", Ly6c2 = "Cytotoxicity / Effector",
+  Serpina3g = "Cytotoxicity / Effector", Mir155hg = "Cytotoxicity / Effector",
+  
+  # Signaling / immune modulation / checkpoints
   Adora2a = "Signaling / immune", Adora2b = "Signaling / immune",
   Irs2 = "Signaling / immune",    S1pr1 = "Signaling / immune",
   Btla = "Signaling / immune",    Pde4c = "Signaling / immune",
-  Camkk1 = "Signaling / immune"
+  Camkk1 = "Signaling / immune",  Cd200 = "Signaling / immune",
+  Cd200r1 = "Signaling / immune", Rtkn2 = "Signaling / immune",
+  P2ry14 = "Signaling / immune",  Slc4a7 = "Signaling / immune",
+  Tgm2 = "Signaling / immune",    Hvcn1 = "Signaling / immune",
+  Smad7 = "Signaling / immune",   Pdcd1 = "Signaling / immune",
+  Havcr2 = "Signaling / immune",  Lag3 = "Signaling / immune",
+  Tigit = "Signaling / immune",   Entpd1 = "Signaling / immune",
+  Ctla4 = "Signaling / immune",   Icos = "Signaling / immune"
 )
 
 make_highlight_volcano <- function(de_df, title, out_png,
                                    panel_genes,
+                                   mir29a_targets  = character(0),
+                                   n_target_labels = 10,
+                                   priority_genes  = hypoxia_metabolic_priority,
                                    dir_labels = c("Higher in miR-29a",
                                                   "Higher in control")) {
   if (is.null(de_df) || nrow(de_df) == 0) return(invisible(NULL))
@@ -556,26 +717,71 @@ make_highlight_volcano <- function(de_df, title, out_png,
   d$gene           <- rownames(d)
   d$neg_log10_padj <- -log10(d$p_val_adj + 1e-300)
   
-  # Assign by FUNCTION, not direction (direction is already on the x-axis).
-  # Genes outside the panel = "Other". Genes in the panel but missing from
-  # the function map (shouldn't happen given the map covers all panel genes)
-  # also fall to "Other".
+  # Category priority (highest wins last assignment):
+  #   1. miR-29a target overlay applies first (everything in mir29a_targets)
+  #   2. Function map overrides -- ANY gene mapped to a function category
+  #      gets its category colour, regardless of panel membership.
+  #   3. INTERSECTION: gene is BOTH a miR-29a target AND in a metabolic
+  #      function category -> the "miR-29a x metabolic" combined category.
+  #      Overrides everything so the highest-value hits (direct miR-29a
+  #      targets that drive metabolic reprogramming) are trackable.
   d$category <- "Other"
-  panel_idx <- d$gene %in% panel_genes
-  d$category[panel_idx] <- ifelse(
-    d$gene[panel_idx] %in% names(panel_function_map),
-    panel_function_map[d$gene[panel_idx]],
-    "Other"
-  )
+  d$category[d$gene %in% mir29a_targets] <- "miR-29a target"
+  in_map <- d$gene %in% names(panel_function_map)
+  d$category[in_map] <- panel_function_map[d$gene[in_map]]
+  
+  metabolic_cats <- c("Glycolysis / Hypoxia", "OXPHOS / FAO", "Lipid / Redox")
+  gene_func <- panel_function_map[d$gene]
+  is_target_metabolic <- d$gene %in% mir29a_targets &
+    !is.na(gene_func) &
+    gene_func %in% metabolic_cats
+  d$category[is_target_metabolic] <- "miR-29a x metabolic"
+  
   d$category <- factor(d$category, levels = names(panel_function_cols))
   
-  # Label EVERY panel gene that's actually in the DE table (no sig threshold --
-  # the email panel is the curated narrative, so all panel members get labelled
-  # if they appear at all). Sig threshold still controls dashed reference line.
-  panel_all <- panel_genes
+  # Labels: every panel gene present in DE table (no sig threshold), plus
+  # every gene in the miR-29a x metabolic intersection that's sig (no cap --
+  # these are the manuscript's headline genes), plus up to n_target_labels
+  # non-panel miR-29a TargetScan hits. Hypoxia / metabolic priority genes
+  # are auto-labelled first so the "blue box" metabolic story survives the
+  # cap even if other targets dominate by p-value alone.
   d$label <- ""
-  to_label <- d$gene %in% panel_all
-  d$label[to_label] <- d$gene[to_label]
+  d$label[d$gene %in% panel_genes] <- d$gene[d$gene %in% panel_genes]
+  
+  # ALWAYS label sig genes in the miR-29a x metabolic intersection
+  intersection_genes <- d %>%
+    dplyr::filter(category == "miR-29a x metabolic",
+                  !is.na(p_val_adj), p_val_adj < 0.05) %>%
+    dplyr::pull(gene)
+  d$label[d$gene %in% intersection_genes] <-
+    d$gene[d$gene %in% intersection_genes]
+  
+  if (length(mir29a_targets) > 0 && n_target_labels > 0) {
+    candidates <- d %>%
+      dplyr::filter(gene %in% mir29a_targets,
+                    !gene %in% panel_genes,
+                    category != "miR-29a x metabolic",   # already auto-labelled above
+                    !is.na(p_val_adj), p_val_adj < 0.05) %>%
+      dplyr::arrange(dplyr::desc(abs(avg_log2FC)))   # effect size first, p only gates
+    
+    # Pass 1: hypoxia/metabolic priority hits among the sig candidates
+    priority_hits <- candidates %>%
+      dplyr::filter(gene %in% priority_genes)
+    
+    # Pass 2: fill remaining slots with top |log2FC| from non-priority candidates
+    remaining_slots <- max(0, n_target_labels - nrow(priority_hits))
+    other_hits <- candidates %>%
+      dplyr::filter(!gene %in% priority_hits$gene) %>%
+      dplyr::slice_head(n = remaining_slots)
+    
+    # Cap total at n_target_labels (if priority alone exceeds cap, keep top
+    # n_target_labels by |log2FC| among the priority hits).
+    target_to_label <- dplyr::bind_rows(priority_hits, other_hits) %>%
+      dplyr::slice_head(n = n_target_labels)
+    
+    d$label[d$gene %in% target_to_label$gene] <-
+      d$gene[d$gene %in% target_to_label$gene]
+  }
   
   # Drop non-finite rows first (same fix as general volcano)
   d <- d %>% dplyr::filter(is.finite(avg_log2FC), is.finite(neg_log10_padj))
@@ -594,11 +800,27 @@ make_highlight_volcano <- function(de_df, title, out_png,
   y_cap  <- min(y_cap, 100)
   d$neg_log10_padj_plot <- pmin(d$neg_log10_padj, y_cap)
   
+  # Ghost row per category at NA coords -- makes the legend always render a
+  # swatch for every level in panel_function_cols, even when no real data
+  # falls into that category (fixes the "Cytotoxicity / Effector" entry
+  # showing text-only with no colour dot).
+  ghost_df <- data.frame(
+    avg_log2FC_plot      = NA_real_,
+    neg_log10_padj_plot  = NA_real_,
+    category             = factor(names(panel_function_cols),
+                                  levels = names(panel_function_cols))
+  )
+  
   p <- ggplot(d, aes(x = avg_log2FC_plot, y = neg_log10_padj_plot,
                      color = category)) +
+    geom_point(data = ghost_df,
+               aes(color = category),
+               size = 4.5, alpha = 1, na.rm = TRUE) +
     geom_point(data = d %>% dplyr::filter(category == "Other"),
                size = 1.1, alpha = 0.25) +
-    geom_point(data = d %>% dplyr::filter(category != "Other"),
+    geom_point(data = d %>% dplyr::filter(category == "miR-29a target"),
+               size = 2.8, alpha = 0.7) +
+    geom_point(data = d %>% dplyr::filter(!category %in% c("Other", "miR-29a target")),
                size = 4.5, alpha = 0.95) +
     ggrepel::geom_label_repel(
       data = d %>% dplyr::filter(label != ""),
@@ -624,20 +846,20 @@ make_highlight_volcano <- function(de_df, title, out_png,
           plot.background  = element_rect(fill = "white", color = NA)) +
     guides(color = guide_legend(override.aes = list(size = 5, alpha = 1)))
   
-  # Same arrow style as general volcano -- human-template pattern, safe now
-  # that y_cap is capped at 100.
+  # Arrow style: salmon up / deep ocean blue down. Thickness bumped so the
+  # arrows read clearly under high-DPI rendering.
   arrow_right <- grobTree(
     linesGrob(x = unit(c(0.52, 0.95), "npc"), y = unit(c(0.5, 0.5), "npc"),
-              arrow = arrow(length = unit(0.4, "cm"), type = "closed"),
-              gp = gpar(col = "#E76F51", lwd = 5)),
+              arrow = arrow(length = unit(0.45, "cm"), type = "closed"),
+              gp = gpar(col = "#E76F51", lwd = 7)),
     textGrob(dir_labels[1], x = unit(0.74, "npc"), y = unit(0, "npc"),
              gp = gpar(col = "#E76F51", fontsize = 13, fontface = "bold")))
   arrow_left <- grobTree(
     linesGrob(x = unit(c(0.48, 0.05), "npc"), y = unit(c(0.5, 0.5), "npc"),
-              arrow = arrow(length = unit(0.4, "cm"), type = "closed"),
-              gp = gpar(col = "#2A9D8F", lwd = 5)),
+              arrow = arrow(length = unit(0.45, "cm"), type = "closed"),
+              gp = gpar(col = "#1B4965", lwd = 7)),
     textGrob(dir_labels[2], x = unit(0.26, "npc"), y = unit(0, "npc"),
-             gp = gpar(col = "#2A9D8F", fontsize = 13, fontface = "bold")))
+             gp = gpar(col = "#1B4965", fontsize = 13, fontface = "bold")))
   
   p_final <- p +
     theme(plot.margin = margin(10, 10, 75, 10)) +
@@ -651,28 +873,36 @@ make_highlight_volcano <- function(de_df, title, out_png,
   invisible(p_final)
 }
 
-# Cluster -> panel mapping (panel_c2 has no $up_in_miR29a key for cluster 5)
+# Cluster -> panel mapping. Clusters 1 + 8 added per collaborator follow-up;
+# cluster 6 now also has a down panel.
 highlight_panels <- list(
-  "2" = list(down = panel_c2$down_in_miR29a, up = panel_c2$up_in_miR29a),
-  "4" = list(down = panel_c4$down_in_miR29a, up = panel_c4$up_in_miR29a),
-  "5" = list(down = character(0),            up = panel_c5$up_in_miR29a)
+  "1" = list(down = panel_c1$down_in_miR29a, up = panel_c1$up_in_miR29a),
+  "3" = list(down = panel_c3$down_in_miR29a, up = panel_c3$up_in_miR29a),
+  "5" = list(down = panel_c5$down_in_miR29a, up = panel_c5$up_in_miR29a),
+  "6" = list(down = panel_c6$down_in_miR29a, up = panel_c6$up_in_miR29a),
+  "8" = list(down = panel_c8$down_in_miR29a, up = panel_c8$up_in_miR29a)
 )
 
-for (ct in contrast_pair) {
+# Highlight loop runs on three contrasts. EV_vs_Scr is a negative control:
+# miR-29a targets should be flat between two non-miR29a conditions.
+highlight_contrasts <- c("miR29a_vs_EV", "miR29a_vs_Scr", "EV_vs_Scr")
+
+for (ct in highlight_contrasts) {
   ct_dir <- file.path(dir_volcano_hl, ct)
   dir.create(ct_dir, showWarnings = FALSE, recursive = TRUE)
   
-  dir_labs <- if (ct == "miR29a_vs_EV") {
-    c("Higher in miR-29a", "Higher in EV")
-  } else {
-    c("Higher in miR-29a", "Higher in Scramble")
-  }
+  dir_labs <- switch(ct,
+                     "miR29a_vs_EV"  = c("Higher in miR-29a", "Higher in EV"),
+                     "miR29a_vs_Scr" = c("Higher in miR-29a", "Higher in Scramble"),
+                     "EV_vs_Scr"     = c("Higher in EV",      "Higher in Scramble")
+  )
   
   for (cl in names(highlight_panels)) {
     if (!cl %in% levels(obj$clusters)) next
-    stem <- cluster_stem(cl)
-    csv_path <- file.path(de_root, "DGE_MAST", "by_cluster", stem,
-                          paste0(stem, "_", ct, ".csv"))
+    stem_in  <- cluster_stem_lookup(cl)   # 0-based for DE CSV lookup
+    stem_out <- cluster_stem(cl)          # 1-based for output PNG
+    csv_path <- file.path(de_root, "DGE_MAST", "by_cluster", stem_in,
+                          paste0(stem_in, "_", ct, ".csv"))
     if (!file.exists(csv_path)) next
     
     de <- tryCatch(read.csv(csv_path, row.names = 1, check.names = FALSE),
@@ -684,14 +914,15 @@ for (ct in contrast_pair) {
                      cl, cluster_label, gsub("_", " ", ct))
     
     make_highlight_volcano(
-      de_df       = de,
-      title       = title,
-      out_png     = file.path(ct_dir, paste0(stem, "_HIGHLIGHT.png")),
-      panel_genes = c(highlight_panels[[cl]]$down, highlight_panels[[cl]]$up),
-      dir_labels  = dir_labs
+      de_df          = de,
+      title          = title,
+      out_png        = file.path(ct_dir, paste0(stem_out, "_HIGHLIGHT.png")),
+      panel_genes    = c(highlight_panels[[cl]]$down, highlight_panels[[cl]]$up),
+      mir29a_targets = mir29a_targets_top200,
+      dir_labels     = dir_labs
     )
   }
-  message("  ", ct, ": highlight volcanoes done (clusters 2, 4, 5)")
+  message("  ", ct, ": highlight volcanoes done (clusters 1, 3, 5, 6, 8)")
 }
 
 
@@ -738,19 +969,29 @@ plot_feature_panel <- function(genes, panel_name, out_dir) {
 
 # Cluster-specific panels (combined down+up for the feature plot view)
 plot_feature_panel(
-  genes      = c(panel_c2$down_in_miR29a, panel_c2$up_in_miR29a),
-  panel_name = "Cluster_02_specific",
-  out_dir    = file.path(dir_feature, "Cluster_02_specific")
+  genes      = c(panel_c1$down_in_miR29a, panel_c1$up_in_miR29a),
+  panel_name = "Cluster_01_specific",
+  out_dir    = file.path(dir_feature, "Cluster_01_specific")
 )
 plot_feature_panel(
-  genes      = c(panel_c4$down_in_miR29a, panel_c4$up_in_miR29a),
-  panel_name = "Cluster_04_specific",
-  out_dir    = file.path(dir_feature, "Cluster_04_specific")
+  genes      = c(panel_c3$down_in_miR29a, panel_c3$up_in_miR29a),
+  panel_name = "Cluster_03_specific",
+  out_dir    = file.path(dir_feature, "Cluster_03_specific")
 )
 plot_feature_panel(
-  genes      = c(panel_c5$up_in_miR29a),
+  genes      = c(panel_c5$down_in_miR29a, panel_c5$up_in_miR29a),
   panel_name = "Cluster_05_specific",
   out_dir    = file.path(dir_feature, "Cluster_05_specific")
+)
+plot_feature_panel(
+  genes      = c(panel_c6$down_in_miR29a, panel_c6$up_in_miR29a),
+  panel_name = "Cluster_06_specific",
+  out_dir    = file.path(dir_feature, "Cluster_06_specific")
+)
+plot_feature_panel(
+  genes      = c(panel_c8$down_in_miR29a, panel_c8$up_in_miR29a),
+  panel_name = "Cluster_08_specific",
+  out_dir    = file.path(dir_feature, "Cluster_08_specific")
 )
 plot_feature_panel(
   genes      = panel_general,
@@ -767,13 +1008,23 @@ message("\n=== Section 6: Violin plots ===")
 # x-axis = cluster NUMBER (not name) -- prevents truncation seen in earlier
 # attempts; cluster_legend.csv maps numbers to names for figure captions.
 
-plot_violin_panel <- function(genes, panel_name, out_dir) {
+plot_violin_panel <- function(genes, panel_name, out_dir,
+                              conditions = NULL) {
+  # If conditions is provided, subset obj to those conditions only (drops
+  # unused factor levels). Used for the EV-vs-miR-29a-only violins.
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
   genes_present <- intersect(genes, rownames(obj))
   if (length(genes_present) == 0) return(invisible(NULL))
   
+  obj_use <- obj
+  if (!is.null(conditions)) {
+    keep <- obj_use$condition %in% conditions
+    obj_use <- obj_use[, keep]
+    obj_use$condition <- factor(as.character(obj_use$condition), levels = conditions)
+  }
+  
   for (g in genes_present) {
-    p <- VlnPlot2(obj, features = g,
+    p <- VlnPlot2(obj_use, features = g,
                   group.by   = "clusters",        # numeric => short tick labels
                   split.by   = "condition",
                   cols       = "default",
@@ -789,18 +1040,170 @@ plot_violin_panel <- function(genes, panel_name, out_dir) {
   invisible(NULL)
 }
 
-plot_violin_panel(c(panel_c2$down_in_miR29a, panel_c2$up_in_miR29a),
-                  "Cluster_02_specific",
-                  file.path(dir_violin, "Cluster_02_specific"))
-plot_violin_panel(c(panel_c4$down_in_miR29a, panel_c4$up_in_miR29a),
-                  "Cluster_04_specific",
-                  file.path(dir_violin, "Cluster_04_specific"))
-plot_violin_panel(c(panel_c5$up_in_miR29a),
+# Cluster-specific panels (all three conditions)
+plot_violin_panel(c(panel_c1$down_in_miR29a, panel_c1$up_in_miR29a),
+                  "Cluster_01_specific",
+                  file.path(dir_violin, "Cluster_01_specific"))
+plot_violin_panel(c(panel_c3$down_in_miR29a, panel_c3$up_in_miR29a),
+                  "Cluster_03_specific",
+                  file.path(dir_violin, "Cluster_03_specific"))
+plot_violin_panel(c(panel_c5$down_in_miR29a, panel_c5$up_in_miR29a),
                   "Cluster_05_specific",
                   file.path(dir_violin, "Cluster_05_specific"))
+plot_violin_panel(c(panel_c6$down_in_miR29a, panel_c6$up_in_miR29a),
+                  "Cluster_06_specific",
+                  file.path(dir_violin, "Cluster_06_specific"))
+plot_violin_panel(c(panel_c8$down_in_miR29a, panel_c8$up_in_miR29a),
+                  "Cluster_08_specific",
+                  file.path(dir_violin, "Cluster_08_specific"))
 plot_violin_panel(panel_general,
                   "General_signature",
                   file.path(dir_violin, "General_signature"))
+
+# Top miR-29a TargetScan targets, EV vs miR-29a only -- per collaborator
+# follow-up. n=top 40 to keep file count manageable; can extend if needed.
+message("  miR-29a target violins (EV vs miR-29a only)...")
+plot_violin_panel(
+  genes      = head(mir29a_targets_top200, 40),
+  panel_name = "miR29a_targets_EV_vs_miR29a",
+  out_dir    = file.path(dir_violin, "miR29a_targets_EV_vs_miR29a"),
+  conditions = c("EV", "miR29a")
+)
+
+
+# ============================================================================
+# SECTION 7: HYPOXIA PATHWAY ENRICHMENT across clusters (miR29a vs EV)
+# ============================================================================
+# Pulls EnrichR pathway results written by script 06 and extracts hypoxia /
+# HIF gene sets across clusters for the primary contrast (miR29a_vs_EV).
+# If hypoxia is a true pathway-level signal, it should be enriched on the
+# DOWN-in-miR-29a side across many clusters (consistent with Epas1 / Slc2a6
+# repression).
+message("\n=== Section 7: Hypoxia pathway enrichment ===")
+
+dir_hypoxia <- file.path(fig_base, "Hypoxia_Enrichment")
+dir.create(dir_hypoxia, recursive = TRUE, showWarnings = FALSE)
+
+# Path to EnrichR outputs written by script 06. Adjust if directory layout
+# differs in your project (the structure here matches the documented script
+# 06 convention: Pathway_Analysis_EnrichR/<level>/<stem>/<contrast>/<db>.csv).
+enrichr_root <- file.path(project_dir, "Pathway_Analysis_EnrichR")
+
+# Pathway databases that contain hypoxia/HIF gene sets we care about
+hypoxia_keywords <- c("hypoxi", "hif", "oxygen", "HIF-1")    # case-insensitive grep
+
+collect_hypoxia <- function(level = "by_cluster",
+                            contrast = "miR29a_vs_EV") {
+  level_dir <- file.path(enrichr_root, level)
+  if (!dir.exists(level_dir)) {
+    message("  No EnrichR directory found at ", level_dir, " -- skipping.")
+    return(NULL)
+  }
+  
+  stems <- list.dirs(level_dir, recursive = FALSE, full.names = FALSE)
+  if (length(stems) == 0) return(NULL)
+  
+  rows <- list()
+  for (stem in stems) {
+    contrast_dir <- file.path(level_dir, stem, contrast)
+    if (!dir.exists(contrast_dir)) next
+    csv_files <- list.files(contrast_dir, pattern = "\\.csv$", full.names = TRUE)
+    if (length(csv_files) == 0) next
+    
+    for (csvf in csv_files) {
+      db_name <- tools::file_path_sans_ext(basename(csvf))
+      en <- tryCatch(read.csv(csvf, check.names = FALSE),
+                     error = function(e) NULL)
+      if (is.null(en) || nrow(en) == 0) next
+      # Identify the term column heuristically
+      term_col <- intersect(c("Term", "term", "Description", "pathway"),
+                            colnames(en))[1]
+      if (is.na(term_col)) next
+      pval_col <- intersect(c("Adjusted.P.value", "adj_p_value", "padj",
+                              "p_adj", "P.value"), colnames(en))[1]
+      if (is.na(pval_col)) next
+      odds_col <- intersect(c("Odds.Ratio", "odds_ratio", "OR"),
+                            colnames(en))[1]
+      dir_col  <- intersect(c("direction", "Direction", "side"),
+                            colnames(en))[1]
+      
+      hits <- en[grepl(paste(hypoxia_keywords, collapse = "|"),
+                       en[[term_col]], ignore.case = TRUE), , drop = FALSE]
+      if (nrow(hits) == 0) next
+      
+      rows[[length(rows) + 1]] <- data.frame(
+        stem      = stem,
+        database  = db_name,
+        term      = hits[[term_col]],
+        p_adj     = as.numeric(hits[[pval_col]]),
+        odds      = if (!is.na(odds_col)) as.numeric(hits[[odds_col]]) else NA_real_,
+        direction = if (!is.na(dir_col))  as.character(hits[[dir_col]])  else NA_character_,
+        stringsAsFactors = FALSE
+      )
+    }
+  }
+  
+  if (length(rows) == 0) return(NULL)
+  dplyr::bind_rows(rows)
+}
+
+hyp_cluster <- collect_hypoxia("by_cluster",  "miR29a_vs_EV")
+hyp_lineage <- collect_hypoxia("by_lineage",  "miR29a_vs_EV")
+
+if (!is.null(hyp_cluster) && nrow(hyp_cluster) > 0) {
+  write.csv(hyp_cluster, file.path(dir_hypoxia, "hypoxia_terms_by_cluster.csv"),
+            row.names = FALSE)
+  
+  # Dot plot: cluster x term, fill = -log10 padj, size = odds ratio
+  hp <- hyp_cluster %>%
+    dplyr::mutate(neg_log10_padj = -log10(pmax(p_adj, 1e-50)),
+                  cluster_id = as.integer(sub("^(\\d+)_.*$", "\\1", stem)) + 1L)
+  
+  hp_top_terms <- hp %>%
+    dplyr::group_by(term) %>%
+    dplyr::summarise(min_padj = min(p_adj, na.rm = TRUE),
+                     n_sig    = sum(p_adj < 0.05, na.rm = TRUE),
+                     .groups  = "drop") %>%
+    dplyr::arrange(min_padj) %>%
+    head(15) %>%
+    dplyr::pull(term)
+  
+  hp_plot <- hp %>% dplyr::filter(term %in% hp_top_terms)
+  
+  if (nrow(hp_plot) > 0) {
+    p_hyp <- ggplot(hp_plot,
+                    aes(x = factor(as.integer(cluster_id)),
+                        y = term,
+                        size = pmin(odds, 20),
+                        fill = neg_log10_padj)) +
+      geom_point(shape = 21, color = "grey20", stroke = 0.3) +
+      scale_fill_gradientn(colors = c("#FFF7BC", "#FEC44F", "#D95F0E", "#7F2704"),
+                           name = expression(-log[10]~p[BH])) +
+      scale_size_continuous(range = c(2, 10), name = "Odds ratio") +
+      labs(title = "Hypoxia / HIF pathway enrichment, miR29a vs EV, per cluster",
+           subtitle = paste0("Terms grep-matching hypoxi/HIF/oxygen across all ",
+                             "Pathway databases (top 15 by min p_adj). ",
+                             "Down-in-miR-29a side is the biologically expected direction."),
+           x = "Cluster",
+           y = NULL) +
+      theme_minimal(base_size = 11) +
+      theme(plot.title    = element_text(face = "bold"),
+            plot.subtitle = element_text(color = "grey40", size = 9),
+            axis.text.y   = element_text(size = 9),
+            panel.grid.minor = element_blank(),
+            legend.position = "right")
+    
+    ggsave(file.path(dir_hypoxia, "hypoxia_enrichment_by_cluster.png"),
+           p_hyp, width = 14, height = 7, dpi = 300, bg = "white")
+  }
+} else {
+  message("  No hypoxia terms found in by_cluster EnrichR outputs.")
+}
+
+if (!is.null(hyp_lineage) && nrow(hyp_lineage) > 0) {
+  write.csv(hyp_lineage, file.path(dir_hypoxia, "hypoxia_terms_by_lineage.csv"),
+            row.names = FALSE)
+}
 
 
 # ============================================================================
@@ -808,13 +1211,16 @@ plot_violin_panel(panel_general,
 # ============================================================================
 message("\nDone.")
 message("Outputs: ", fig_base)
-message("  Cluster_Abundance/      propeller stats + per-replicate bar plot")
+message("  Cluster_Abundance/      propeller stats; bars+dots (all 3 conditions) AND boxplot (EV vs miR29a)")
 message("  Split_UMAP/             condition-split UMAP with C-prefix labels")
 message("  Cluster_Distribution/   SeuratExtend ClusterDistr plot")
 message("  Volcano_Plots/<contrast>/        general volcanoes (14 clusters x 2 contrasts)")
-message("  Volcano_Plots_Highlight/<contrast>/  email-panel volcanoes (clusters 2, 4, 5)")
-message("  Feature_Plots/<panel>/      UMAP feature plots per gene panel")
-message("  Violin_Plots/<panel>/       violin plots per gene, numbered clusters")
+message("  Volcano_Plots_Highlight/<contrast>/  function-coloured panels for clusters 1/3/5/6/8,")
+message("                                     3 contrasts (incl. EV_vs_Scr control),")
+message("                                     miR-29a TargetScan targets overlaid")
+message("  Feature_Plots/<panel>/      UMAP feature plots per gene panel (incl. clusters 1/6/8)")
+message("  Violin_Plots/<panel>/       violin plots per gene; new miR29a_targets_EV_vs_miR29a/ subfolder")
+message("  Hypoxia_Enrichment/         hypoxia/HIF terms grepped from EnrichR pathway outputs")
 message("  cluster_legend.csv          number -> name mapping for captions")
 message("\nNote: this script treats miR29a_vs_EV as the PRIMARY contrast.")
 message("Older scripts (05, 08) use miR29a_vs_Scr as primary -- both outputs")
