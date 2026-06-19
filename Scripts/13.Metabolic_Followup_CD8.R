@@ -136,30 +136,36 @@ message("\n=== 2. differential-density UMAP ===")
 emb <- as.data.frame(Embeddings(seu2, red_use))[, 1:2]
 colnames(emb) <- c("UMAP_1", "UMAP_2")
 emb$condition <- seu2$condition
-# Use the FULL object's embedding extent (all conditions) so the raster spans
-# exactly the same coordinate range as the coarse_annot DimPlot -> the two
-# panels overlay 1:1 when placed side by side.
-full_emb <- as.data.frame(Embeddings(seu, red_use))[, 1:2]
-rng_x <- range(full_emb[, 1]); rng_y <- range(full_emb[, 2]); ngrid <- 200
-kde_cond <- function(cc) {
-  d <- MASS::kde2d(emb$UMAP_1[emb$condition == cc], emb$UMAP_2[emb$condition == cc],
-                   n = ngrid, lims = c(rng_x, rng_y))
-  d$z / sum(d$z)                              # normalise to a probability surface
+# Estimate each condition's 2D density on a common grid, then read the
+# (miR29a - EV) difference back onto EVERY cell's own coordinates. Plotting the
+# cells themselves (not a filled grid) means this panel is the SAME scatter as
+# the coarse_annot DimPlot -- it overlays 1:1 instead of painting empty corners.
+all_emb <- as.data.frame(Embeddings(seu, red_use))[, 1:2]
+colnames(all_emb) <- c("UMAP_1", "UMAP_2")
+rng_x <- range(all_emb$UMAP_1); rng_y <- range(all_emb$UMAP_2); ngrid <- 200
+kde_z <- function(cc) {
+  MASS::kde2d(emb$UMAP_1[emb$condition == cc], emb$UMAP_2[emb$condition == cc],
+              n = ngrid, lims = c(rng_x, rng_y))$z
 }
-zE <- kde_cond(contrast_ctrl); zM <- kde_cond(contrast_test)
 gx <- MASS::kde2d(emb$UMAP_1, emb$UMAP_2, n = ngrid, lims = c(rng_x, rng_y))
-dgrid <- expand.grid(UMAP_1 = gx$x, UMAP_2 = gx$y)
-dgrid$diff <- as.vector(zM - zE)
-lim <- max(abs(dgrid$diff))
-p_dens <- ggplot(dgrid, aes(UMAP_1, UMAP_2, fill = diff)) +
-  geom_raster(interpolate = TRUE) +
-  scale_fill_gradient2(low = "#3B4CC0", mid = "white", high = "#B40426",
-                       limits = c(-lim, lim), name = "miR29a - EV\ndensity") +
-  # match the DimPlot: same extent, square panel, umap-arrow styling
-  coord_cartesian(xlim = rng_x, ylim = rng_y, expand = FALSE) +
+diffmat <- kde_z(contrast_test) / sum(kde_z(contrast_test)) -
+  kde_z(contrast_ctrl) / sum(kde_z(contrast_ctrl))   # normalised surfaces
+
+# look up the difference at each cell (nearest grid node), for ALL cells
+ix <- pmin(pmax(findInterval(all_emb$UMAP_1, gx$x), 1), ngrid)
+iy <- pmin(pmax(findInterval(all_emb$UMAP_2, gx$y), 1), ngrid)
+all_emb$dens_diff <- diffmat[cbind(ix, iy)]
+all_emb <- all_emb[order(abs(all_emb$dens_diff)), ]   # extreme cells drawn on top
+lim <- max(abs(all_emb$dens_diff))
+
+p_dens <- ggplot(all_emb, aes(UMAP_1, UMAP_2, colour = dens_diff)) +
+  geom_point(size = 0.4, stroke = 0) +
+  scale_colour_gradient2(low = "#3B4CC0", mid = "grey90", high = "#B40426",
+                         limits = c(-lim, lim), name = "miR29a - EV\ndensity") +
   ggtitle("miR29a - EV cell density") +
   theme_umap_arrows() +
-  theme(aspect.ratio = 1, plot.title = element_text(hjust = 0.5, face = "bold"))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  guides(colour = guide_colourbar(barheight = 8))
 ggsave(file.path(dirs$dens, "differential_density_umap.png"), p_dens,
        width = 7, height = 6, dpi = 300, bg = "white")
 
