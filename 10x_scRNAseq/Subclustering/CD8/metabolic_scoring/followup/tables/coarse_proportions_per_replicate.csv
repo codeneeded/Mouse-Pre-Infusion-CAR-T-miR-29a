@@ -1,0 +1,19 @@
+"coarse_annot","condition","replicate","n","prop"
+"Effector 1","EV","rep1",4297,0.952771618625277
+"Effector 1","EV","rep2",2042,0.964117091595845
+"Effector 1","Scr","rep1",4446,0.959844559585492
+"Effector 1","Scr","rep2",3639,0.957883653593051
+"Effector 1","miR29a","rep1",3380,0.934217799889442
+"Effector 1","miR29a","rep2",2300,0.968013468013468
+"Effector 2","EV","rep1",153,0.0339246119733925
+"Effector 2","EV","rep2",33,0.0155807365439093
+"Effector 2","Scr","rep1",136,0.0293609671848014
+"Effector 2","Scr","rep2",48,0.0126349039220848
+"Effector 2","miR29a","rep1",123,0.0339966832504146
+"Effector 2","miR29a","rep2",30,0.0126262626262626
+"Stem-like","EV","rep1",60,0.0133037694013304
+"Stem-like","EV","rep2",43,0.0203021718602455
+"Stem-like","Scr","rep1",50,0.0107944732297064
+"Stem-like","Scr","rep2",112,0.0294814424848644
+"Stem-like","miR29a","rep1",115,0.0317855168601437
+"Stem-like","miR29a","rep2",46,0.0193602693602694
