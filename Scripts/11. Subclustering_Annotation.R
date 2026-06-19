@@ -117,7 +117,7 @@ cd4_proposed_group <- character(0)
 projectils_ref_cd8 <- file.path(saved_dir, "ref_LCMV_Atlas_mouse_v1.rds")
 projectils_ref_cd4 <- file.path(saved_dir, "ref_LCMV_CD4_mouse_release_v1.rds")
 projectils_url_cd8 <- "https://ndownloader.figshare.com/files/23166794"   # CD8 LCMV atlas
-projectils_url_cd4 <- "https://figshare.com/ndownloader/files/31057081"   # CD4 LCMV atlas
+projectils_url_cd4 <- "https://ndownloader.figshare.com/files/31057081"   # CD4 LCMV atlas
 
 # Genes for the per-state radar plots (query vs reference), one panel per lineage.
 genes4radar_cd8 <- c("Cd8a","Tcf7","Ccr7","Sell","Gzmb","Gzmk","Slamf6",
@@ -309,8 +309,12 @@ message("  ", nrow(cand8), " merge-candidate pair(s) (corr >= ", merge_corr_thre
 # and a query-vs-reference marker radar. LCMV-derived ref -> cross-check only.
 message("\n=== CD8 : ProjecTILs projection ===")
 options(timeout = 3000)
-if (!file.exists(projectils_ref_cd8))
-  download.file(projectils_url_cd8, projectils_ref_cd8, mode = "wb")
+if (!file.exists(projectils_ref_cd8) || file.info(projectils_ref_cd8)$size < 1e7)
+  download.file(projectils_url_cd8, projectils_ref_cd8, mode = "wb", method = "libcurl")
+if (file.info(projectils_ref_cd8)$size < 1e7)
+  stop("CD8 reference looks like a redirect stub (",
+       file.info(projectils_ref_cd8)$size, " bytes). Delete it and re-download ",
+       "using the ndownloader.figshare.com URL form.")
 ref8 <- load.reference.map(projectils_ref_cd8)
 ref8 <- UpdateSeuratObject(ref8)   # atlas is an old (v3-era) object: add missing slots
 
@@ -575,8 +579,12 @@ message("  ", nrow(cand4), " merge-candidate pair(s) (corr >= ", merge_corr_thre
 # and a query-vs-reference marker radar. LCMV-derived ref -> cross-check only.
 message("\n=== CD4 : ProjecTILs projection ===")
 options(timeout = 3000)
-if (!file.exists(projectils_ref_cd4))
-  download.file(projectils_url_cd4, projectils_ref_cd4, mode = "wb")
+if (!file.exists(projectils_ref_cd4) || file.info(projectils_ref_cd4)$size < 1e7)
+  download.file(projectils_url_cd4, projectils_ref_cd4, mode = "wb", method = "libcurl")
+if (file.info(projectils_ref_cd4)$size < 1e7)
+  stop("CD4 reference looks like a redirect stub (",
+       file.info(projectils_ref_cd4)$size, " bytes). Delete it and re-download ",
+       "using the ndownloader.figshare.com URL form.")
 ref4 <- load.reference.map(projectils_ref_cd4)
 ref4 <- UpdateSeuratObject(ref4)   # atlas is an old (v3-era) object: add missing slots
 
@@ -701,3 +709,4 @@ message("Hand suggested_names.csv + merge_candidates.csv + the heatmaps to the")
 message("biologist. Final labels are theirs to set; a later script will apply the")
 message("agreed name map to annot_cluster and write the definitive labels.")
 ###############################################################################
+
